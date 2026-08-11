@@ -1,0 +1,841 @@
+{
+  "status": "PAPER_REPLICATION_SUCCESS",
+  "paper": {
+    "main_location": "PDF pages 21-24; Example 3; Table I",
+    "supplement_location": "PDF pages 13-15; Section 3.3"
+  },
+  "paper_theoretical_equilibrium_count_at_tau": 3,
+  "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_BRANCHES",
+  "normalization_note": "Table tau uses p1+p2=1. Core diagnostics rescale p and t together to signed L1.",
+  "branches": [
+    {
+      "branch": 1,
+      "eta_p1_over_p2_unrounded": 2.071166093697895,
+      "reduction_percent_unrounded": 26.21316273951955,
+      "table_goods_sum_tax_rate": 0.01,
+      "core_signed_l1_tax_rate": 0.009900990099009901,
+      "candidate": {
+        "prices": [
+          -0.009900990099009901,
+          0.6677136423584477,
+          0.3223853675425424
+        ],
+        "allocations": [
+          [
+            0.07414099002109925,
+            1.8494049773193275,
+            1.0842638839529248
+          ],
+          [
+            0.03071166093697895,
+            0.9222847083629474,
+            1.6874258017293493
+          ]
+        ],
+        "firm_plans": [],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions": [
+          0.2951473490419218
+        ],
+        "tax_revenue": 0.002922250980613087,
+        "aggregate_demand": [
+          0.1048526509580782,
+          2.771689685682275,
+          2.771689685682274
+        ],
+        "aggregate_endowment": [
+          0.4,
+          2.771689685682275,
+          2.771689685682275
+        ],
+        "aggregate_production": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "resource_residual": [
+          -0.2951473490419218,
+          0.0,
+          -8.881784197001252e-16
+        ],
+        "firm_profits": {},
+        "income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.5822285496445625,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0014611254903065436,
+            "total_income": 1.583689675134869
+          },
+          "omega_2": {
+            "endowment_income": 1.15805826786264,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0014611254903065436,
+            "total_income": 1.1595193933529466
+          }
+        },
+        "solver_success": true,
+        "solver_message": "Brent root of Supplement Section 3.3 commodity-1 excess demand",
+        "solver_method": "scan_plus_brentq:paper_example_3_eta",
+        "iterations": null,
+        "function_calls": null,
+        "metadata": {
+          "model_role": "PAPER_REPLICATION_EXAMPLE_3",
+          "table_goods_sum_tax_rate": 0.01,
+          "eta_p1_over_p2": 2.071166093697895,
+          "scalar_residual": 0.0
+        }
+      },
+      "complete_diagnostics": {
+        "classification": "VERIFIED_CANDIDATE",
+        "passed": true,
+        "checks": {
+          "solver_success": true,
+          "finite_authoritative_coordinates": true,
+          "signed_l1_normalization": true,
+          "tax_price_constraint_proj_k_p_equals_negative_t": true,
+          "price_sign_restrictions": true,
+          "rebate_shares_add_up": true,
+          "ownership_share_adding_up": true,
+          "firm_optimality_oracle_available": true,
+          "firm_feasibility": true,
+          "firm_profit_maximization": true,
+          "consumer_optimality_oracle_available": true,
+          "consumer_feasibility": true,
+          "budget_feasibility": true,
+          "budget_exhaustion": true,
+          "consumer_optimality": true,
+          "tax_revenue_nonnegative": true,
+          "compliance_V": true,
+          "rebate_adjusted_walras_identity": true,
+          "candidate_cache_consistency": true
+        },
+        "errors": {
+          "normalization_error": 0.0,
+          "max_tax_price_constraint_violation": 0.0,
+          "max_price_sign_violation": 0.0,
+          "rebate_adding_up_error": 0.0,
+          "max_ownership_adding_up_error": 0.0,
+          "max_firm_feasibility_violation": 0.0,
+          "max_profit_gap": 0.0,
+          "max_consumer_feasibility_violation": 0.0,
+          "max_budget_violation": 0.0,
+          "max_budget_exhaustion_gap": 0.0,
+          "max_utility_gap": 2.220446049250313e-16,
+          "max_compliance_violation": 8.881784197001252e-16,
+          "max_compliance_ratio": 2.354855499039973e-06,
+          "abs_rebate_adjusted_walras_residual": 2.8622937353617317e-16,
+          "max_candidate_cache_error": 0.0
+        },
+        "signed_l1_prices": [
+          -0.009900990099009901,
+          0.6677136423584477,
+          0.3223853675425424
+        ],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions_C": [
+          0.2951473490419218
+        ],
+        "tax_revenue_t_dot_C": 0.002922250980613087,
+        "candidate_resource_residual": [
+          -0.2951473490419218,
+          0.0,
+          -8.881784197001252e-16
+        ],
+        "compliance_violations": [
+          0.0,
+          0.0,
+          8.881784197001252e-16
+        ],
+        "raw_walras_value_p_dot_r": 0.002922250980612801,
+        "rebate_adjusted_walras_residual_p_dot_r_minus_t_dot_C": -2.8622937353617317e-16,
+        "firm_profits": {},
+        "consumer_income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.5822285496445625,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0014611254903065436,
+            "total_income": 1.583689675134869
+          },
+          "omega_2": {
+            "endowment_income": 1.15805826786264,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0014611254903065436,
+            "total_income": 1.1595193933529466
+          }
+        },
+        "budget_residuals": {
+          "omega_1": 0.0,
+          "omega_2": 0.0
+        },
+        "consumer_optimality_results": {
+          "omega_1": {
+            "feasible": true,
+            "candidate_utility": 1.783417279672332,
+            "optimal_utility": 1.7834172796723322,
+            "utility_gap": 2.220446049250313e-16,
+            "budget_violation": 0.0,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 2.220446049250313e-16
+          },
+          "omega_2": {
+            "feasible": true,
+            "candidate_utility": 1.4481785965834217,
+            "optimal_utility": 1.448178596583422,
+            "utility_gap": 2.220446049250313e-16,
+            "budget_violation": 0.0,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 2.220446049250313e-16
+          }
+        },
+        "firm_optimality_results": {},
+        "ownership_adding_up_errors": {},
+        "cache_errors": {
+          "tax_rates": 0.0,
+          "total_net_emissions": 0.0,
+          "tax_revenue": 0.0,
+          "aggregate_demand": 0.0,
+          "aggregate_endowment": 0.0,
+          "aggregate_production": 0.0,
+          "resource_residual": 0.0,
+          "firm_profits": 0.0,
+          "income_breakdowns": 0.0
+        },
+        "notes": []
+      }
+    },
+    {
+      "branch": 2,
+      "eta_p1_over_p2_unrounded": 0.8556519113512379,
+      "reduction_percent_unrounded": 31.747874098553943,
+      "table_goods_sum_tax_rate": 0.01,
+      "core_signed_l1_tax_rate": 0.009900990099009901,
+      "candidate": {
+        "prices": [
+          -0.009900990099009901,
+          0.45654042391595717,
+          0.5335585859850329
+        ],
+        "allocations": [
+          [
+            0.10843497728070339,
+            1.75421750983995,
+            0.9828278588278244
+          ],
+          [
+            0.01855651911351238,
+            1.017472175842325,
+            1.7888618268544496
+          ]
+        ],
+        "firm_plans": [],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions": [
+          0.2730085036057842
+        ],
+        "tax_revenue": 0.002703054491146378,
+        "aggregate_demand": [
+          0.12699149639421578,
+          2.771689685682275,
+          2.771689685682274
+        ],
+        "aggregate_endowment": [
+          0.4,
+          2.771689685682275,
+          2.771689685682275
+        ],
+        "aggregate_production": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "resource_residual": [
+          -0.2730085036057842,
+          0.0,
+          -8.881784197001252e-16
+        ],
+        "firm_profits": {},
+        "income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.3228423073239812,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.001351527245573189,
+            "total_income": 1.3241938345695543
+          },
+          "omega_2": {
+            "endowment_income": 1.4174445101832212,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.001351527245573189,
+            "total_income": 1.4187960374287942
+          }
+        },
+        "solver_success": true,
+        "solver_message": "Brent root of Supplement Section 3.3 commodity-1 excess demand",
+        "solver_method": "scan_plus_brentq:paper_example_3_eta",
+        "iterations": null,
+        "function_calls": null,
+        "metadata": {
+          "model_role": "PAPER_REPLICATION_EXAMPLE_3",
+          "table_goods_sum_tax_rate": 0.01,
+          "eta_p1_over_p2": 0.8556519113512379,
+          "scalar_residual": 0.0
+        }
+      },
+      "complete_diagnostics": {
+        "classification": "VERIFIED_CANDIDATE",
+        "passed": true,
+        "checks": {
+          "solver_success": true,
+          "finite_authoritative_coordinates": true,
+          "signed_l1_normalization": true,
+          "tax_price_constraint_proj_k_p_equals_negative_t": true,
+          "price_sign_restrictions": true,
+          "rebate_shares_add_up": true,
+          "ownership_share_adding_up": true,
+          "firm_optimality_oracle_available": true,
+          "firm_feasibility": true,
+          "firm_profit_maximization": true,
+          "consumer_optimality_oracle_available": true,
+          "consumer_feasibility": true,
+          "budget_feasibility": true,
+          "budget_exhaustion": true,
+          "consumer_optimality": true,
+          "tax_revenue_nonnegative": true,
+          "compliance_V": true,
+          "rebate_adjusted_walras_identity": true,
+          "candidate_cache_consistency": true
+        },
+        "errors": {
+          "normalization_error": 0.0,
+          "max_tax_price_constraint_violation": 0.0,
+          "max_price_sign_violation": 0.0,
+          "rebate_adding_up_error": 0.0,
+          "max_ownership_adding_up_error": 0.0,
+          "max_firm_feasibility_violation": 0.0,
+          "max_profit_gap": 0.0,
+          "max_consumer_feasibility_violation": 0.0,
+          "max_budget_violation": 2.220446049250313e-16,
+          "max_budget_exhaustion_gap": 2.220446049250313e-16,
+          "max_utility_gap": 0.0,
+          "max_compliance_violation": 8.881784197001252e-16,
+          "max_compliance_ratio": 2.354855499039973e-06,
+          "abs_rebate_adjusted_walras_residual": 4.740131898106625e-16,
+          "max_candidate_cache_error": 0.0
+        },
+        "signed_l1_prices": [
+          -0.009900990099009901,
+          0.45654042391595717,
+          0.5335585859850329
+        ],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions_C": [
+          0.2730085036057842
+        ],
+        "tax_revenue_t_dot_C": 0.002703054491146378,
+        "candidate_resource_residual": [
+          -0.2730085036057842,
+          0.0,
+          -8.881784197001252e-16
+        ],
+        "compliance_violations": [
+          0.0,
+          0.0,
+          8.881784197001252e-16
+        ],
+        "raw_walras_value_p_dot_r": 0.002703054491145904,
+        "rebate_adjusted_walras_residual_p_dot_r_minus_t_dot_C": -4.740131898106625e-16,
+        "firm_profits": {},
+        "consumer_income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.3228423073239812,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.001351527245573189,
+            "total_income": 1.3241938345695543
+          },
+          "omega_2": {
+            "endowment_income": 1.4174445101832212,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.001351527245573189,
+            "total_income": 1.4187960374287942
+          }
+        },
+        "budget_residuals": {
+          "omega_1": -2.220446049250313e-16,
+          "omega_2": 0.0
+        },
+        "consumer_optimality_results": {
+          "omega_1": {
+            "feasible": true,
+            "candidate_utility": 1.6094628864065477,
+            "optimal_utility": 1.6094628864065474,
+            "utility_gap": -2.220446049250313e-16,
+            "budget_violation": 2.220446049250313e-16,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 2.220446049250313e-16
+          },
+          "omega_2": {
+            "feasible": true,
+            "candidate_utility": 1.679864403152871,
+            "optimal_utility": 1.6798644031528709,
+            "utility_gap": -2.220446049250313e-16,
+            "budget_violation": 0.0,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 2.220446049250313e-16
+          }
+        },
+        "firm_optimality_results": {},
+        "ownership_adding_up_errors": {},
+        "cache_errors": {
+          "tax_rates": 0.0,
+          "total_net_emissions": 0.0,
+          "tax_revenue": 0.0,
+          "aggregate_demand": 0.0,
+          "aggregate_endowment": 0.0,
+          "aggregate_production": 0.0,
+          "resource_residual": 0.0,
+          "firm_profits": 0.0,
+          "income_breakdowns": 0.0
+        },
+        "notes": []
+      }
+    },
+    {
+      "branch": 3,
+      "eta_p1_over_p2_unrounded": 0.5775837140288584,
+      "reduction_percent_unrounded": 38.085843736432295,
+      "table_goods_sum_tax_rate": 0.01,
+      "core_signed_l1_tax_rate": 0.009900990099009901,
+      "candidate": {
+        "prices": [
+          -0.009900990099009901,
+          0.36249427419256963,
+          0.6276047357084205
+        ],
+        "allocations": [
+          [
+            0.13656753780544062,
+            1.7088023584786476,
+            0.9408334960874175
+          ],
+          [
+            0.015775837140288584,
+            1.0628873272036277,
+            1.8308561895948565
+          ]
+        ],
+        "firm_plans": [],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions": [
+          0.24765662505427083
+        ],
+        "tax_revenue": 0.002452045792616543,
+        "aggregate_demand": [
+          0.1523433749457292,
+          2.7716896856822753,
+          2.771689685682274
+        ],
+        "aggregate_endowment": [
+          0.4,
+          2.771689685682275,
+          2.771689685682275
+        ],
+        "aggregate_production": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "resource_residual": [
+          -0.24765662505427083,
+          4.440892098500626e-16,
+          -8.881784197001252e-16
+        ],
+        "firm_profits": {},
+        "income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.2073244515968753,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0012260228963082715,
+            "total_income": 1.2085504744931836
+          },
+          "omega_2": {
+            "endowment_income": 1.5329623659103273,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0012260228963082715,
+            "total_income": 1.5341883888066357
+          }
+        },
+        "solver_success": true,
+        "solver_message": "Brent root of Supplement Section 3.3 commodity-1 excess demand",
+        "solver_method": "scan_plus_brentq:paper_example_3_eta",
+        "iterations": null,
+        "function_calls": null,
+        "metadata": {
+          "model_role": "PAPER_REPLICATION_EXAMPLE_3",
+          "table_goods_sum_tax_rate": 0.01,
+          "eta_p1_over_p2": 0.5775837140288584,
+          "scalar_residual": 4.440892098500626e-16
+        }
+      },
+      "complete_diagnostics": {
+        "classification": "VERIFIED_CANDIDATE",
+        "passed": true,
+        "checks": {
+          "solver_success": true,
+          "finite_authoritative_coordinates": true,
+          "signed_l1_normalization": true,
+          "tax_price_constraint_proj_k_p_equals_negative_t": true,
+          "price_sign_restrictions": true,
+          "rebate_shares_add_up": true,
+          "ownership_share_adding_up": true,
+          "firm_optimality_oracle_available": true,
+          "firm_feasibility": true,
+          "firm_profit_maximization": true,
+          "consumer_optimality_oracle_available": true,
+          "consumer_feasibility": true,
+          "budget_feasibility": true,
+          "budget_exhaustion": true,
+          "consumer_optimality": true,
+          "tax_revenue_nonnegative": true,
+          "compliance_V": true,
+          "rebate_adjusted_walras_identity": true,
+          "candidate_cache_consistency": true
+        },
+        "errors": {
+          "normalization_error": 0.0,
+          "max_tax_price_constraint_violation": 0.0,
+          "max_price_sign_violation": 0.0,
+          "rebate_adding_up_error": 0.0,
+          "max_ownership_adding_up_error": 0.0,
+          "max_firm_feasibility_violation": 0.0,
+          "max_profit_gap": 0.0,
+          "max_consumer_feasibility_violation": 0.0,
+          "max_budget_violation": 0.0,
+          "max_budget_exhaustion_gap": 2.220446049250313e-16,
+          "max_utility_gap": 4.440892098500626e-16,
+          "max_compliance_violation": 8.881784197001252e-16,
+          "max_compliance_ratio": 2.354855499039973e-06,
+          "abs_rebate_adjusted_walras_residual": 3.963843142607004e-16,
+          "max_candidate_cache_error": 0.0
+        },
+        "signed_l1_prices": [
+          -0.009900990099009901,
+          0.36249427419256963,
+          0.6276047357084205
+        ],
+        "tax_rates": [
+          0.009900990099009901
+        ],
+        "total_net_emissions_C": [
+          0.24765662505427083
+        ],
+        "tax_revenue_t_dot_C": 0.002452045792616543,
+        "candidate_resource_residual": [
+          -0.24765662505427083,
+          4.440892098500626e-16,
+          -8.881784197001252e-16
+        ],
+        "compliance_violations": [
+          0.0,
+          4.440892098500626e-16,
+          8.881784197001252e-16
+        ],
+        "raw_walras_value_p_dot_r": 0.0024520457926161467,
+        "rebate_adjusted_walras_residual_p_dot_r_minus_t_dot_C": -3.963843142607004e-16,
+        "firm_profits": {},
+        "consumer_income_breakdowns": {
+          "omega_1": {
+            "endowment_income": 1.2073244515968753,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0012260228963082715,
+            "total_income": 1.2085504744931836
+          },
+          "omega_2": {
+            "endowment_income": 1.5329623659103273,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.0012260228963082715,
+            "total_income": 1.5341883888066357
+          }
+        },
+        "budget_residuals": {
+          "omega_1": 0.0,
+          "omega_2": 2.220446049250313e-16
+        },
+        "consumer_optimality_results": {
+          "omega_1": {
+            "feasible": true,
+            "candidate_utility": 1.5033231911374925,
+            "optimal_utility": 1.503323191137493,
+            "utility_gap": 4.440892098500626e-16,
+            "budget_violation": 0.0,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 4.440892098500626e-16
+          },
+          "omega_2": {
+            "feasible": true,
+            "candidate_utility": 1.7539934498210583,
+            "optimal_utility": 1.7539934498210588,
+            "utility_gap": 4.440892098500626e-16,
+            "budget_violation": 0.0,
+            "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:Example3Utility.marshallian_demand",
+            "feasibility_violation": 0.0,
+            "unique_demand_bundle_gap": 4.440892098500626e-16
+          }
+        },
+        "firm_optimality_results": {},
+        "ownership_adding_up_errors": {},
+        "cache_errors": {
+          "tax_rates": 0.0,
+          "total_net_emissions": 0.0,
+          "tax_revenue": 0.0,
+          "aggregate_demand": 0.0,
+          "aggregate_endowment": 0.0,
+          "aggregate_production": 0.0,
+          "resource_residual": 0.0,
+          "firm_profits": 0.0,
+          "income_breakdowns": 0.0
+        },
+        "notes": []
+      }
+    }
+  ],
+  "paper_rounded_comparisons": {
+    "eta": {
+      "passed": true,
+      "paper_analytical": [
+        2.071,
+        0.856,
+        0.578
+      ],
+      "computed": [
+        2.071,
+        0.856,
+        0.578
+      ],
+      "absolute_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 0.0005,
+      "relative_tolerance": 0.0
+    },
+    "reduction_percent": {
+      "passed": true,
+      "paper_analytical": [
+        26.21,
+        31.75,
+        38.09
+      ],
+      "computed": [
+        26.21,
+        31.75,
+        38.09
+      ],
+      "absolute_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 0.005,
+      "relative_tolerance": 0.0
+    }
+  },
+  "config_snapshot": {
+    "runner": {
+      "module": "paper_replications.example_3",
+      "callable": "run",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true
+    },
+    "paper": {
+      "main_location": "PDF pages 21-24; Example 3; Table I",
+      "supplement_location": "PDF pages 13-15; Section 3.3"
+    },
+    "model": {
+      "table_goods_sum_tax_rate": 0.01
+    },
+    "solver": {
+      "eta_min": 0.2,
+      "eta_max": 3.0,
+      "scan_points": 10000,
+      "root_tolerance": 1e-13,
+      "root_deduplication_tolerance": 1e-08
+    },
+    "paper_rounded_targets": {
+      "eta": [
+        2.071,
+        0.856,
+        0.578
+      ],
+      "reduction_percent": [
+        26.21,
+        31.75,
+        38.09
+      ],
+      "decimal_tolerance_eta": 0.0005,
+      "decimal_tolerance_reduction": 0.005
+    }
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:23.156727+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "branches[0].candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "branches[0].candidate.solver_message",
+        "value": "Brent root of Supplement Section 3.3 commodity-1 excess demand"
+      },
+      {
+        "path": "branches[0].candidate.solver_method",
+        "value": "scan_plus_brentq:paper_example_3_eta"
+      },
+      {
+        "path": "branches[0].candidate.iterations",
+        "value": null
+      },
+      {
+        "path": "branches[0].complete_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "branches[1].candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "branches[1].candidate.solver_message",
+        "value": "Brent root of Supplement Section 3.3 commodity-1 excess demand"
+      },
+      {
+        "path": "branches[1].candidate.solver_method",
+        "value": "scan_plus_brentq:paper_example_3_eta"
+      },
+      {
+        "path": "branches[1].candidate.iterations",
+        "value": null
+      },
+      {
+        "path": "branches[1].complete_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "branches[2].candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "branches[2].candidate.solver_message",
+        "value": "Brent root of Supplement Section 3.3 commodity-1 excess demand"
+      },
+      {
+        "path": "branches[2].candidate.solver_method",
+        "value": "scan_plus_brentq:paper_example_3_eta"
+      },
+      {
+        "path": "branches[2].candidate.iterations",
+        "value": null
+      },
+      {
+        "path": "branches[2].complete_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "paper_rounded_comparisons.eta.absolute_tolerance",
+        "value": 0.0005
+      },
+      {
+        "path": "paper_rounded_comparisons.eta.relative_tolerance",
+        "value": 0.0
+      },
+      {
+        "path": "paper_rounded_comparisons.reduction_percent.absolute_tolerance",
+        "value": 0.005
+      },
+      {
+        "path": "paper_rounded_comparisons.reduction_percent.relative_tolerance",
+        "value": 0.0
+      },
+      {
+        "path": "config_snapshot.solver",
+        "value": {
+          "eta_min": 0.2,
+          "eta_max": 3.0,
+          "scan_points": 10000,
+          "root_tolerance": 1e-13,
+          "root_deduplication_tolerance": 1e-08
+        }
+      },
+      {
+        "path": "config_snapshot.solver.scan_points",
+        "value": 10000
+      },
+      {
+        "path": "config_snapshot.solver.root_tolerance",
+        "value": 1e-13
+      },
+      {
+        "path": "config_snapshot.solver.root_deduplication_tolerance",
+        "value": 1e-08
+      },
+      {
+        "path": "config_snapshot.paper_rounded_targets.decimal_tolerance_eta",
+        "value": 0.0005
+      },
+      {
+        "path": "config_snapshot.paper_rounded_targets.decimal_tolerance_reduction",
+        "value": 0.005
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "DISCOVERED_3_VERIFIED_CANDIDATE_BRANCHES": 1,
+      "PAPER_REPLICATION_SUCCESS": 2,
+      "VERIFIED_CANDIDATE": 3
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

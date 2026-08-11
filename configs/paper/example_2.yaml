@@ -1,0 +1,21 @@
+runner:
+  module: paper_replications.example_2
+  callable: run
+  expected_status: PAPER_REPLICATION_SUCCESS
+  required: true
+paper:
+  title: "Cap-and-Trade and Carbon Tax Meet Arrow-Debreu"
+  authors: "Anderson and Duanmu"
+  year: 2025
+  main_location: "PDF pages 12-13; journal pages 368-369; Example 2"
+  supplement_location: "PDF pages 12-14; Section 3.2; Claims 3.3-3.4"
+model:
+  emissions_quota_v: 3.0
+  regimes: [global_quota, cap_and_trade]
+solver:
+  initial_guess: [-0.2, 0.3, 0.5, 5.0, 1.0, 1.0, 1.5, 2.0]
+  tolerance: 1.0e-13
+  max_nfev: 3000
+comparison:
+  absolute_tolerance: 1.0e-10
+  relative_tolerance: 1.0e-10

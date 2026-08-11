@@ -1,0 +1,12 @@
+runner:
+  module: scripts.run_welfare_distribution
+  callable: run
+  expected_status: WELFARE_DISTRIBUTION_SUCCESS
+  required: true
+experiment:
+  label: "PAPER EXAMPLE 2 FIXED-EMISSIONS DISTRIBUTION"
+  emissions_quota_v: 3.0
+  regimes: [global_quota, cap_and_trade]
+reporting:
+  cardinal_utility_from_paper: false
+  social_welfare_objective_defined: false

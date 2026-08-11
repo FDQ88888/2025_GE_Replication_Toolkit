@@ -1,0 +1,11 @@
+runner:
+  module: paper_replications.example_6
+  callable: run
+  expected_status: PAPER_REPLICATION_SUCCESS
+  required: true
+paper:
+  main_location: "PDF page 28; Example 6"
+  inherited_detail: "Example 4 and Supplement Section 3.4"
+model:
+  desired_emissions_v_hat: 0.5
+  supporting_tax_rate: 0.25

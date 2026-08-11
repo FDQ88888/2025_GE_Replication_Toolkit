@@ -1,0 +1,1004 @@
+{
+  "status": "PAPER_REPLICATION_SUCCESS",
+  "paper": {
+    "title": "Cap-and-Trade and Carbon Tax Meet Arrow-Debreu",
+    "authors": "Anderson and Duanmu",
+    "year": 2025,
+    "main_location": "PDF pages 11-12; journal pages 367-368; Example 1",
+    "supplement_location": "PDF pages 11-12; Section 3.1; Claims 3.1-3.2"
+  },
+  "config_path": "configs/paper/example_1.yaml",
+  "model": {
+    "emissions_quota_v": 0.5,
+    "firm_m_vectors": {
+      "firm_0": [
+        -0.5
+      ],
+      "firm_1": [
+        0.0
+      ]
+    },
+    "total_m": [
+      -0.5
+    ],
+    "permit_commodity_added": false
+  },
+  "paper_analytical_solution": {
+    "prices": [
+      -0.25,
+      0.25,
+      0.5
+    ],
+    "allocations": [
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.5,
+        0.0
+      ]
+    ],
+    "firm_plans": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.5,
+        -0.5,
+        0.5
+      ]
+    ],
+    "quota_prices": [
+      0.25
+    ],
+    "operating_profits": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "quota_profit_terms": {
+      "firm_0": 0.125,
+      "firm_1": -0.0
+    },
+    "total_firm_profits": {
+      "firm_0": 0.125,
+      "firm_1": 0.0
+    },
+    "income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.125,
+        "total_income": 0.125
+      }
+    },
+    "paper_utility_data": {
+      "cardinal_utility_is_explicit_in_paper": true,
+      "total_net_emissions_v": 0.5,
+      "omega_1": 0.25,
+      "omega_2": 0.25
+    }
+  },
+  "computed_candidate": {
+    "prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "allocations": [
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.49999999999999994,
+        0.0
+      ]
+    ],
+    "firm_plans": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.5,
+        -0.5,
+        0.5
+      ]
+    ],
+    "quota_prices": [
+      0.24999999999999997
+    ],
+    "aggregate_demand": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "aggregate_endowment": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "operating_profits": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "quota_profit_terms": {
+      "firm_0": 0.12499999999999999,
+      "firm_1": -0.0
+    },
+    "total_firm_profits": {
+      "firm_0": 0.12499999999999999,
+      "firm_1": 0.0
+    },
+    "income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "solver_success": true,
+    "solver_message": "`gtol` termination condition is satisfied.",
+    "solver_method": "scipy.optimize.least_squares:paper_example_1_system",
+    "iterations": null,
+    "function_calls": 6,
+    "metadata": {
+      "model_role": "PAPER_REPLICATION_EXAMPLE_1",
+      "equation_residual_inf_norm": 0.0,
+      "cost": 0.0,
+      "optimality": 0.0,
+      "timestamp_utc": "2026-08-10T05:58:22.855467+00:00"
+    }
+  },
+  "comparisons": {
+    "prices": {
+      "passed": true,
+      "paper_analytical": [
+        -0.25,
+        0.25,
+        0.5
+      ],
+      "computed": [
+        -0.24999999999999997,
+        0.25,
+        0.5
+      ],
+      "absolute_difference": [
+        2.7755575615628914e-17,
+        0.0,
+        0.0
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "max_absolute_difference": 2.7755575615628914e-17,
+      "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "allocations": {
+      "passed": true,
+      "paper_analytical": [
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5,
+          0.0
+        ]
+      ],
+      "computed": [
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.49999999999999994,
+          0.0
+        ]
+      ],
+      "absolute_difference": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          5.551115123125783e-17,
+          0.0
+        ]
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        [
+          null,
+          null,
+          0.0
+        ],
+        [
+          null,
+          1.1102230246251565e-16,
+          null
+        ]
+      ],
+      "max_absolute_difference": 5.551115123125783e-17,
+      "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "firm_plans": {
+      "passed": true,
+      "paper_analytical": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          -0.5,
+          0.5
+        ]
+      ],
+      "computed": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          -0.5,
+          0.5
+        ]
+      ],
+      "absolute_difference": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "quota_prices": {
+      "passed": true,
+      "paper_analytical": [
+        0.25
+      ],
+      "computed": [
+        0.24999999999999997
+      ],
+      "absolute_difference": [
+        2.7755575615628914e-17
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        1.1102230246251565e-16
+      ],
+      "max_absolute_difference": 2.7755575615628914e-17,
+      "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "operating_profits": {
+      "passed": true,
+      "children": {
+        "firm_0": {
+          "passed": true,
+          "paper_analytical": 0.0,
+          "computed": 0.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": null,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": null,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        },
+        "firm_1": {
+          "passed": true,
+          "paper_analytical": 0.0,
+          "computed": 0.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": null,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": null,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        }
+      }
+    },
+    "quota_profit_terms": {
+      "passed": true,
+      "children": {
+        "firm_0": {
+          "passed": true,
+          "paper_analytical": 0.125,
+          "computed": 0.12499999999999999,
+          "absolute_difference": 1.3877787807814457e-17,
+          "relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+          "max_absolute_difference": 1.3877787807814457e-17,
+          "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        },
+        "firm_1": {
+          "passed": true,
+          "paper_analytical": -0.0,
+          "computed": -0.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": null,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": null,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        }
+      }
+    },
+    "total_firm_profits": {
+      "passed": true,
+      "children": {
+        "firm_0": {
+          "passed": true,
+          "paper_analytical": 0.125,
+          "computed": 0.12499999999999999,
+          "absolute_difference": 1.3877787807814457e-17,
+          "relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+          "max_absolute_difference": 1.3877787807814457e-17,
+          "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        },
+        "firm_1": {
+          "passed": true,
+          "paper_analytical": 0.0,
+          "computed": 0.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": null,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": null,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        }
+      }
+    },
+    "income_breakdowns": {
+      "passed": true,
+      "children": {
+        "omega_1": {
+          "passed": true,
+          "children": {
+            "endowment_income": {
+              "passed": true,
+              "paper_analytical": 0.25,
+              "computed": 0.25,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "firm_dividend_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "policy_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "total_income": {
+              "passed": true,
+              "paper_analytical": 0.25,
+              "computed": 0.25,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            }
+          }
+        },
+        "omega_2": {
+          "passed": true,
+          "children": {
+            "endowment_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "firm_dividend_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "policy_income": {
+              "passed": true,
+              "paper_analytical": 0.125,
+              "computed": 0.12499999999999999,
+              "absolute_difference": 1.3877787807814457e-17,
+              "relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+              "max_absolute_difference": 1.3877787807814457e-17,
+              "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "total_income": {
+              "passed": true,
+              "paper_analytical": 0.125,
+              "computed": 0.12499999999999999,
+              "absolute_difference": 1.3877787807814457e-17,
+              "relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+              "max_absolute_difference": 1.3877787807814457e-17,
+              "max_relative_difference_where_paper_value_nonzero": 1.1102230246251565e-16,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            }
+          }
+        }
+      }
+    },
+    "paper_cardinal_utilities": {
+      "passed": true,
+      "children": {
+        "omega_1": {
+          "passed": true,
+          "paper_analytical": 0.25,
+          "computed": 0.25,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": 0.0,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": 0.0,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        },
+        "omega_2": {
+          "passed": true,
+          "paper_analytical": 0.25,
+          "computed": 0.24999999999999994,
+          "absolute_difference": 5.551115123125783e-17,
+          "relative_difference_where_paper_value_nonzero": 2.220446049250313e-16,
+          "max_absolute_difference": 5.551115123125783e-17,
+          "max_relative_difference_where_paper_value_nonzero": 2.220446049250313e-16,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        }
+      }
+    }
+  },
+  "all_comparisons_passed": true,
+  "complete_diagnostics": {
+    "classification": "VERIFIED_CANDIDATE",
+    "passed": true,
+    "checks": {
+      "solver_success": true,
+      "finite_authoritative_coordinates": true,
+      "signed_l1_normalization": true,
+      "price_sign_restrictions": true,
+      "quota_price_identity": true,
+      "ownership_share_adding_up": true,
+      "government_firm_zero_production": true,
+      "firm_feasibility": true,
+      "firm_optimality_oracle_available": true,
+      "firm_profit_maximization": true,
+      "consumer_optimality_oracle_available": true,
+      "consumer_feasibility": true,
+      "budget_feasibility": true,
+      "budget_exhaustion": true,
+      "consumer_optimality": true,
+      "quota_compliance_Z_m": true,
+      "quota_adjusted_walras_identity": true,
+      "candidate_cache_consistency": true
+    },
+    "errors": {
+      "normalization_error": 0.0,
+      "max_price_sign_violation": 0.0,
+      "max_ownership_adding_up_error": 0.0,
+      "government_plan_error": 0.0,
+      "max_firm_feasibility_violation": 0.0,
+      "max_profit_gap": 0.0,
+      "max_consumer_feasibility_violation": 0.0,
+      "max_budget_violation": 0.0,
+      "max_budget_exhaustion_gap": 0.0,
+      "max_utility_gap": 0.0,
+      "max_quota_compliance_violation": 0.0,
+      "max_quota_compliance_ratio": 0.0,
+      "abs_quota_adjusted_walras_residual": 0.0,
+      "max_candidate_cache_error": 0.0
+    },
+    "signed_l1_prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "quota_prices_q_equals_negative_projected_p": [
+      0.24999999999999997
+    ],
+    "total_m_equals_sum_firm_m": [
+      -0.5
+    ],
+    "candidate_aggregate_allocation": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "candidate_aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "candidate_resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "compliance_violations": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "raw_walras_value_p_dot_resource_residual": 0.12499999999999999,
+    "quota_value_projected_p_dot_m": 0.12499999999999999,
+    "quota_adjusted_walras_residual": 0.0,
+    "firm_profit_breakdowns": {
+      "firm_0": {
+        "firm_id": "firm_0",
+        "operating_profit": 0.0,
+        "quota_profit": 0.12499999999999999,
+        "total_profit": 0.12499999999999999
+      },
+      "firm_1": {
+        "firm_id": "firm_1",
+        "operating_profit": 0.0,
+        "quota_profit": -0.0,
+        "total_profit": 0.0
+      }
+    },
+    "consumer_income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "budget_residuals": {
+      "omega_1": 0.0,
+      "omega_2": 0.0
+    },
+    "consumer_optimality_results": {
+      "omega_1": {
+        "feasible": true,
+        "candidate_utility": 0.5,
+        "optimal_utility": 0.5,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      },
+      "omega_2": {
+        "feasible": true,
+        "candidate_utility": 0.49999999999999994,
+        "optimal_utility": 0.49999999999999994,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      }
+    },
+    "firm_optimality_results": {
+      "firm_0": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "ZeroTechnology.global_profit_oracle",
+        "optimal_plan": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "firm_1": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "LinearRayTechnology.scaled_margin_global_profit_oracle",
+        "optimal_plan": [
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "profit_margin_assessment": {
+          "margin": 0.0,
+          "scale_l2_product": 1.0606601717798212,
+          "effective_zero_tolerance": 1.0706601717798211e-12,
+          "regime": "NUMERICAL_ZERO"
+        }
+      }
+    },
+    "ownership_adding_up_errors": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "cache_errors": {
+      "aggregate_demand": 0.0,
+      "aggregate_endowment": 0.0,
+      "aggregate_production": 0.0,
+      "resource_residual": 0.0,
+      "quota_prices": 0.0,
+      "operating_profits": 0.0,
+      "quota_profit_terms": 0.0,
+      "total_firm_profits": 0.0,
+      "income_breakdowns": 0.0
+    },
+    "notes": []
+  },
+  "config_snapshot": {
+    "runner": {
+      "module": "paper_replications.example_1",
+      "callable": "run",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true
+    },
+    "paper": {
+      "title": "Cap-and-Trade and Carbon Tax Meet Arrow-Debreu",
+      "authors": "Anderson and Duanmu",
+      "year": 2025,
+      "main_location": "PDF pages 11-12; journal pages 367-368; Example 1",
+      "supplement_location": "PDF pages 11-12; Section 3.1; Claims 3.1-3.2"
+    },
+    "model": {
+      "emissions_quota_v": 0.5
+    },
+    "solver": {
+      "initial_guess": [
+        -0.2,
+        0.3,
+        0.5,
+        0.4,
+        0.4,
+        0.6
+      ],
+      "tolerance": 1e-13,
+      "max_nfev": 2000
+    },
+    "comparison": {
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    }
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:22.895043+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "computed_candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "computed_candidate.solver_message",
+        "value": "`gtol` termination condition is satisfied."
+      },
+      {
+        "path": "computed_candidate.solver_method",
+        "value": "scipy.optimize.least_squares:paper_example_1_system"
+      },
+      {
+        "path": "computed_candidate.iterations",
+        "value": null
+      },
+      {
+        "path": "comparisons.prices.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.prices.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.allocations.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.allocations.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.firm_plans.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.firm_plans.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_prices.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_prices.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.operating_profits.children.firm_0.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.operating_profits.children.firm_0.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.operating_profits.children.firm_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.operating_profits.children.firm_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_profit_terms.children.firm_0.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_profit_terms.children.firm_0.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_profit_terms.children.firm_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.quota_profit_terms.children.firm_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.total_firm_profits.children.firm_0.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.total_firm_profits.children.firm_0.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.total_firm_profits.children.firm_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.total_firm_profits.children.firm_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.endowment_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.endowment_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.firm_dividend_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.firm_dividend_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.policy_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.policy_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.total_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_1.children.total_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.endowment_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.endowment_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.firm_dividend_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.firm_dividend_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.policy_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.policy_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.total_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.income_breakdowns.children.omega_2.children.total_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.paper_cardinal_utilities.children.omega_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.paper_cardinal_utilities.children.omega_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.paper_cardinal_utilities.children.omega_2.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "comparisons.paper_cardinal_utilities.children.omega_2.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "complete_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "complete_diagnostics.firm_optimality_results.firm_1.profit_margin_assessment.effective_zero_tolerance",
+        "value": 1.0706601717798211e-12
+      },
+      {
+        "path": "config_snapshot.solver",
+        "value": {
+          "initial_guess": [
+            -0.2,
+            0.3,
+            0.5,
+            0.4,
+            0.4,
+            0.6
+          ],
+          "tolerance": 1e-13,
+          "max_nfev": 2000
+        }
+      },
+      {
+        "path": "config_snapshot.solver.tolerance",
+        "value": 1e-13
+      },
+      {
+        "path": "config_snapshot.comparison.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "config_snapshot.comparison.relative_tolerance",
+        "value": 1e-10
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "PAPER_REPLICATION_SUCCESS": 2,
+      "VERIFIED_CANDIDATE": 1
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

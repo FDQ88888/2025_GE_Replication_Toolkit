@@ -1,0 +1,1419 @@
+{
+  "status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+  "claim_scope": "NUMERICAL CHECK OF THEORETICAL MAPPING; NOT A PROOF",
+  "paper": {
+    "theorem_3_location": "Main PDF pages 20-21; journal pages 376-377",
+    "theorem_4_location": "Main PDF page 21; journal page 377",
+    "label": "NUMERICAL CHECK OF THEORETICAL MAPPING"
+  },
+  "source_quota_diagnostics": {
+    "classification": "VERIFIED_CANDIDATE",
+    "passed": true,
+    "checks": {
+      "solver_success": true,
+      "finite_authoritative_coordinates": true,
+      "signed_l1_normalization": true,
+      "price_sign_restrictions": true,
+      "quota_price_identity": true,
+      "ownership_share_adding_up": true,
+      "government_firm_zero_production": true,
+      "firm_feasibility": true,
+      "firm_optimality_oracle_available": true,
+      "firm_profit_maximization": true,
+      "consumer_optimality_oracle_available": true,
+      "consumer_feasibility": true,
+      "budget_feasibility": true,
+      "budget_exhaustion": true,
+      "consumer_optimality": true,
+      "quota_compliance_Z_m": true,
+      "quota_adjusted_walras_identity": true,
+      "candidate_cache_consistency": true
+    },
+    "errors": {
+      "normalization_error": 0.0,
+      "max_price_sign_violation": 0.0,
+      "max_ownership_adding_up_error": 0.0,
+      "government_plan_error": 0.0,
+      "max_firm_feasibility_violation": 0.0,
+      "max_profit_gap": 0.0,
+      "max_consumer_feasibility_violation": 0.0,
+      "max_budget_violation": 0.0,
+      "max_budget_exhaustion_gap": 0.0,
+      "max_utility_gap": 0.0,
+      "max_quota_compliance_violation": 0.0,
+      "max_quota_compliance_ratio": 0.0,
+      "abs_quota_adjusted_walras_residual": 0.0,
+      "max_candidate_cache_error": 0.0
+    },
+    "signed_l1_prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "quota_prices_q_equals_negative_projected_p": [
+      0.24999999999999997
+    ],
+    "total_m_equals_sum_firm_m": [
+      -0.5
+    ],
+    "candidate_aggregate_allocation": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "candidate_aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "candidate_resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "compliance_violations": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "raw_walras_value_p_dot_resource_residual": 0.12499999999999999,
+    "quota_value_projected_p_dot_m": 0.12499999999999999,
+    "quota_adjusted_walras_residual": 0.0,
+    "firm_profit_breakdowns": {
+      "firm_0": {
+        "firm_id": "firm_0",
+        "operating_profit": 0.0,
+        "quota_profit": 0.12499999999999999,
+        "total_profit": 0.12499999999999999
+      },
+      "firm_1": {
+        "firm_id": "firm_1",
+        "operating_profit": 0.0,
+        "quota_profit": -0.0,
+        "total_profit": 0.0
+      }
+    },
+    "consumer_income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "budget_residuals": {
+      "omega_1": 0.0,
+      "omega_2": 0.0
+    },
+    "consumer_optimality_results": {
+      "omega_1": {
+        "feasible": true,
+        "candidate_utility": 0.5,
+        "optimal_utility": 0.5,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      },
+      "omega_2": {
+        "feasible": true,
+        "candidate_utility": 0.49999999999999994,
+        "optimal_utility": 0.49999999999999994,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      }
+    },
+    "firm_optimality_results": {
+      "firm_0": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "ZeroTechnology.global_profit_oracle",
+        "optimal_plan": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "firm_1": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "LinearRayTechnology.scaled_margin_global_profit_oracle",
+        "optimal_plan": [
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "profit_margin_assessment": {
+          "margin": 0.0,
+          "scale_l2_product": 1.0606601717798212,
+          "effective_zero_tolerance": 1.0706601717798211e-12,
+          "regime": "NUMERICAL_ZERO"
+        }
+      }
+    },
+    "ownership_adding_up_errors": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "cache_errors": {
+      "aggregate_demand": 0.0,
+      "aggregate_endowment": 0.0,
+      "aggregate_production": 0.0,
+      "resource_residual": 0.0,
+      "quota_prices": 0.0,
+      "operating_profits": 0.0,
+      "quota_profit_terms": 0.0,
+      "total_firm_profits": 0.0,
+      "income_breakdowns": 0.0
+    },
+    "notes": []
+  },
+  "theorem_3_tax_candidate": {
+    "prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "allocations": [
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.49999999999999994,
+        0.0
+      ]
+    ],
+    "firm_plans": [
+      [
+        0.5,
+        -0.5,
+        0.5
+      ]
+    ],
+    "tax_rates": [
+      0.24999999999999997
+    ],
+    "total_net_emissions": [
+      0.5
+    ],
+    "tax_revenue": 0.12499999999999999,
+    "aggregate_demand": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "aggregate_endowment": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "firm_profits": {
+      "firm_1": 0.0
+    },
+    "income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "solver_success": true,
+    "solver_message": "Mapped from verified quota candidate under Theorem 3",
+    "solver_method": "paper_theorem_3_mapping",
+    "iterations": 0,
+    "function_calls": 0,
+    "metadata": {
+      "claim_scope": "NUMERICAL CHECK OF THEORETICAL MAPPING",
+      "source": "paper Example 1 quota candidate"
+    }
+  },
+  "theorem_3_tax_diagnostics": {
+    "classification": "VERIFIED_CANDIDATE",
+    "passed": true,
+    "checks": {
+      "solver_success": true,
+      "finite_authoritative_coordinates": true,
+      "signed_l1_normalization": true,
+      "tax_price_constraint_proj_k_p_equals_negative_t": true,
+      "price_sign_restrictions": true,
+      "rebate_shares_add_up": true,
+      "ownership_share_adding_up": true,
+      "firm_optimality_oracle_available": true,
+      "firm_feasibility": true,
+      "firm_profit_maximization": true,
+      "consumer_optimality_oracle_available": true,
+      "consumer_feasibility": true,
+      "budget_feasibility": true,
+      "budget_exhaustion": true,
+      "consumer_optimality": true,
+      "tax_revenue_nonnegative": true,
+      "compliance_V": true,
+      "rebate_adjusted_walras_identity": true,
+      "candidate_cache_consistency": true
+    },
+    "errors": {
+      "normalization_error": 0.0,
+      "max_tax_price_constraint_violation": 0.0,
+      "max_price_sign_violation": 0.0,
+      "rebate_adding_up_error": 0.0,
+      "max_ownership_adding_up_error": 0.0,
+      "max_firm_feasibility_violation": 0.0,
+      "max_profit_gap": 0.0,
+      "max_consumer_feasibility_violation": 0.0,
+      "max_budget_violation": 0.0,
+      "max_budget_exhaustion_gap": 0.0,
+      "max_utility_gap": 0.0,
+      "max_compliance_violation": 0.0,
+      "max_compliance_ratio": 0.0,
+      "abs_rebate_adjusted_walras_residual": 0.0,
+      "max_candidate_cache_error": 0.0
+    },
+    "signed_l1_prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "tax_rates": [
+      0.24999999999999997
+    ],
+    "total_net_emissions_C": [
+      0.5
+    ],
+    "tax_revenue_t_dot_C": 0.12499999999999999,
+    "candidate_resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "compliance_violations": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "raw_walras_value_p_dot_r": 0.12499999999999999,
+    "rebate_adjusted_walras_residual_p_dot_r_minus_t_dot_C": 0.0,
+    "firm_profits": {
+      "firm_1": 0.0
+    },
+    "consumer_income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "budget_residuals": {
+      "omega_1": 0.0,
+      "omega_2": 0.0
+    },
+    "consumer_optimality_results": {
+      "omega_1": {
+        "feasible": true,
+        "candidate_utility": 0.5,
+        "optimal_utility": 0.5,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      },
+      "omega_2": {
+        "feasible": true,
+        "candidate_utility": 0.49999999999999994,
+        "optimal_utility": 0.49999999999999994,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      }
+    },
+    "firm_optimality_results": {
+      "firm_1": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "LinearRayTechnology.scaled_margin_global_profit_oracle",
+        "optimal_plan": [
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "profit_margin_assessment": {
+          "margin": 0.0,
+          "scale_l2_product": 1.0606601717798212,
+          "effective_zero_tolerance": 1.0706601717798211e-12,
+          "regime": "NUMERICAL_ZERO"
+        }
+      }
+    },
+    "ownership_adding_up_errors": {
+      "firm_1": 0.0
+    },
+    "cache_errors": {
+      "tax_rates": 0.0,
+      "total_net_emissions": 0.0,
+      "tax_revenue": 0.0,
+      "aggregate_demand": 0.0,
+      "aggregate_endowment": 0.0,
+      "aggregate_production": 0.0,
+      "resource_residual": 0.0,
+      "firm_profits": 0.0,
+      "income_breakdowns": 0.0
+    },
+    "notes": []
+  },
+  "theorem_4_reverse_quota_candidate": {
+    "prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "allocations": [
+      [
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.49999999999999994,
+        0.0
+      ]
+    ],
+    "firm_plans": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.5,
+        -0.5,
+        0.5
+      ]
+    ],
+    "quota_prices": [
+      0.24999999999999997
+    ],
+    "aggregate_demand": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "aggregate_endowment": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "operating_profits": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "quota_profit_terms": {
+      "firm_0": 0.12499999999999999,
+      "firm_1": -0.0
+    },
+    "total_firm_profits": {
+      "firm_0": 0.12499999999999999,
+      "firm_1": 0.0
+    },
+    "income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "solver_success": true,
+    "solver_message": "Mapped from verified tax candidate under Theorem 4",
+    "solver_method": "paper_theorem_4_mapping",
+    "iterations": 0,
+    "function_calls": 0,
+    "metadata": {
+      "claim_scope": "NUMERICAL CHECK OF THEORETICAL MAPPING",
+      "source": "mapped emission-tax candidate"
+    }
+  },
+  "theorem_4_reverse_quota_diagnostics": {
+    "classification": "VERIFIED_CANDIDATE",
+    "passed": true,
+    "checks": {
+      "solver_success": true,
+      "finite_authoritative_coordinates": true,
+      "signed_l1_normalization": true,
+      "price_sign_restrictions": true,
+      "quota_price_identity": true,
+      "ownership_share_adding_up": true,
+      "government_firm_zero_production": true,
+      "firm_feasibility": true,
+      "firm_optimality_oracle_available": true,
+      "firm_profit_maximization": true,
+      "consumer_optimality_oracle_available": true,
+      "consumer_feasibility": true,
+      "budget_feasibility": true,
+      "budget_exhaustion": true,
+      "consumer_optimality": true,
+      "quota_compliance_Z_m": true,
+      "quota_adjusted_walras_identity": true,
+      "candidate_cache_consistency": true
+    },
+    "errors": {
+      "normalization_error": 0.0,
+      "max_price_sign_violation": 0.0,
+      "max_ownership_adding_up_error": 0.0,
+      "government_plan_error": 0.0,
+      "max_firm_feasibility_violation": 0.0,
+      "max_profit_gap": 0.0,
+      "max_consumer_feasibility_violation": 0.0,
+      "max_budget_violation": 0.0,
+      "max_budget_exhaustion_gap": 0.0,
+      "max_utility_gap": 0.0,
+      "max_quota_compliance_violation": 0.0,
+      "max_quota_compliance_ratio": 0.0,
+      "abs_quota_adjusted_walras_residual": 0.0,
+      "max_candidate_cache_error": 0.0
+    },
+    "signed_l1_prices": [
+      -0.24999999999999997,
+      0.25,
+      0.5
+    ],
+    "quota_prices_q_equals_negative_projected_p": [
+      0.24999999999999997
+    ],
+    "total_m_equals_sum_firm_m": [
+      -0.5
+    ],
+    "candidate_aggregate_allocation": [
+      0.0,
+      0.49999999999999994,
+      0.5
+    ],
+    "candidate_aggregate_production": [
+      0.5,
+      -0.5,
+      0.5
+    ],
+    "candidate_resource_residual": [
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "compliance_violations": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "raw_walras_value_p_dot_resource_residual": 0.12499999999999999,
+    "quota_value_projected_p_dot_m": 0.12499999999999999,
+    "quota_adjusted_walras_residual": 0.0,
+    "firm_profit_breakdowns": {
+      "firm_0": {
+        "firm_id": "firm_0",
+        "operating_profit": 0.0,
+        "quota_profit": 0.12499999999999999,
+        "total_profit": 0.12499999999999999
+      },
+      "firm_1": {
+        "firm_id": "firm_1",
+        "operating_profit": 0.0,
+        "quota_profit": -0.0,
+        "total_profit": 0.0
+      }
+    },
+    "consumer_income_breakdowns": {
+      "omega_1": {
+        "endowment_income": 0.25,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.0,
+        "total_income": 0.25
+      },
+      "omega_2": {
+        "endowment_income": 0.0,
+        "firm_dividend_income": 0.0,
+        "policy_income": 0.12499999999999999,
+        "total_income": 0.12499999999999999
+      }
+    },
+    "budget_residuals": {
+      "omega_1": 0.0,
+      "omega_2": 0.0
+    },
+    "consumer_optimality_results": {
+      "omega_1": {
+        "feasible": true,
+        "candidate_utility": 0.5,
+        "optimal_utility": 0.5,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      },
+      "omega_2": {
+        "feasible": true,
+        "candidate_utility": 0.49999999999999994,
+        "optimal_utility": 0.49999999999999994,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:SingleGoodLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      }
+    },
+    "firm_optimality_results": {
+      "firm_0": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "ZeroTechnology.global_profit_oracle",
+        "optimal_plan": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "firm_1": {
+        "feasible": true,
+        "candidate_profit": 0.0,
+        "optimal_profit": 0.0,
+        "profit_gap": 0.0,
+        "feasibility_violation": 0.0,
+        "method": "LinearRayTechnology.scaled_margin_global_profit_oracle",
+        "optimal_plan": [
+          0.5,
+          -0.5,
+          0.5
+        ],
+        "profit_margin_assessment": {
+          "margin": 0.0,
+          "scale_l2_product": 1.0606601717798212,
+          "effective_zero_tolerance": 1.0706601717798211e-12,
+          "regime": "NUMERICAL_ZERO"
+        }
+      }
+    },
+    "ownership_adding_up_errors": {
+      "firm_0": 0.0,
+      "firm_1": 0.0
+    },
+    "cache_errors": {
+      "aggregate_demand": 0.0,
+      "aggregate_endowment": 0.0,
+      "aggregate_production": 0.0,
+      "resource_residual": 0.0,
+      "quota_prices": 0.0,
+      "operating_profits": 0.0,
+      "quota_profit_terms": 0.0,
+      "total_firm_profits": 0.0,
+      "income_breakdowns": 0.0
+    },
+    "notes": []
+  },
+  "mapping_comparisons": {
+    "prices": {
+      "passed": true,
+      "paper_analytical": [
+        -0.24999999999999997,
+        0.25,
+        0.5
+      ],
+      "computed": [
+        -0.24999999999999997,
+        0.25,
+        0.5
+      ],
+      "absolute_difference": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "allocations": {
+      "passed": true,
+      "paper_analytical": [
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.49999999999999994,
+          0.0
+        ]
+      ],
+      "computed": [
+        [
+          0.0,
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.49999999999999994,
+          0.0
+        ]
+      ],
+      "absolute_difference": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        [
+          null,
+          null,
+          0.0
+        ],
+        [
+          null,
+          0.0,
+          null
+        ]
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "private_firm_plans": {
+      "passed": true,
+      "paper_analytical": [
+        [
+          0.5,
+          -0.5,
+          0.5
+        ]
+      ],
+      "computed": [
+        [
+          0.5,
+          -0.5,
+          0.5
+        ]
+      ],
+      "absolute_difference": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    },
+    "consumer_incomes": {
+      "passed": true,
+      "children": {
+        "omega_1": {
+          "passed": true,
+          "children": {
+            "endowment_income": {
+              "passed": true,
+              "paper_analytical": 0.25,
+              "computed": 0.25,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "firm_dividend_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "policy_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "total_income": {
+              "passed": true,
+              "paper_analytical": 0.25,
+              "computed": 0.25,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            }
+          }
+        },
+        "omega_2": {
+          "passed": true,
+          "children": {
+            "endowment_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "firm_dividend_income": {
+              "passed": true,
+              "paper_analytical": 0.0,
+              "computed": 0.0,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": null,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": null,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "policy_income": {
+              "passed": true,
+              "paper_analytical": 0.12499999999999999,
+              "computed": 0.12499999999999999,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            },
+            "total_income": {
+              "passed": true,
+              "paper_analytical": 0.12499999999999999,
+              "computed": 0.12499999999999999,
+              "absolute_difference": 0.0,
+              "relative_difference_where_paper_value_nonzero": 0.0,
+              "max_absolute_difference": 0.0,
+              "max_relative_difference_where_paper_value_nonzero": 0.0,
+              "absolute_tolerance": 1e-10,
+              "relative_tolerance": 1e-10
+            }
+          }
+        }
+      }
+    },
+    "theorem_3_rebate_shares": {
+      "passed": true,
+      "children": {
+        "omega_1": {
+          "passed": true,
+          "paper_analytical": 0.0,
+          "computed": 0.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": null,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": null,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        },
+        "omega_2": {
+          "passed": true,
+          "paper_analytical": 1.0,
+          "computed": 1.0,
+          "absolute_difference": 0.0,
+          "relative_difference_where_paper_value_nonzero": 0.0,
+          "max_absolute_difference": 0.0,
+          "max_relative_difference_where_paper_value_nonzero": 0.0,
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 1e-10
+        }
+      }
+    },
+    "reverse_total_m": {
+      "passed": true,
+      "paper_analytical": [
+        -0.5
+      ],
+      "computed": [
+        -0.5
+      ],
+      "absolute_difference": [
+        0.0
+      ],
+      "relative_difference_where_paper_value_nonzero": [
+        0.0
+      ],
+      "max_absolute_difference": 0.0,
+      "max_relative_difference_where_paper_value_nonzero": 0.0,
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    }
+  },
+  "coordinate_conversion": {
+    "paper_to_internal": {
+      "prices": [
+        -0.49999999999999994,
+        0.5,
+        1.0
+      ],
+      "tax_rates": [
+        0.49999999999999994
+      ],
+      "scale": 2.0,
+      "source": "paper_signed_l1",
+      "target": "fixed_numeraire_index_2"
+    },
+    "internal_to_paper": {
+      "prices": [
+        -0.24999999999999997,
+        0.25,
+        0.5
+      ],
+      "tax_rates": [
+        0.24999999999999997
+      ],
+      "scale": 0.5,
+      "source": "internal_positive_scale",
+      "target": "paper_signed_l1"
+    },
+    "checks": {
+      "paper_price_roundtrip": {
+        "passed": true,
+        "paper_analytical": [
+          -0.24999999999999997,
+          0.25,
+          0.5
+        ],
+        "computed": [
+          -0.24999999999999997,
+          0.25,
+          0.5
+        ],
+        "absolute_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "relative_difference_where_paper_value_nonzero": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference_where_paper_value_nonzero": 0.0,
+        "absolute_tolerance": 1e-10,
+        "relative_tolerance": 1e-10
+      },
+      "paper_tax_roundtrip": {
+        "passed": true,
+        "paper_analytical": [
+          0.24999999999999997
+        ],
+        "computed": [
+          0.24999999999999997
+        ],
+        "absolute_difference": [
+          0.0
+        ],
+        "relative_difference_where_paper_value_nonzero": [
+          0.0
+        ],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference_where_paper_value_nonzero": 0.0,
+        "absolute_tolerance": 1e-10,
+        "relative_tolerance": 1e-10
+      },
+      "demand_quantities_invariant": {
+        "passed": true,
+        "paper_analytical": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ],
+          [
+            0.0,
+            0.49999999999999994,
+            0.0
+          ]
+        ],
+        "computed": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ],
+          [
+            0.0,
+            0.49999999999999994,
+            0.0
+          ]
+        ],
+        "absolute_difference": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "relative_difference_where_paper_value_nonzero": [
+          [
+            null,
+            null,
+            0.0
+          ],
+          [
+            null,
+            0.0,
+            null
+          ]
+        ],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference_where_paper_value_nonzero": 0.0,
+        "absolute_tolerance": 1e-10,
+        "relative_tolerance": 1e-10
+      },
+      "firm_profits_scale_adjusted": {
+        "passed": true,
+        "paper_analytical": [
+          0.0
+        ],
+        "computed": [
+          0.0
+        ],
+        "absolute_difference": [
+          0.0
+        ],
+        "relative_difference_where_paper_value_nonzero": [
+          null
+        ],
+        "max_absolute_difference": 0.0,
+        "max_relative_difference_where_paper_value_nonzero": null,
+        "absolute_tolerance": 1e-10,
+        "relative_tolerance": 1e-10
+      },
+      "tax_revenue_scale_adjusted": {
+        "passed": true,
+        "paper_analytical": 0.12499999999999999,
+        "computed": 0.12499999999999999,
+        "absolute_difference": 0.0,
+        "relative_difference_where_paper_value_nonzero": 0.0,
+        "max_absolute_difference": 0.0,
+        "max_relative_difference_where_paper_value_nonzero": 0.0,
+        "absolute_tolerance": 1e-10,
+        "relative_tolerance": 1e-10
+      },
+      "consumer_incomes_scale_adjusted": {
+        "passed": true,
+        "children": {
+          "omega_1": {
+            "passed": true,
+            "paper_analytical": 0.25,
+            "computed": 0.25,
+            "absolute_difference": 0.0,
+            "relative_difference_where_paper_value_nonzero": 0.0,
+            "max_absolute_difference": 0.0,
+            "max_relative_difference_where_paper_value_nonzero": 0.0,
+            "absolute_tolerance": 1e-10,
+            "relative_tolerance": 1e-10
+          },
+          "omega_2": {
+            "passed": true,
+            "paper_analytical": 0.12499999999999999,
+            "computed": 0.12499999999999999,
+            "absolute_difference": 0.0,
+            "relative_difference_where_paper_value_nonzero": 0.0,
+            "max_absolute_difference": 0.0,
+            "max_relative_difference_where_paper_value_nonzero": 0.0,
+            "absolute_tolerance": 1e-10,
+            "relative_tolerance": 1e-10
+          }
+        }
+      }
+    }
+  },
+  "config_snapshot": {
+    "runner": {
+      "module": "paper_replications.theorem_3_4_mapping",
+      "callable": "run",
+      "expected_status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "required": true
+    },
+    "paper": {
+      "theorem_3_location": "Main PDF pages 20-21; journal pages 376-377",
+      "theorem_4_location": "Main PDF page 21; journal page 377",
+      "label": "NUMERICAL CHECK OF THEORETICAL MAPPING"
+    },
+    "model": {
+      "source_example": 1,
+      "emissions_quota_v": 0.5
+    },
+    "coordinates": {
+      "paper": "signed_l1",
+      "internal_numeraire_index": 2,
+      "internal_numeraire_value": 1.0
+    },
+    "comparison": {
+      "absolute_tolerance": 1e-10,
+      "relative_tolerance": 1e-10
+    }
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:23.033843+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "source_quota_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "source_quota_diagnostics.firm_optimality_results.firm_1.profit_margin_assessment.effective_zero_tolerance",
+        "value": 1.0706601717798211e-12
+      },
+      {
+        "path": "theorem_3_tax_candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "theorem_3_tax_candidate.solver_message",
+        "value": "Mapped from verified quota candidate under Theorem 3"
+      },
+      {
+        "path": "theorem_3_tax_candidate.solver_method",
+        "value": "paper_theorem_3_mapping"
+      },
+      {
+        "path": "theorem_3_tax_candidate.iterations",
+        "value": 0
+      },
+      {
+        "path": "theorem_3_tax_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "theorem_3_tax_diagnostics.firm_optimality_results.firm_1.profit_margin_assessment.effective_zero_tolerance",
+        "value": 1.0706601717798211e-12
+      },
+      {
+        "path": "theorem_4_reverse_quota_candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "theorem_4_reverse_quota_candidate.solver_message",
+        "value": "Mapped from verified tax candidate under Theorem 4"
+      },
+      {
+        "path": "theorem_4_reverse_quota_candidate.solver_method",
+        "value": "paper_theorem_4_mapping"
+      },
+      {
+        "path": "theorem_4_reverse_quota_candidate.iterations",
+        "value": 0
+      },
+      {
+        "path": "theorem_4_reverse_quota_diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "theorem_4_reverse_quota_diagnostics.firm_optimality_results.firm_1.profit_margin_assessment.effective_zero_tolerance",
+        "value": 1.0706601717798211e-12
+      },
+      {
+        "path": "mapping_comparisons.prices.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.prices.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.allocations.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.allocations.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.private_firm_plans.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.private_firm_plans.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.endowment_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.endowment_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.firm_dividend_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.firm_dividend_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.policy_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.policy_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.total_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_1.children.total_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.endowment_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.endowment_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.firm_dividend_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.firm_dividend_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.policy_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.policy_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.total_income.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.consumer_incomes.children.omega_2.children.total_income.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.theorem_3_rebate_shares.children.omega_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.theorem_3_rebate_shares.children.omega_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.theorem_3_rebate_shares.children.omega_2.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.theorem_3_rebate_shares.children.omega_2.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.reverse_total_m.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "mapping_comparisons.reverse_total_m.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.paper_price_roundtrip.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.paper_price_roundtrip.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.paper_tax_roundtrip.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.paper_tax_roundtrip.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.demand_quantities_invariant.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.demand_quantities_invariant.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.firm_profits_scale_adjusted.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.firm_profits_scale_adjusted.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.tax_revenue_scale_adjusted.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.tax_revenue_scale_adjusted.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.consumer_incomes_scale_adjusted.children.omega_1.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.consumer_incomes_scale_adjusted.children.omega_1.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.consumer_incomes_scale_adjusted.children.omega_2.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "coordinate_conversion.checks.consumer_incomes_scale_adjusted.children.omega_2.relative_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "config_snapshot.comparison.absolute_tolerance",
+        "value": 1e-10
+      },
+      {
+        "path": "config_snapshot.comparison.relative_tolerance",
+        "value": 1e-10
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "NUMERICAL_MAPPING_CHECK_SUCCESS": 2,
+      "VERIFIED_CANDIDATE": 3
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

@@ -1,0 +1,14 @@
+runner:
+  module: paper_replications.example_4
+  callable: run
+  expected_status: PAPER_REPLICATION_SUCCESS
+  required: true
+paper:
+  main_location: "PDF pages 24-26; Example 4; Claims 5.1-5.3"
+  supplement_location: "PDF pages 15-17; Section 3.4"
+model:
+  below_boundary_tax_rate: 0.20
+  boundary_tax_rate: 0.25
+  boundary_emissions_grid: [0.0, 0.25, 0.5, 0.75, 1.0]
+  above_boundary_tax_rate: 0.30
+paper_theoretical_status_above_boundary: NO_EQUILIBRIUM

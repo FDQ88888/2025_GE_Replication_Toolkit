@@ -1,0 +1,244 @@
+{
+  "status": "REPRODUCIBILITY_SUITE_SUCCESS",
+  "config_snapshot": {
+    "baseline_requirements": [
+      {
+        "name": "analytical exchange baseline",
+        "expected_status": "VERIFIED_CANDIDATE",
+        "required": true,
+        "result_path": "results/milestone1_baseline.json"
+      },
+      {
+        "name": "analytical production baseline",
+        "expected_status": "VERIFIED_CANDIDATE",
+        "required": true,
+        "result_path": "results/milestone2_production_baseline.json"
+      },
+      {
+        "name": "split-agent invariance baseline",
+        "expected_status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+        "required": true,
+        "result_path": "results/milestone3_split_agent_invariance.json"
+      },
+      {
+        "name": "signed-price bad-absorption baseline",
+        "expected_status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+        "required": true,
+        "result_path": "results/milestone4_signed_bad_absorption.json"
+      }
+    ],
+    "config_paths": [
+      "configs/paper/example_1.yaml",
+      "configs/paper/example_2.yaml",
+      "configs/paper/theorem_3_4_mapping.yaml",
+      "configs/paper/example_3.yaml",
+      "configs/paper/example_4.yaml",
+      "configs/paper/example_5.yaml",
+      "configs/paper/example_6.yaml",
+      "configs/experiments/example3_multistart.yaml",
+      "configs/experiments/tax_quota_sweeps.yaml",
+      "configs/experiments/quota_ownership_welfare.yaml",
+      "configs/experiments/finite_weighted_bad_absorption.yaml"
+    ]
+  },
+  "passed": true,
+  "failures": [],
+  "warnings": [],
+  "observations": [
+    {
+      "name": "analytical exchange baseline",
+      "expected_status": "VERIFIED_CANDIDATE",
+      "required": true,
+      "result_path": "results/milestone1_baseline.json",
+      "actual_status": "VERIFIED_CANDIDATE",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "process exit code 0"
+    },
+    {
+      "name": "analytical production baseline",
+      "expected_status": "VERIFIED_CANDIDATE",
+      "required": true,
+      "result_path": "results/milestone2_production_baseline.json",
+      "actual_status": "VERIFIED_CANDIDATE",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "process exit code 0"
+    },
+    {
+      "name": "split-agent invariance baseline",
+      "expected_status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+      "required": true,
+      "result_path": "results/milestone3_split_agent_invariance.json",
+      "actual_status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "process exit code 0"
+    },
+    {
+      "name": "signed-price bad-absorption baseline",
+      "expected_status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+      "required": true,
+      "result_path": "results/milestone4_signed_bad_absorption.json",
+      "actual_status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "process exit code 0"
+    },
+    {
+      "name": "configs/paper/example_1.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/example_2.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/theorem_3_4_mapping.yaml",
+      "expected_status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/example_3.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/example_4.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/example_5.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/paper/example_6.yaml",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/experiments/example3_multistart.yaml",
+      "expected_status": "MULTISTART_CLUSTERING_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "MULTISTART_CLUSTERING_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/experiments/tax_quota_sweeps.yaml",
+      "expected_status": "SWEEP_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "SWEEP_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/experiments/quota_ownership_welfare.yaml",
+      "expected_status": "WELFARE_DISTRIBUTION_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "WELFARE_DISTRIBUTION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "configs/experiments/finite_weighted_bad_absorption.yaml",
+      "expected_status": "FINITE_WEIGHTED_EXPERIMENT_SUCCESS",
+      "required": true,
+      "result_path": "results/ (runner-specific JSON)",
+      "actual_status": "FINITE_WEIGHTED_EXPERIMENT_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "runner returned a result mapping"
+    },
+    {
+      "name": "research figure generation",
+      "expected_status": "FIGURE_GENERATION_SUCCESS",
+      "required": true,
+      "result_path": "figures/figure_manifest.json",
+      "actual_status": "FIGURE_GENERATION_SUCCESS",
+      "actual_outcome": "SUCCESS",
+      "exact_match": true,
+      "detail": "figure runner returned a result mapping"
+    }
+  ],
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:26.814607+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [],
+    "candidate_and_run_status_counts": {
+      "FIGURE_GENERATION_SUCCESS": 2,
+      "FINITE_WEIGHTED_EXPERIMENT_SUCCESS": 2,
+      "MULTISTART_CLUSTERING_SUCCESS": 2,
+      "NUMERICAL_MAPPING_CHECK_SUCCESS": 2,
+      "PAPER_REPLICATION_SUCCESS": 12,
+      "REPRODUCIBILITY_SUITE_SUCCESS": 1,
+      "SIGNED_BAD_ABSORPTION_SUCCESS": 3,
+      "SPLIT_AGENT_INVARIANCE_SUCCESS": 3,
+      "SWEEP_SUCCESS": 2,
+      "VERIFIED_CANDIDATE": 6,
+      "WELFARE_DISTRIBUTION_SUCCESS": 2
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

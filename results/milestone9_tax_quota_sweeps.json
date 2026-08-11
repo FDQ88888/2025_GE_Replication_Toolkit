@@ -1,0 +1,2007 @@
+{
+  "status": "SWEEP_SUCCESS",
+  "claim_language": "Each row reports discovered verified candidate clusters; sets are never averaged and numerical search does not prove exact counts.",
+  "config_snapshot": {
+    "runner": {
+      "module": "scripts.run_tax_quota_sweeps",
+      "callable": "run",
+      "expected_status": "SWEEP_SUCCESS",
+      "required": true
+    },
+    "experiment": {
+      "label": "PAPER EXAMPLES 3 AND 5 CORRESPONDENCE SWEEPS",
+      "random_seed": 20250811
+    },
+    "tax_sweep": {
+      "table_goods_sum_tax_rates": [
+        0.0,
+        0.004,
+        0.008,
+        0.01,
+        0.012,
+        0.02,
+        0.038,
+        0.04
+      ],
+      "deterministic_eta_starts": [
+        0.3,
+        0.55,
+        0.8,
+        1.0,
+        1.5,
+        2.2,
+        2.8
+      ],
+      "random_eta_bounds": [
+        0.2,
+        3.0
+      ],
+      "random_count": 12
+    },
+    "quota_sweep": {
+      "reduction_targets": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "deterministic_eta_tau_starts": [
+        [
+          2.0,
+          0.01
+        ],
+        [
+          0.8,
+          0.009
+        ],
+        [
+          0.55,
+          0.007
+        ]
+      ],
+      "random_bounds_lower": [
+        0.1,
+        0.0
+      ],
+      "random_bounds_upper": [
+        4.0,
+        0.04
+      ],
+      "random_count": 12
+    },
+    "solver": {
+      "tolerance": 1e-12,
+      "residual_acceptance_tolerance": 1e-09,
+      "max_nfev": 1500
+    },
+    "clustering": {
+      "distance_threshold": 1e-06
+    },
+    "validation": {
+      "expected_tax_cluster_counts": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        0
+      ],
+      "expected_quota_cluster_counts": [
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "tax_emissions_correspondence": [
+    {
+      "table_goods_sum_tax_rate": 0.0,
+      "core_signed_l1_tax_rate": 0.0,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 19,
+        "verified": 19
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 0.49999999999998657,
+          "prices": [
+            -0.0,
+            0.3333333333333273,
+            0.6666666666666726
+          ],
+          "emissions": 0.4,
+          "reduction_percent": 0.0,
+          "production": [],
+          "allocations": [
+            [
+              0.0,
+              1.6916299467899656,
+              0.9258747122872877
+            ],
+            [
+              0.0,
+              1.0800597388923094,
+              1.8458149733949867
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.4601612687181376,
+            "omega_2": 1.7783112397142191
+          },
+          "profits": {},
+          "tax_revenue": 0.0,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 4.440892098500626e-16,
+            "max_compliance_ratio": 1.1774277495199864e-06,
+            "abs_rebate_adjusted_walras_residual": 2.960594732333777e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              8,
+              15,
+              17
+            ],
+            "max_distance_to_representative": 2.4928810482975618e-11
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "eta_p1_over_p2": 1.0000000000003637,
+          "prices": [
+            -0.0,
+            0.5000000000000909,
+            0.4999999999999091
+          ],
+          "emissions": 0.4,
+          "reduction_percent": 0.0,
+          "production": [],
+          "allocations": [
+            [
+              0.0,
+              1.771689685682317,
+              1.0000000000000404
+            ],
+            [
+              0.0,
+              0.9999999999999596,
+              1.7716896856822317
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.6466896856823574,
+            "omega_2": 1.6466896856821913
+          },
+          "profits": {},
+          "tax_revenue": 0.0,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 2.6645352591003757e-15,
+            "max_compliance_ratio": 7.064566497119919e-06,
+            "abs_rebate_adjusted_walras_residual": 4.440892098496589e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              3,
+              7,
+              11,
+              14,
+              18
+            ],
+            "max_distance_to_representative": 6.397868581505596e-13
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "eta_p1_over_p2": 2.000000024716362,
+          "prices": [
+            -0.0,
+            0.6666666694129291,
+            0.33333333058707093
+          ],
+          "emissions": 0.4,
+          "reduction_percent": 0.0,
+          "production": [],
+          "allocations": [
+            [
+              0.0,
+              1.8458149745588988,
+              1.08005974037537
+            ],
+            [
+              0.0,
+              0.925874711015943,
+              1.6916299455217705
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.7783112416196616,
+            "omega_2": 1.460161264907253
+          },
+          "profits": {},
+          "tax_revenue": 0.0,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 2.148654587585952e-10,
+            "max_compliance_ratio": 0.5696795777287996,
+            "abs_rebate_adjusted_walras_residual": 2.9694458984314173e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              9,
+              10,
+              12,
+              13,
+              16
+            ],
+            "max_distance_to_representative": 1.9938744390287835e-09
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.004,
+      "core_signed_l1_tax_rate": 0.00398406374501992,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 22,
+        "verified": 22
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 0.5096389780288388,
+          "prices": [
+            -0.00398406374501992,
+            0.3362449905183411,
+            0.659770945736639
+          ],
+          "emissions": 0.33471797790451857,
+          "reduction_percent": 16.320505523870363,
+          "production": [],
+          "allocations": [
+            [
+              0.059243466183366116,
+              1.6939189833015662,
+              0.9278411426392283
+            ],
+            [
+              0.006038555912115356,
+              1.0777707023807082,
+              1.843848543043046
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.4659948638186597,
+            "omega_2": 1.7751710660504532
+          },
+          "profits": {},
+          "tax_revenue": 0.001333537760575771,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_compliance_violation": 4.440892098500626e-16,
+            "max_compliance_ratio": 1.1774277495199864e-06,
+            "abs_rebate_adjusted_walras_residual": 4.423544863740858e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              10,
+              12,
+              16,
+              19
+            ],
+            "max_distance_to_representative": 1.2725475410634327e-11
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "eta_p1_over_p2": 0.97884135892862,
+          "prices": [
+            -0.00398406374501992,
+            0.4926830481682661,
+            0.503332888086714
+          ],
+          "emissions": 0.351652314436445,
+          "reduction_percent": 12.086921390888747,
+          "production": [],
+          "allocations": [
+            [
+              0.04043232012784051,
+              1.7693106720578948,
+              0.9976266327250771
+            ],
+            [
+              0.00791536543571448,
+              1.0023790135478239,
+              1.7740630530321335
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.6417482777574381,
+            "omega_2": 1.6513854720543077
+          },
+          "profits": {},
+          "tax_revenue": 0.0014010052367985856,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 7.655609479684244e-11,
+            "max_compliance_ratio": 0.20297559231200094,
+            "abs_rebate_adjusted_walras_residual": 3.3154902434606726e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              3,
+              17,
+              18,
+              20
+            ],
+            "max_distance_to_representative": 3.884001129122904e-09
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "eta_p1_over_p2": 2.012234038285028,
+          "prices": [
+            -0.00398406374501992,
+            0.6653590471833569,
+            0.3306568890716232
+          ],
+          "emissions": 0.35801186213399877,
+          "reduction_percent": 10.49703446650031,
+          "production": [],
+          "allocations": [
+            [
+              0.029939201712861123,
+              1.846442132069726,
+              1.0807918337117948
+            ],
+            [
+              0.012048936153140111,
+              0.925247553514233,
+              1.6908978521683133
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.7792136962093394,
+            "omega_2": 1.4580984361094411
+          },
+          "profits": {},
+          "tax_revenue": 0.0014263420802151346,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 4.440892098500626e-16,
+            "max_utility_gap": 6.661338147750939e-16,
+            "max_compliance_violation": 1.9783330529321574e-10,
+            "max_compliance_ratio": 0.5245216912564008,
+            "abs_rebate_adjusted_walras_residual": 5.0935818063369e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              11,
+              13,
+              14,
+              15,
+              21
+            ],
+            "max_distance_to_representative": 1.912149863107788e-09
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.008,
+      "core_signed_l1_tax_rate": 0.007936507936507936,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 22,
+        "verified": 22
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 0.5436163600269042,
+          "prices": [
+            -0.007936507936507936,
+            0.3493756340220024,
+            0.6426878580414898
+          ],
+          "emissions": 0.27406976630906665,
+          "reduction_percent": 31.482558422733344,
+          "production": [],
+          "allocations": [
+            [
+              0.11358130281071813,
+              1.7016202921268895,
+              0.9345188321640508
+            ],
+            [
+              0.012348930880215233,
+              1.0700693935555214,
+              1.8371708535181497
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.4854454922302536,
+            "omega_2": 1.7643812018836016
+          },
+          "profits": {},
+          "tax_revenue": 0.0021751568754687827,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 1.3589129821411916e-13,
+            "max_compliance_ratio": 0.0003602928913531029,
+            "abs_rebate_adjusted_walras_residual": 1.8648277366750676e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              9,
+              19
+            ],
+            "max_distance_to_representative": 1.909814207082119e-12
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "eta_p1_over_p2": 0.9123249243906307,
+          "prices": [
+            -0.007936507936507936,
+            0.4732899931615643,
+            0.5187734989019279
+          ],
+          "emissions": 0.3008573720897961,
+          "reduction_percent": 24.785656977550982,
+          "production": [],
+          "allocations": [
+            [
+              0.08384402851507888,
+              1.7614420821246035,
+              0.9898563446009683
+            ],
+            [
+              0.015298599395125045,
+              1.010247603558192,
+              1.781833341080831
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.6251163193924756,
+            "omega_2": 1.6665070589425992
+          },
+          "profits": {},
+          "tax_revenue": 0.002387756921347588,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_compliance_violation": 5.204725539442734e-13,
+            "max_compliance_ratio": 0.0013799453224372336,
+            "abs_rebate_adjusted_walras_residual": 4.0419056990259605e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              3,
+              12,
+              14,
+              15,
+              17,
+              20
+            ],
+            "max_distance_to_representative": 1.1758647233843702e-09
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "eta_p1_over_p2": 2.046892935717808,
+          "prices": [
+            -0.007936507936507936,
+            0.6664650831289901,
+            0.325598408934502
+          ],
+          "emissions": 0.31608304301634116,
+          "reduction_percent": 20.979239245914716,
+          "production": [],
+          "allocations": [
+            [
+              0.05954181349791641,
+              1.8481961181357822,
+              1.0828445753984144
+            ],
+            [
+              0.024375143485742462,
+              0.9234935675159724,
+              1.688845110346332
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.781714261818863,
+            "omega_2": 1.4522614790951969
+          },
+          "profits": {},
+          "tax_revenue": 0.002508595579494771,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 6.247180550644771e-11,
+            "max_compliance_ratio": 0.16563347123323113,
+            "abs_rebate_adjusted_walras_residual": 1.8561541192951836e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              10,
+              11,
+              13,
+              16,
+              18,
+              21
+            ],
+            "max_distance_to_representative": 5.091323903950274e-10
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.01,
+      "core_signed_l1_tax_rate": 0.009900990099009901,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 22,
+        "verified": 22
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 0.5775837140288875,
+          "prices": [
+            -0.009900990099009901,
+            0.3624942741925812,
+            0.6276047357084089
+          ],
+          "emissions": 0.24765662505427488,
+          "reduction_percent": 38.085843736431286,
+          "production": [],
+          "allocations": [
+            [
+              0.13656753780543626,
+              1.708802358478653,
+              0.9408334960874228
+            ],
+            [
+              0.015775837140288875,
+              1.062887327203622,
+              1.830856189594852
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.5033231911375073,
+            "omega_2": 1.7539934498210505
+          },
+          "profits": {},
+          "tax_revenue": 0.002452045792616583,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 0.0,
+            "max_compliance_ratio": 0.0,
+            "abs_rebate_adjusted_walras_residual": 0.0,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              10,
+              19
+            ],
+            "max_distance_to_representative": 1.6296215961649124e-12
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "eta_p1_over_p2": 0.8556519116653383,
+          "prices": [
+            -0.009900990099009901,
+            0.45654042400627104,
+            0.533558585894719
+          ],
+          "emissions": 0.2730085036240941,
+          "reduction_percent": 31.747874093976478,
+          "production": [],
+          "allocations": [
+            [
+              0.10843497725925254,
+              1.7542175098832222,
+              0.9828278588679117
+            ],
+            [
+              0.018556519116653382,
+              1.0174721758008247,
+              1.7888618268128464
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.609462886497135,
+            "omega_2": 1.6798644030756997
+          },
+          "profits": {},
+          "tax_revenue": 0.0027030544913276646,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 2.220446049250313e-16,
+            "max_compliance_violation": 1.7719159473017498e-12,
+            "max_compliance_ratio": 0.004697936720582539,
+            "abs_rebate_adjusted_walras_residual": 2.246466901389965e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              3,
+              7,
+              8,
+              9,
+              11,
+              15,
+              20
+            ],
+            "max_distance_to_representative": 3.8928874934372764e-10
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "eta_p1_over_p2": 2.0711660937047083,
+          "prices": [
+            -0.009900990099009901,
+            0.6677136423591629,
+            0.3223853675418272
+          ],
+          "emissions": 0.29514734904193307,
+          "reduction_percent": 26.21316273951673,
+          "production": [],
+          "allocations": [
+            [
+              0.07414099002101984,
+              1.8494049773196313,
+              1.0842638839533212
+            ],
+            [
+              0.030711660937047084,
+              0.9222847083626103,
+              1.687425801729022
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.7834172796728283,
+            "omega_2": 1.4481785965823941
+          },
+          "profits": {},
+          "tax_revenue": 0.0029222509806131986,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 6.838973831690964e-14,
+            "max_compliance_ratio": 0.00018132387342607463,
+            "abs_rebate_adjusted_walras_residual": 1.9125326322644298e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              12,
+              13,
+              14,
+              16,
+              17,
+              18,
+              21
+            ],
+            "max_distance_to_representative": 8.756611678804115e-10
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.012,
+      "core_signed_l1_tax_rate": 0.011857707509881424,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 22,
+        "verified": 22
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 0.6533082255397984,
+          "prices": [
+            -0.011857707509881422,
+            0.3904665069193463,
+            0.5976757855707723
+          ],
+          "emissions": 0.22832003715108834,
+          "reduction_percent": 42.919990712227914,
+          "production": [],
+          "allocations": [
+            [
+              0.1518402641424341,
+              1.7232524651609857,
+              0.9538005523141314
+            ],
+            [
+              0.01983969870647758,
+              1.0484372205213957,
+              1.8178891333680736
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.5384525546967316,
+            "omega_2": 1.7320732440296027
+          },
+          "profits": {},
+          "tax_revenue": 0.002707352219182866,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 1.734723475976807e-18,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 2.220446049250313e-16,
+            "max_compliance_violation": 1.0658141036401503e-13,
+            "max_compliance_ratio": 0.00028258265988478877,
+            "abs_rebate_adjusted_walras_residual": 5.5077470362263625e-17,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              9,
+              14,
+              19
+            ],
+            "max_distance_to_representative": 6.213591510825611e-10
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "eta_p1_over_p2": 0.7538220719568008,
+          "prices": [
+            -0.011857707509881422,
+            0.42472009117889115,
+            0.5634222013112273
+          ],
+          "emissions": 0.2393597557304476,
+          "reduction_percent": 40.160061067388106,
+          "production": [],
+          "allocations": [
+            [
+              0.1395943794060708,
+              1.7397916291608593,
+              0.9690879769371542
+            ],
+            [
+              0.021045864863481614,
+              1.0318980565217046,
+              1.8026017087449024
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.5771472281801047,
+            "omega_2": 1.7051468031540529
+          },
+          "profits": {},
+          "tax_revenue": 0.0028382579730883116,
+          "residuals": {
+            "normalization_error": 1.1102230246251565e-16,
+            "max_tax_price_constraint_violation": 1.734723475976807e-18,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 2.8910207561239076e-13,
+            "max_compliance_ratio": 0.0007665054649374525,
+            "abs_rebate_adjusted_walras_residual": 6.591949208711867e-17,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              3,
+              10,
+              15,
+              17,
+              20
+            ],
+            "max_distance_to_representative": 2.2853115571940978e-08
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "eta_p1_over_p2": 2.0991619270679136,
+          "prices": [
+            -0.011857707509881422,
+            0.6693005166346084,
+            0.31884177585551016
+          ],
+          "emissions": 0.2742272213986445,
+          "reduction_percent": 31.44319465033888,
+          "production": [],
+          "allocations": [
+            [
+              0.08858283547654056,
+              1.850779836750739,
+              1.085882620497771
+            ],
+            [
+              0.03718994312481497,
+              0.9209098489315519,
+              1.685807065184468
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.785333469275544,
+            "omega_2": 1.4434731576072823
+          },
+          "profits": {},
+          "tax_revenue": 0.003251706182592623,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 1.734723475976807e-18,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_compliance_violation": 3.552713678800501e-14,
+            "max_compliance_ratio": 9.419421996159892e-05,
+            "abs_rebate_adjusted_walras_residual": 6.279698983036042e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              11,
+              12,
+              13,
+              16,
+              18,
+              21
+            ],
+            "max_distance_to_representative": 6.539284660864643e-10
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.02,
+      "core_signed_l1_tax_rate": 0.0196078431372549,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_1_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 22,
+        "verified": 11
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 2.2366007079615224,
+          "prices": [
+            -0.0196078431372549,
+            0.6774841847884832,
+            0.3029079720742619
+          ],
+          "emissions": 0.19055727836221303,
+          "reduction_percent": 52.36068040944674,
+          "production": [],
+          "allocations": [
+            [
+              0.14471070747855652,
+              1.8572462682926314,
+              1.0935613740373165
+            ],
+            [
+              0.06473201415923045,
+              0.9144434173896455,
+              1.6781283116449535
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.7940347710261983,
+            "omega_2": 1.4203775954758437
+          },
+          "profits": {},
+          "tax_revenue": 0.003736417222788491,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_compliance_violation": 4.884981308350689e-15,
+            "max_compliance_ratio": 1.295170524471985e-05,
+            "abs_rebate_adjusted_walras_residual": 2.47198095326695e-17,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 4,
+            "member_run_ids": [
+              4,
+              5,
+              6,
+              8,
+              11,
+              12,
+              15,
+              16,
+              17,
+              18,
+              21
+            ],
+            "max_distance_to_representative": 7.339450237821063e-10
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.038,
+      "core_signed_l1_tax_rate": 0.036608863198458574,
+      "paper_theoretical_status": "EQUILIBRIUM_EXISTS",
+      "numerical_search_status": "DISCOVERED_1_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 20,
+        "verified": 19
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "eta_p1_over_p2": 2.601665275581869,
+          "prices": [
+            -0.036608863198458574,
+            0.6959062199401598,
+            0.26748491686138165
+          ],
+          "emissions": 0.00010657157486071434,
+          "reduction_percent": 99.97335710628481,
+          "production": [],
+          "allocations": [
+            [
+              0.2630301479530283,
+              1.8724800474080783,
+              1.1120877239696874
+            ],
+            [
+              0.13686328047211102,
+              0.8992096382742351,
+              1.659601961712486
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.812130027970219,
+            "omega_2": 1.3578058715208656
+          },
+          "profits": {},
+          "tax_revenue": 3.901464204920178e-06,
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_tax_price_constraint_violation": 0.0,
+            "max_price_sign_violation": 0.0,
+            "rebate_adding_up_error": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 2.220446049250313e-16,
+            "max_compliance_violation": 1.0125233984581428e-13,
+            "max_compliance_ratio": 0.0002684535268905569,
+            "abs_rebate_adjusted_walras_residual": 1.9660735848603741e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              19
+            ],
+            "max_distance_to_representative": 2.7968001164323e-10
+          }
+        }
+      ]
+    },
+    {
+      "table_goods_sum_tax_rate": 0.04,
+      "core_signed_l1_tax_rate": 0.038461538461538464,
+      "paper_theoretical_status": "NO_EQUILIBRIUM",
+      "numerical_search_status": "DISCOVERED_0_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 20,
+        "verified": 0
+      },
+      "equilibria": []
+    }
+  ],
+  "quota_price_correspondence": [
+    {
+      "target_reduction_fraction": 0.2,
+      "quota_emissions": 0.32000000000000006,
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 15,
+        "verified": 15
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "quota_price_goods_sum_convention": 0.007626007977294093,
+          "quota_price_core_signed_l1": 0.007568292121203303,
+          "emissions": 0.32,
+          "allocations": [
+            [
+              0.0567954135470544,
+              1.8479918276371707,
+              1.0826050870317923
+            ],
+            [
+              0.0232045864529456,
+              0.9236978580451041,
+              1.6890845986504808
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.78142480472013,
+            "omega_2": 1.4529465596754463
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.582730194769956,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0012109267393925285,
+              "total_income": 1.5839411215093484
+            },
+            "omega_2": {
+              "endowment_income": 1.164955216853268,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0012109267393925285,
+              "total_income": 1.1661661435926605
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 2.220446049250313e-16,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_quota_compliance_violation": 1.7763568394002505e-15,
+            "max_quota_compliance_ratio": 4.7097109980799475e-06,
+            "abs_quota_adjusted_walras_residual": 5.793976409762536e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              13,
+              14
+            ],
+            "max_distance_to_representative": 3.544282167674491e-11
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "quota_price_goods_sum_convention": 0.006532305529811887,
+          "quota_price_core_signed_l1": 0.006489911445389181,
+          "emissions": 0.32,
+          "allocations": [
+            [
+              0.06730998697549175,
+              1.7651063993803016,
+              0.9934597699052218
+            ],
+            [
+              0.01269001302450826,
+              1.006583286301973,
+              1.778229915777053
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.632916347094937,
+            "omega_2": 1.6595418588870565
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.3575411872841734,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.001038385831262269,
+              "total_income": 1.3585795731154358
+            },
+            "omega_2": {
+              "endowment_income": 1.3935645132057692,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.001038385831262269,
+              "total_income": 1.3946028990370316
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_quota_compliance_violation": 0.0,
+            "max_quota_compliance_ratio": 0.0,
+            "abs_quota_adjusted_walras_residual": 0.0,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 1,
+            "member_run_ids": [
+              1,
+              2
+            ],
+            "max_distance_to_representative": 6.741964424738974e-15
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "quota_price_goods_sum_convention": 0.004930632117022013,
+          "quota_price_core_signed_l1": 0.0049064402650708045,
+          "emissions": 0.32,
+          "allocations": [
+            [
+              0.07253046854756932,
+              1.6951536578181234,
+              0.9289052796347191
+            ],
+            [
+              0.0074695314524306985,
+              1.076536027864152,
+              1.8427844060475551
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.4691317362138079,
+            "omega_2": 1.773464769701346
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.1823772876787888,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0007850304424113287,
+              "total_income": 1.1831623181212
+            },
+            "omega_2": {
+              "endowment_income": 1.5737506920213447,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0007850304424113287,
+              "total_income": 1.574535722463756
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_quota_compliance_violation": 8.881784197001252e-16,
+            "max_quota_compliance_ratio": 2.354855499039972e-06,
+            "abs_quota_adjusted_walras_residual": 8.673617379884035e-18,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 12,
+            "member_run_ids": [
+              12
+            ],
+            "max_distance_to_representative": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "target_reduction_fraction": 0.3,
+      "quota_emissions": 0.27999999999999997,
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 18,
+        "verified": 18
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "quota_price_goods_sum_convention": 0.011447993905387286,
+          "quota_price_core_signed_l1": 0.011318420694260778,
+          "emissions": 0.27999999999999414,
+          "allocations": [
+            [
+              0.08461309348366601,
+              1.8503860723347638,
+              1.0854185151478253
+            ],
+            [
+              0.03538690651633987,
+              0.921303613347528,
+              1.686271170534413
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.7847869425641625,
+            "omega_2": 1.444827679421083
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.5822272443406076,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0015845788971964759,
+              "total_income": 1.583811823237804
+            },
+            "omega_2": {
+              "endowment_income": 1.153563923167467,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0015845788971964759,
+              "total_income": 1.1551485020646635
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 2.220446049250313e-16,
+            "max_quota_compliance_violation": 3.6415315207705135e-14,
+            "max_quota_compliance_ratio": 9.654907546063981e-05,
+            "abs_quota_adjusted_walras_residual": 3.6038880213418167e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "max_distance_to_representative": 2.1080132840066437e-11
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "quota_price_goods_sum_convention": 0.009517044175429036,
+          "quota_price_core_signed_l1": 0.009427323917252466,
+          "emissions": 0.28,
+          "allocations": [
+            [
+              0.10218923067807811,
+              1.7562850057381318,
+              0.9848290240842796
+            ],
+            [
+              0.01781076932192188,
+              1.0154046799441423,
+              1.786860661597995
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.613979409309333,
+            "omega_2": 1.6760914551503279
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.3291094646418617,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0013198253484153454,
+              "total_income": 1.330429289990277
+            },
+            "omega_2": {
+              "endowment_income": 1.4126796750084774,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0013198253484153454,
+              "total_income": 1.4139995003568926
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 4.440892098500626e-16,
+            "max_quota_compliance_violation": 8.881784197001252e-16,
+            "max_quota_compliance_ratio": 2.3548554990399733e-06,
+            "abs_quota_adjusted_walras_residual": 4.098284211995207e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 1,
+            "member_run_ids": [
+              1,
+              4,
+              16
+            ],
+            "max_distance_to_representative": 7.897575351045738e-12
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "quota_price_goods_sum_convention": 0.007583215899727719,
+          "quota_price_core_signed_l1": 0.007526143528459076,
+          "emissions": 0.28,
+          "allocations": [
+            [
+              0.10833362838924207,
+              1.700483545990428,
+              0.9335271363247313
+            ],
+            [
+              0.011666371610757929,
+              1.071206139691847,
+              1.8381625493575429
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.4825922007041705,
+            "omega_2": 1.7659961038184202
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.191041896335896,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0010536600939842708,
+              "total_income": 1.1920955564298803
+            },
+            "omega_2": {
+              "endowment_income": 1.5567771975442004,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0010536600939842708,
+              "total_income": 1.5578308576381847
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 8.881784197001252e-16,
+            "max_quota_compliance_violation": 8.881784197001252e-16,
+            "max_quota_compliance_ratio": 2.3548554990399733e-06,
+            "abs_quota_adjusted_walras_residual": 5.728924279413405e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              17
+            ],
+            "max_distance_to_representative": 7.880761367246694e-15
+          }
+        }
+      ]
+    },
+    {
+      "target_reduction_fraction": 0.4,
+      "quota_emissions": 0.24,
+      "numerical_search_status": "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS",
+      "run_summary": {
+        "total": 18,
+        "verified": 18
+      },
+      "equilibria": [
+        {
+          "equilibrium_id": 0,
+          "quota_price_goods_sum_convention": 0.015273776768797818,
+          "quota_price_core_signed_l1": 0.015043998100106572,
+          "emissions": 0.24,
+          "allocations": [
+            [
+              0.11186671164385889,
+              1.853290047639765,
+              1.0888506033510796
+            ],
+            [
+              0.04813328835614113,
+              0.9183996380425098,
+              1.6828390823311947
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.788773612328648,
+            "omega_2": 1.4347037490349306
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.5829963765761297,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0018052797720127885,
+              "total_income": 1.5848016563481424
+            },
+            "omega_2": {
+              "endowment_income": 1.140978415500613,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0018052797720127885,
+              "total_income": 1.1427836952726258
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 2.220446049250313e-16,
+            "max_quota_compliance_violation": 4.440892098500626e-16,
+            "max_quota_compliance_ratio": 1.1774277495199867e-06,
+            "abs_quota_adjusted_walras_residual": 1.3877787807814457e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 0,
+            "representative_run_id": 0,
+            "member_run_ids": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "max_distance_to_representative": 1.8557283029557526e-12
+          }
+        },
+        {
+          "equilibrium_id": 1,
+          "quota_price_goods_sum_convention": 0.011970930089005486,
+          "quota_price_core_signed_l1": 0.011829322101132501,
+          "emissions": 0.23999999999999994,
+          "allocations": [
+            [
+              0.1389727925958157,
+              1.7402015371814143,
+              0.9694730874546396
+            ],
+            [
+              0.0210272074041844,
+              1.0314881485008616,
+              1.8022165982276344
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.5780844163984642,
+            "omega_2": 1.7044525343254633
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.282962268893376,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0014195186521358998,
+              "total_income": 1.284381787545512
+            },
+            "omega_2": {
+              "endowment_income": 1.4512084778921235,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0014195186521358998,
+              "total_income": 1.4526279965442594
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 0.0,
+            "max_budget_exhaustion_gap": 0.0,
+            "max_utility_gap": 0.0,
+            "max_quota_compliance_violation": 8.881784197001252e-16,
+            "max_quota_compliance_ratio": 2.3548554990399733e-06,
+            "abs_quota_adjusted_walras_residual": 1.214306433183765e-16,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 1,
+            "representative_run_id": 1,
+            "member_run_ids": [
+              1,
+              16
+            ],
+            "max_distance_to_representative": 2.356795290380056e-14
+          }
+        },
+        {
+          "equilibrium_id": 2,
+          "quota_price_goods_sum_convention": 0.010659966824712808,
+          "quota_price_core_signed_l1": 0.010547530499505435,
+          "emissions": 0.2399999999999942,
+          "allocations": [
+            [
+              0.14300632825191295,
+              1.7121383508185917,
+              0.9437957058764269
+            ],
+            [
+              0.016993671748092878,
+              1.059551334863704,
+              1.8278939798058353
+            ]
+          ],
+          "utilities": {
+            "omega_1": 1.5115358884112664,
+            "omega_2": 1.7490569702061323
+          },
+          "ownership_income": {
+            "omega_1": {
+              "endowment_income": 1.2144151365665263,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0012657036599406214,
+              "total_income": 1.215680840226467
+            },
+            "omega_2": {
+              "endowment_income": 1.5238210554210476,
+              "firm_dividend_income": 0.0,
+              "policy_income": 0.0012657036599406214,
+              "total_income": 1.5250867590809882
+            }
+          },
+          "classification": "VERIFIED_CANDIDATE",
+          "residuals": {
+            "normalization_error": 0.0,
+            "max_price_sign_violation": 0.0,
+            "max_ownership_adding_up_error": 0.0,
+            "government_plan_error": 0.0,
+            "max_firm_feasibility_violation": 0.0,
+            "max_profit_gap": 0.0,
+            "max_consumer_feasibility_violation": 0.0,
+            "max_budget_violation": 2.220446049250313e-16,
+            "max_budget_exhaustion_gap": 2.220446049250313e-16,
+            "max_utility_gap": 0.0,
+            "max_quota_compliance_violation": 2.0872192862952943e-14,
+            "max_quota_compliance_ratio": 5.533910422743906e-05,
+            "abs_quota_adjusted_walras_residual": 2.0383000842727483e-17,
+            "max_candidate_cache_error": 0.0
+          },
+          "cluster": {
+            "cluster_id": 2,
+            "representative_run_id": 2,
+            "member_run_ids": [
+              2,
+              17
+            ],
+            "max_distance_to_representative": 6.577351158086697e-13
+          }
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "expected_tax_cluster_counts": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      0
+    ],
+    "actual_tax_cluster_counts": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      1,
+      1,
+      0
+    ],
+    "expected_quota_cluster_counts": [
+      3,
+      3,
+      3
+    ],
+    "actual_quota_cluster_counts": [
+      3,
+      3,
+      3
+    ]
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T06:02:25.072375+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [
+      {
+        "path": "config_snapshot.experiment.random_seed",
+        "value": 20250811
+      }
+    ],
+    "numerical_setting_entries": [
+      {
+        "path": "config_snapshot.tax_sweep.deterministic_eta_starts",
+        "value": [
+          0.3,
+          0.55,
+          0.8,
+          1.0,
+          1.5,
+          2.2,
+          2.8
+        ]
+      },
+      {
+        "path": "config_snapshot.quota_sweep.deterministic_eta_tau_starts",
+        "value": [
+          [
+            2.0,
+            0.01
+          ],
+          [
+            0.8,
+            0.009
+          ],
+          [
+            0.55,
+            0.007
+          ]
+        ]
+      },
+      {
+        "path": "config_snapshot.solver",
+        "value": {
+          "tolerance": 1e-12,
+          "residual_acceptance_tolerance": 1e-09,
+          "max_nfev": 1500
+        }
+      },
+      {
+        "path": "config_snapshot.solver.tolerance",
+        "value": 1e-12
+      },
+      {
+        "path": "config_snapshot.solver.residual_acceptance_tolerance",
+        "value": 1e-09
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "DISCOVERED_0_VERIFIED_CANDIDATE_CLUSTERS": 1,
+      "DISCOVERED_1_VERIFIED_CANDIDATE_CLUSTERS": 2,
+      "DISCOVERED_3_VERIFIED_CANDIDATE_CLUSTERS": 8,
+      "EQUILIBRIUM_EXISTS": 7,
+      "NO_EQUILIBRIUM": 1,
+      "SWEEP_SUCCESS": 2,
+      "VERIFIED_CANDIDATE": 26
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

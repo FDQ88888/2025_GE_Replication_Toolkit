@@ -1,0 +1,26 @@
+runner:
+  module: paper_replications.example_5
+  callable: run
+  expected_status: PAPER_REPLICATION_SUCCESS
+  required: true
+paper:
+  main_location: "PDF pages 26-28; Example 5; Tables II-III"
+  inherited_detail: "Example 3 and Supplement Section 3.3"
+model:
+  target_reduction_fraction: 0.30
+solver:
+  starts_eta_tau:
+    - [2.0, 0.011]
+    - [0.8, 0.0095]
+    - [0.55, 0.0075]
+  tolerance: 1.0e-13
+  residual_acceptance_tolerance: 1.0e-9
+  root_deduplication_tolerance: 1.0e-7
+paper_rounded_quota_prices_goods_sum: [0.011448, 0.00951705, 0.0075832]
+paper_rounded_table_ii_reduction_percent:
+  - [30.00, 37.49, 41.97]
+  - [24.95, 30.00, 36.59]
+  - [19.89, 23.41, 30.00]
+paper_rounding_tolerances:
+  tax_rate: 5.0e-7
+  reduction_percent: 0.005

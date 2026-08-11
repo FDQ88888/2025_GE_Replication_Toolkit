@@ -1,0 +1,40 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+      - name: Run test suite
+        run: python -m pytest -q
+      - name: Compile Python sources
+        run: python -m compileall -q src scripts paper_replications
+      - name: Run analytical baseline smoke test
+        run: python scripts/run_baseline.py
+      - name: Run critical paper replication smoke tests
+        run: |
+          python scripts/run_experiment.py --config configs/paper/example_1.yaml
+          python scripts/run_experiment.py --config configs/paper/theorem_3_4_mapping.yaml
+          python scripts/run_experiment.py --config configs/paper/example_3.yaml
+      - name: Run complete reproducibility suite
+        run: python scripts/run_reproducibility_suite.py
+      - name: Run strict final audit
+        run: python scripts/run_final_audit.py

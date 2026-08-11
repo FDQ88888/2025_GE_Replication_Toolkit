@@ -1,0 +1,31 @@
+runner:
+  module: scripts.run_tax_quota_sweeps
+  callable: run
+  expected_status: SWEEP_SUCCESS
+  required: true
+experiment:
+  label: "PAPER EXAMPLES 3 AND 5 CORRESPONDENCE SWEEPS"
+  random_seed: 20250811
+tax_sweep:
+  table_goods_sum_tax_rates: [0.0, 0.004, 0.008, 0.010, 0.012, 0.020, 0.038, 0.040]
+  deterministic_eta_starts: [0.3, 0.55, 0.8, 1.0, 1.5, 2.2, 2.8]
+  random_eta_bounds: [0.2, 3.0]
+  random_count: 12
+quota_sweep:
+  reduction_targets: [0.20, 0.30, 0.40]
+  deterministic_eta_tau_starts:
+    - [2.0, 0.01]
+    - [0.8, 0.009]
+    - [0.55, 0.007]
+  random_bounds_lower: [0.1, 0.0]
+  random_bounds_upper: [4.0, 0.04]
+  random_count: 12
+solver:
+  tolerance: 1.0e-12
+  residual_acceptance_tolerance: 1.0e-9
+  max_nfev: 1500
+clustering:
+  distance_threshold: 1.0e-6
+validation:
+  expected_tax_cluster_counts: [3, 3, 3, 3, 3, 1, 1, 0]
+  expected_quota_cluster_counts: [3, 3, 3]

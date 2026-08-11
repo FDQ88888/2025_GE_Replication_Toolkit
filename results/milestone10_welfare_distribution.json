@@ -1,0 +1,348 @@
+{
+  "status": "WELFARE_DISTRIBUTION_SUCCESS",
+  "config_snapshot": {
+    "runner": {
+      "module": "scripts.run_welfare_distribution",
+      "callable": "run",
+      "expected_status": "WELFARE_DISTRIBUTION_SUCCESS",
+      "required": true
+    },
+    "experiment": {
+      "label": "PAPER EXAMPLE 2 FIXED-EMISSIONS DISTRIBUTION",
+      "emissions_quota_v": 3.0,
+      "regimes": [
+        "global_quota",
+        "cap_and_trade"
+      ]
+    },
+    "reporting": {
+      "cardinal_utility_from_paper": false,
+      "social_welfare_objective_defined": false
+    }
+  },
+  "fixed_underlying_objects": [
+    "commodities",
+    "consumer preferences",
+    "endowments",
+    "production technologies",
+    "total quota",
+    "total emissions"
+  ],
+  "changed_object": "quota property-right allocation between government and firm_1",
+  "regimes": {
+    "global_quota": {
+      "classification": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "prices": [
+        -0.25,
+        0.25,
+        0.5
+      ],
+      "total_emissions": 3.0,
+      "firm_profit_breakdowns": {
+        "firm_0": {
+          "firm_id": "firm_0",
+          "operating_profit": 0.0,
+          "quota_profit": 0.75,
+          "total_profit": 0.75
+        },
+        "firm_1": {
+          "firm_id": "firm_1",
+          "operating_profit": 0.0,
+          "quota_profit": -0.0,
+          "total_profit": 0.0
+        },
+        "firm_2": {
+          "firm_id": "firm_2",
+          "operating_profit": 0.0,
+          "quota_profit": -0.0,
+          "total_profit": 0.0
+        }
+      },
+      "individual": {
+        "omega_1": {
+          "consumption": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 1.0,
+          "income_decomposition": {
+            "endowment_income": 0.25,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.25,
+            "total_income": 0.5
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": 0.25,
+            "firm_1": -0.0,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        },
+        "omega_2": {
+          "consumption": [
+            0.0,
+            0.0,
+            1.5
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 1.5,
+          "income_decomposition": {
+            "endowment_income": 0.5,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.25,
+            "total_income": 0.75
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": 0.25,
+            "firm_1": -0.0,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        },
+        "omega_3": {
+          "consumption": [
+            0.0,
+            0.0,
+            2.0
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 2.0,
+          "income_decomposition": {
+            "endowment_income": 0.75,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.25,
+            "total_income": 1.0
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": 0.25,
+            "firm_1": -0.0,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        }
+      },
+      "diagnostic_errors": {
+        "normalization_error": 0.0,
+        "max_price_sign_violation": 0.0,
+        "max_ownership_adding_up_error": 0.0,
+        "government_plan_error": 0.0,
+        "max_firm_feasibility_violation": 0.0,
+        "max_profit_gap": 0.0,
+        "max_consumer_feasibility_violation": 0.0,
+        "max_budget_violation": 0.0,
+        "max_budget_exhaustion_gap": 0.0,
+        "max_utility_gap": 0.0,
+        "max_quota_compliance_violation": 0.0,
+        "max_quota_compliance_ratio": 0.0,
+        "abs_quota_adjusted_walras_residual": 0.0,
+        "max_candidate_cache_error": 0.0
+      }
+    },
+    "cap_and_trade": {
+      "classification": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "prices": [
+        -0.25,
+        0.25,
+        0.5
+      ],
+      "total_emissions": 3.0000000000000027,
+      "firm_profit_breakdowns": {
+        "firm_0": {
+          "firm_id": "firm_0",
+          "operating_profit": 0.0,
+          "quota_profit": -0.0,
+          "total_profit": 0.0
+        },
+        "firm_1": {
+          "firm_id": "firm_1",
+          "operating_profit": 0.0,
+          "quota_profit": 0.75,
+          "total_profit": 0.75
+        },
+        "firm_2": {
+          "firm_id": "firm_2",
+          "operating_profit": 0.0,
+          "quota_profit": -0.0,
+          "total_profit": 0.0
+        }
+      },
+      "individual": {
+        "omega_1": {
+          "consumption": [
+            0.0,
+            0.0,
+            0.75000000000005
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 0.75000000000005,
+          "income_decomposition": {
+            "endowment_income": 0.25,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.125,
+            "total_income": 0.375
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": -0.0,
+            "firm_1": 0.125,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        },
+        "omega_2": {
+          "consumption": [
+            0.0,
+            0.0,
+            1.4999999999999807
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 1.4999999999999807,
+          "income_decomposition": {
+            "endowment_income": 0.5,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.25,
+            "total_income": 0.75
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": -0.0,
+            "firm_1": 0.25,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        },
+        "omega_3": {
+          "consumption": [
+            0.0,
+            0.0,
+            2.249999999999977
+          ],
+          "own_electricity_component_not_paper_cardinal_utility": 2.249999999999977,
+          "income_decomposition": {
+            "endowment_income": 0.75,
+            "firm_dividend_income": 0.0,
+            "policy_income": 0.375,
+            "total_income": 1.125
+          },
+          "firm_operating_ownership_income_by_firm": {
+            "firm_0": 0.0,
+            "firm_1": 0.0,
+            "firm_2": 0.0
+          },
+          "quota_income_by_firm": {
+            "firm_0": -0.0,
+            "firm_1": 0.375,
+            "firm_2": -0.0
+          },
+          "tax_rebate": {
+            "applicable": false,
+            "amount": 0.0,
+            "reason": "This is a quota economy, not an emission-tax economy."
+          }
+        }
+      },
+      "diagnostic_errors": {
+        "normalization_error": 0.0,
+        "max_price_sign_violation": 0.0,
+        "max_ownership_adding_up_error": 0.0,
+        "government_plan_error": 0.0,
+        "max_firm_feasibility_violation": 0.0,
+        "max_profit_gap": 0.0,
+        "max_consumer_feasibility_violation": 0.0,
+        "max_budget_violation": 2.4980018054066022e-14,
+        "max_budget_exhaustion_gap": 2.4980018054066022e-14,
+        "max_utility_gap": 2.3092638912203256e-14,
+        "max_quota_compliance_violation": 4.440892098500626e-15,
+        "max_quota_compliance_ratio": 8.07434927000113e-06,
+        "abs_quota_adjusted_walras_residual": 3.552713678800501e-15,
+        "max_candidate_cache_error": 0.0
+      }
+    }
+  },
+  "global_minus_cap_electricity": [
+    0.24999999999995004,
+    1.9317880628477724e-14,
+    -0.2499999999999769
+  ],
+  "paper_supported_individual_ordering": {
+    "omega_1": "global_quota_better",
+    "omega_2": "indifferent",
+    "omega_3": "cap_and_trade_better"
+  },
+  "welfare_scope": {
+    "comparison": "within-agent comparison at fixed emissions",
+    "constrained_pareto_context": true,
+    "full_pareto_comparison_across_emissions": false,
+    "weighted_welfare_reported": false,
+    "reason": "The paper gives no cardinal Example 2 utility or social welfare objective; no aggregate welfare number is fabricated.",
+    "automatic_optimal_carbon_policy": false
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T06:02:25.401760+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [],
+    "candidate_and_run_status_counts": {
+      "VERIFIED_CANDIDATE": 2,
+      "WELFARE_DISTRIBUTION_SUCCESS": 2
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

@@ -1,0 +1,678 @@
+{
+  "model": {
+    "name": "milestone3_split_agent_invariance",
+    "role": "FINITE_WEIGHTED_SOFTWARE_VALIDATION_BENCHMARK",
+    "paper_replication": false,
+    "population_weights_are_welfare_weights": false
+  },
+  "original": {
+    "population_weights": [
+      1.0
+    ],
+    "weighted_ownership_total": 1.0,
+    "candidate": {
+      "prices": [
+        0.33333333333333454,
+        1.0
+      ],
+      "allocations": [
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ]
+      ],
+      "firm_plans": [
+        [
+          -0.5,
+          0.5
+        ]
+      ],
+      "aggregate_demand": [
+        1.4999999999999973,
+        0.5000000000000009
+      ],
+      "aggregate_endowment": [
+        2.0,
+        0.0
+      ],
+      "aggregate_production": [
+        -0.5,
+        0.5
+      ],
+      "resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "firm_profits": [
+        0.3333333333333327
+      ],
+      "income_breakdowns": {
+        "Original type": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        }
+      },
+      "solver_success": true,
+      "solver_message": "converged",
+      "solver_method": "brentq",
+      "iterations": 10,
+      "function_calls": 11,
+      "metadata": {
+        "model_role": "ANALYTICAL_PRODUCTION_BENCHMARK",
+        "numeraire": {
+          "index": 1,
+          "value": 1.0
+        },
+        "initial_bracket": [
+          0.1,
+          0.8
+        ],
+        "solved_market_index": 0,
+        "unused_market_indexes": [
+          1
+        ],
+        "timestamp_utc": "2026-08-10T05:58:22.751804+00:00"
+      }
+    },
+    "diagnostics": {
+      "classification": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "checks": {
+        "solver_success": true,
+        "finite_values": true,
+        "price_normalization": true,
+        "price_sign_restrictions": true,
+        "ownership_share_adding_up": true,
+        "firm_feasibility": true,
+        "firm_optimality_oracle_available": true,
+        "firm_optimality": true,
+        "dividend_accounting": true,
+        "consumer_feasibility": true,
+        "budget_feasibility": true,
+        "budget_exhaustion": true,
+        "consumer_optimality_oracle_available": true,
+        "consumer_optimality": true,
+        "candidate_cache_consistency": true,
+        "market_clearing": true,
+        "walras_law": true
+      },
+      "errors": {
+        "normalization_error": 0.0,
+        "max_price_sign_violation": 0.0,
+        "max_ownership_adding_up_error": 0.0,
+        "max_firm_feasibility_violation": 0.0,
+        "max_abs_profit_gap": 0.0,
+        "max_dividend_accounting_error": 0.0,
+        "max_consumer_feasibility_violation": 0.0,
+        "max_budget_violation": 0.0,
+        "max_budget_exhaustion_gap": 0.0,
+        "max_abs_utility_gap": 0.0,
+        "max_candidate_cache_error": 0.0,
+        "max_market_violation": 2.6645352591003757e-15,
+        "abs_candidate_walras_residual": 3.1554436208840472e-30
+      },
+      "signed_l1_prices": [
+        0.25000000000000067,
+        0.7499999999999993
+      ],
+      "candidate_aggregate_allocation": [
+        1.4999999999999973,
+        0.5000000000000009
+      ],
+      "candidate_aggregate_production": [
+        -0.5,
+        0.5
+      ],
+      "candidate_resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "market_limits": [
+        2.5e-10,
+        2e-10
+      ],
+      "candidate_walras_residual": -3.1554436208840472e-30,
+      "candidate_income_breakdowns": {
+        "Original type": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        }
+      },
+      "independently_reoptimized_consumer_allocations": [
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ]
+      ],
+      "independently_optimal_firm_plans": [
+        [
+          -0.5,
+          0.5
+        ]
+      ],
+      "fully_reoptimized_resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "budget_residuals": {
+        "Original type": 0.0
+      },
+      "consumer_feasibility_violations": {
+        "Original type": 0.0
+      },
+      "consumer_optimality_results": {
+        "Original type": {
+          "feasible": true,
+          "candidate_utility": 0.8660254037844387,
+          "optimal_utility": 0.8660254037844387,
+          "utility_gap": 0.0,
+          "budget_violation": 0.0,
+          "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:CobbDouglasUtility.marshallian_demand",
+          "feasibility_violation": 0.0,
+          "unique_demand_bundle_gap": 0.0
+        }
+      },
+      "firm_optimality_results": {
+        "Conversion firm": {
+          "feasible": true,
+          "candidate_profit": 0.3333333333333327,
+          "optimal_profit": 0.3333333333333327,
+          "profit_gap": 0.0,
+          "feasibility_violation": 0.0,
+          "method": "CapacityConstrainedLinearTechnology.global_profit_oracle",
+          "optimal_plan": [
+            -0.5,
+            0.5
+          ]
+        }
+      },
+      "ownership_adding_up_errors": {
+        "Conversion firm": 0.0
+      },
+      "dividend_accounting_residuals": {
+        "Conversion firm": 0.0
+      },
+      "cache_errors": {
+        "aggregate_demand": 0.0,
+        "aggregate_endowment": 0.0,
+        "aggregate_production": 0.0,
+        "resource_residual": 0.0,
+        "firm_profits": 0.0,
+        "income_breakdowns": 0.0
+      },
+      "notes": []
+    },
+    "aggregate_allocation": [
+      1.4999999999999973,
+      0.5000000000000009
+    ],
+    "aggregate_endowment": [
+      2.0,
+      0.0
+    ]
+  },
+  "split": {
+    "population_weights": [
+      0.4,
+      0.6
+    ],
+    "weighted_ownership_total": 1.0,
+    "raw_unweighted_ownership_sum": 2.0,
+    "candidate": {
+      "prices": [
+        0.33333333333333454,
+        1.0
+      ],
+      "allocations": [
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ],
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ]
+      ],
+      "firm_plans": [
+        [
+          -0.5,
+          0.5
+        ]
+      ],
+      "aggregate_demand": [
+        1.4999999999999973,
+        0.5000000000000009
+      ],
+      "aggregate_endowment": [
+        2.0,
+        0.0
+      ],
+      "aggregate_production": [
+        -0.5,
+        0.5
+      ],
+      "resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "firm_profits": [
+        0.3333333333333327
+      ],
+      "income_breakdowns": {
+        "Split type A": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        },
+        "Split type B": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        }
+      },
+      "solver_success": true,
+      "solver_message": "converged",
+      "solver_method": "brentq",
+      "iterations": 10,
+      "function_calls": 11,
+      "metadata": {
+        "model_role": "ANALYTICAL_PRODUCTION_BENCHMARK",
+        "numeraire": {
+          "index": 1,
+          "value": 1.0
+        },
+        "initial_bracket": [
+          0.1,
+          0.8
+        ],
+        "solved_market_index": 0,
+        "unused_market_indexes": [
+          1
+        ],
+        "timestamp_utc": "2026-08-10T05:58:22.753804+00:00"
+      }
+    },
+    "diagnostics": {
+      "classification": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "checks": {
+        "solver_success": true,
+        "finite_values": true,
+        "price_normalization": true,
+        "price_sign_restrictions": true,
+        "ownership_share_adding_up": true,
+        "firm_feasibility": true,
+        "firm_optimality_oracle_available": true,
+        "firm_optimality": true,
+        "dividend_accounting": true,
+        "consumer_feasibility": true,
+        "budget_feasibility": true,
+        "budget_exhaustion": true,
+        "consumer_optimality_oracle_available": true,
+        "consumer_optimality": true,
+        "candidate_cache_consistency": true,
+        "market_clearing": true,
+        "walras_law": true
+      },
+      "errors": {
+        "normalization_error": 0.0,
+        "max_price_sign_violation": 0.0,
+        "max_ownership_adding_up_error": 0.0,
+        "max_firm_feasibility_violation": 0.0,
+        "max_abs_profit_gap": 0.0,
+        "max_dividend_accounting_error": 0.0,
+        "max_consumer_feasibility_violation": 0.0,
+        "max_budget_violation": 0.0,
+        "max_budget_exhaustion_gap": 0.0,
+        "max_abs_utility_gap": 0.0,
+        "max_candidate_cache_error": 0.0,
+        "max_market_violation": 2.6645352591003757e-15,
+        "abs_candidate_walras_residual": 3.1554436208840472e-30
+      },
+      "signed_l1_prices": [
+        0.25000000000000067,
+        0.7499999999999993
+      ],
+      "candidate_aggregate_allocation": [
+        1.4999999999999973,
+        0.5000000000000009
+      ],
+      "candidate_aggregate_production": [
+        -0.5,
+        0.5
+      ],
+      "candidate_resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "market_limits": [
+        2.5e-10,
+        2e-10
+      ],
+      "candidate_walras_residual": -3.1554436208840472e-30,
+      "candidate_income_breakdowns": {
+        "Split type A": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        },
+        "Split type B": {
+          "endowment_income": 0.6666666666666691,
+          "firm_dividend_income": 0.3333333333333327,
+          "policy_income": 0.0,
+          "total_income": 1.0000000000000018
+        }
+      },
+      "independently_reoptimized_consumer_allocations": [
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ],
+        [
+          1.4999999999999973,
+          0.5000000000000009
+        ]
+      ],
+      "independently_optimal_firm_plans": [
+        [
+          -0.5,
+          0.5
+        ]
+      ],
+      "fully_reoptimized_resource_residual": [
+        -2.6645352591003757e-15,
+        8.881784197001252e-16
+      ],
+      "budget_residuals": {
+        "Split type A": 0.0,
+        "Split type B": 0.0
+      },
+      "consumer_feasibility_violations": {
+        "Split type A": 0.0,
+        "Split type B": 0.0
+      },
+      "consumer_optimality_results": {
+        "Split type A": {
+          "feasible": true,
+          "candidate_utility": 0.8660254037844387,
+          "optimal_utility": 0.8660254037844387,
+          "utility_gap": 0.0,
+          "budget_violation": 0.0,
+          "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:CobbDouglasUtility.marshallian_demand",
+          "feasibility_violation": 0.0,
+          "unique_demand_bundle_gap": 0.0
+        },
+        "Split type B": {
+          "feasible": true,
+          "candidate_utility": 0.8660254037844387,
+          "optimal_utility": 0.8660254037844387,
+          "utility_gap": 0.0,
+          "budget_violation": 0.0,
+          "method": "UTILITY_GAP_WITH_UNIQUE_DEMAND_BENCHMARK_CHECK:CobbDouglasUtility.marshallian_demand",
+          "feasibility_violation": 0.0,
+          "unique_demand_bundle_gap": 0.0
+        }
+      },
+      "firm_optimality_results": {
+        "Conversion firm": {
+          "feasible": true,
+          "candidate_profit": 0.3333333333333327,
+          "optimal_profit": 0.3333333333333327,
+          "profit_gap": 0.0,
+          "feasibility_violation": 0.0,
+          "method": "CapacityConstrainedLinearTechnology.global_profit_oracle",
+          "optimal_plan": [
+            -0.5,
+            0.5
+          ]
+        }
+      },
+      "ownership_adding_up_errors": {
+        "Conversion firm": 0.0
+      },
+      "dividend_accounting_residuals": {
+        "Conversion firm": 0.0
+      },
+      "cache_errors": {
+        "aggregate_demand": 0.0,
+        "aggregate_endowment": 0.0,
+        "aggregate_production": 0.0,
+        "resource_residual": 0.0,
+        "firm_profits": 0.0,
+        "income_breakdowns": 0.0
+      },
+      "notes": []
+    },
+    "aggregate_allocation": [
+      1.4999999999999973,
+      0.5000000000000009
+    ],
+    "aggregate_endowment": [
+      2.0,
+      0.0
+    ]
+  },
+  "invariance_differences": {
+    "price_l2": 0.0,
+    "aggregate_allocation_l2": 0.0,
+    "aggregate_endowment_l2": 0.0,
+    "firm_plan_l2": 0.0,
+    "firm_profit_l2": 0.0,
+    "resource_residual_l2": 0.0
+  },
+  "solver": {
+    "method": "brentq",
+    "bracket": [
+      0.1,
+      0.8
+    ]
+  },
+  "tolerances": {
+    "market_abs_tol": 1e-10,
+    "market_rel_tol": 1e-10,
+    "budget_tol": 1e-10,
+    "feasibility_tol": 1e-12,
+    "optimality_tol": 1e-10,
+    "normalization_tol": 1e-12,
+    "walras_tol": 1e-10,
+    "production_feasibility_tol": 1e-10,
+    "profit_tol": 1e-10,
+    "profit_margin_abs_tol": 1e-14,
+    "profit_margin_rel_tol": 1e-12,
+    "ownership_tol": 1e-12,
+    "accounting_tol": 1e-10,
+    "price_sign_tol": 1e-12,
+    "approximate_factor": 100.0
+  },
+  "status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+  "config_snapshot": {
+    "runner": "scripts/run_weighted_invariance.py",
+    "construction": "built-in analytical split-agent benchmark",
+    "solver": {
+      "method": "brentq",
+      "bracket": [
+        0.1,
+        0.8
+      ]
+    },
+    "tolerances": {
+      "market_abs_tol": 1e-10,
+      "market_rel_tol": 1e-10,
+      "budget_tol": 1e-10,
+      "feasibility_tol": 1e-12,
+      "optimality_tol": 1e-10,
+      "normalization_tol": 1e-12,
+      "walras_tol": 1e-10,
+      "production_feasibility_tol": 1e-10,
+      "profit_tol": 1e-10,
+      "profit_margin_abs_tol": 1e-14,
+      "profit_margin_rel_tol": 1e-12,
+      "ownership_tol": 1e-12,
+      "accounting_tol": 1e-10,
+      "price_sign_tol": 1e-12,
+      "approximate_factor": 100.0
+    }
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:22.795866+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "original.candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "original.candidate.solver_message",
+        "value": "converged"
+      },
+      {
+        "path": "original.candidate.solver_method",
+        "value": "brentq"
+      },
+      {
+        "path": "original.candidate.iterations",
+        "value": 10
+      },
+      {
+        "path": "original.candidate.metadata.initial_bracket",
+        "value": [
+          0.1,
+          0.8
+        ]
+      },
+      {
+        "path": "original.diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "split.candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "split.candidate.solver_message",
+        "value": "converged"
+      },
+      {
+        "path": "split.candidate.solver_method",
+        "value": "brentq"
+      },
+      {
+        "path": "split.candidate.iterations",
+        "value": 10
+      },
+      {
+        "path": "split.candidate.metadata.initial_bracket",
+        "value": [
+          0.1,
+          0.8
+        ]
+      },
+      {
+        "path": "split.diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "solver",
+        "value": {
+          "method": "brentq",
+          "bracket": [
+            0.1,
+            0.8
+          ]
+        }
+      },
+      {
+        "path": "solver.bracket",
+        "value": [
+          0.1,
+          0.8
+        ]
+      },
+      {
+        "path": "tolerances",
+        "value": {
+          "market_abs_tol": 1e-10,
+          "market_rel_tol": 1e-10,
+          "budget_tol": 1e-10,
+          "feasibility_tol": 1e-12,
+          "optimality_tol": 1e-10,
+          "normalization_tol": 1e-12,
+          "walras_tol": 1e-10,
+          "production_feasibility_tol": 1e-10,
+          "profit_tol": 1e-10,
+          "profit_margin_abs_tol": 1e-14,
+          "profit_margin_rel_tol": 1e-12,
+          "ownership_tol": 1e-12,
+          "accounting_tol": 1e-10,
+          "price_sign_tol": 1e-12,
+          "approximate_factor": 100.0
+        }
+      },
+      {
+        "path": "config_snapshot.solver",
+        "value": {
+          "method": "brentq",
+          "bracket": [
+            0.1,
+            0.8
+          ]
+        }
+      },
+      {
+        "path": "config_snapshot.solver.bracket",
+        "value": [
+          0.1,
+          0.8
+        ]
+      },
+      {
+        "path": "config_snapshot.tolerances",
+        "value": {
+          "market_abs_tol": 1e-10,
+          "market_rel_tol": 1e-10,
+          "budget_tol": 1e-10,
+          "feasibility_tol": 1e-12,
+          "optimality_tol": 1e-10,
+          "normalization_tol": 1e-12,
+          "walras_tol": 1e-10,
+          "production_feasibility_tol": 1e-10,
+          "profit_tol": 1e-10,
+          "profit_margin_abs_tol": 1e-14,
+          "profit_margin_rel_tol": 1e-12,
+          "ownership_tol": 1e-12,
+          "accounting_tol": 1e-10,
+          "price_sign_tol": 1e-12,
+          "approximate_factor": 100.0
+        }
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "SPLIT_AGENT_INVARIANCE_SUCCESS": 1,
+      "VERIFIED_CANDIDATE": 2
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

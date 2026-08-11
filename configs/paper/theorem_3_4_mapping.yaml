@@ -1,0 +1,19 @@
+runner:
+  module: paper_replications.theorem_3_4_mapping
+  callable: run
+  expected_status: NUMERICAL_MAPPING_CHECK_SUCCESS
+  required: true
+paper:
+  theorem_3_location: "Main PDF pages 20-21; journal pages 376-377"
+  theorem_4_location: "Main PDF page 21; journal page 377"
+  label: "NUMERICAL CHECK OF THEORETICAL MAPPING"
+model:
+  source_example: 1
+  emissions_quota_v: 0.5
+coordinates:
+  paper: signed_l1
+  internal_numeraire_index: 2
+  internal_numeraire_value: 1.0
+comparison:
+  absolute_tolerance: 1.0e-10
+  relative_tolerance: 1.0e-10

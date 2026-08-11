@@ -1,0 +1,23 @@
+runner:
+  module: scripts.run_finite_weighted_lab
+  callable: run
+  expected_status: FINITE_WEIGHTED_EXPERIMENT_SUCCESS
+  required: true
+experiment:
+  label: "PAPER-INSPIRED FINITE APPROXIMATION EXPERIMENT"
+  population_sizes: [10, 20, 50, 100, 200]
+continuum_type_target:
+  type_space: "z uniformly distributed on [0,1]"
+  endowment: [1.0, 2.0]
+  bad_disutility: "0.25 + 0.5*z"
+  max_bad_absorption: "0.5 + z"
+  target_prices: [-1.0, 1.0]
+  target_aggregate_consumption: [1.0, 2.0]
+  target_emissions_unabsorbed_bad: 0.0
+discretization:
+  rule: midpoint
+  equal_population_weights: true
+tail_diagnostics:
+  top_population_fraction: 0.01
+  truncation_level: 1.4
+random_seed: null

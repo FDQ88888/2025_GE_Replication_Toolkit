@@ -1,0 +1,373 @@
+{
+  "model": {
+    "name": "milestone4_signed_bad_absorption",
+    "role": "SIGNED_BAD_ABSORPTION_SOFTWARE_VALIDATION_BENCHMARK",
+    "paper_replication": false,
+    "commodity_kind_implies_price_sign": false,
+    "commodity_kind_implies_disposal": false
+  },
+  "parameters": {
+    "commodities": [
+      {
+        "name": "Absorbed bad",
+        "index": 0,
+        "kind": "bad",
+        "clearing_rule": "exact"
+      },
+      {
+        "name": "Ordinary good",
+        "index": 1,
+        "kind": "good",
+        "clearing_rule": "exact"
+      }
+    ],
+    "consumer": {
+      "id": "Bad absorber",
+      "endowment": [
+        1.0,
+        2.0
+      ],
+      "population_weight": 1.0,
+      "preference": {
+        "type": "BadAbsorptionLinearUtility",
+        "bad_disutility": 0.5,
+        "max_bad": 1.0
+      },
+      "consumption_set": {
+        "type": "BoxConsumptionSet",
+        "lower_bounds": [
+          0.0,
+          0.0
+        ],
+        "upper_bounds": [
+          1.0,
+          null
+        ]
+      }
+    },
+    "price_sign_restrictions": {
+      "signs": [
+        "negative",
+        "positive"
+      ]
+    },
+    "numeraire": {
+      "index": 1,
+      "value": 1.0
+    }
+  },
+  "analytical_solution": {
+    "prices": [
+      -1.0,
+      1.0
+    ],
+    "allocations": [
+      [
+        1.0,
+        2.0
+      ]
+    ]
+  },
+  "candidate": {
+    "prices": [
+      -1.0,
+      1.0
+    ],
+    "allocations": [
+      [
+        1.0,
+        2.0
+      ]
+    ],
+    "aggregate_demand": [
+      1.0,
+      2.0
+    ],
+    "aggregate_endowment": [
+      1.0,
+      2.0
+    ],
+    "excess_demand": [
+      0.0,
+      0.0
+    ],
+    "solver_success": true,
+    "solver_message": "analytical signed-price candidate",
+    "solver_method": "analytical",
+    "iterations": null,
+    "function_calls": null,
+    "metadata": {
+      "model_role": "SIGNED_BAD_ABSORPTION_BENCHMARK"
+    }
+  },
+  "diagnostics": {
+    "classification": "VERIFIED_CANDIDATE",
+    "passed": true,
+    "checks": {
+      "solver_success": true,
+      "finite_values": true,
+      "price_normalization": true,
+      "price_sign_restrictions": true,
+      "consumer_feasibility": true,
+      "budget_feasibility": true,
+      "budget_exhaustion": true,
+      "optimality_oracle_available": true,
+      "consumer_optimality": true,
+      "market_clearing": true,
+      "walras_law": true
+    },
+    "errors": {
+      "normalization_error": 0.0,
+      "max_price_sign_violation": 0.0,
+      "max_consumer_feasibility_violation": 0.0,
+      "max_budget_violation": 0.0,
+      "max_budget_exhaustion_gap": 0.0,
+      "max_abs_utility_gap": 0.0,
+      "max_market_violation": 0.0,
+      "abs_candidate_walras_residual": 0.0,
+      "abs_reoptimized_walras_residual": 0.0
+    },
+    "signed_l1_prices": [
+      -0.5,
+      0.5
+    ],
+    "candidate_aggregate_allocation": [
+      1.0,
+      2.0
+    ],
+    "candidate_resource_residual": [
+      0.0,
+      0.0
+    ],
+    "market_limits": [
+      2e-10,
+      3e-10
+    ],
+    "candidate_walras_residual": 0.0,
+    "reoptimized_allocations": [
+      [
+        1.0,
+        2.0
+      ]
+    ],
+    "reoptimized_resource_residual": [
+      0.0,
+      0.0
+    ],
+    "reoptimized_walras_residual": 0.0,
+    "budget_residuals": {
+      "Bad absorber": 0.0
+    },
+    "budget_exhaustion_gaps": {
+      "Bad absorber": 0.0
+    },
+    "consumer_feasibility_violations": {
+      "Bad absorber": 0.0
+    },
+    "utility_gaps": {
+      "Bad absorber": 0.0
+    },
+    "unique_demand_bundle_gaps": {
+      "Bad absorber": null
+    },
+    "consumer_optimality_results": {
+      "Bad absorber": {
+        "feasible": true,
+        "candidate_utility": 1.5,
+        "optimal_utility": 1.5,
+        "utility_gap": 0.0,
+        "budget_violation": 0.0,
+        "method": "UTILITY_GAP:BadAbsorptionLinearUtility.marshallian_demand",
+        "feasibility_violation": 0.0,
+        "unique_demand_bundle_gap": null
+      }
+    },
+    "notes": []
+  },
+  "normalization_round_trip": {
+    "signed_l1_prices": [
+      -0.5,
+      0.5
+    ],
+    "recovered_fixed_numeraire_prices": [
+      -1.0,
+      1.0
+    ],
+    "max_abs_error": 0.0
+  },
+  "tolerances": {
+    "market_abs_tol": 1e-10,
+    "market_rel_tol": 1e-10,
+    "budget_tol": 1e-10,
+    "feasibility_tol": 1e-12,
+    "optimality_tol": 1e-10,
+    "normalization_tol": 1e-12,
+    "walras_tol": 1e-10,
+    "production_feasibility_tol": 1e-10,
+    "profit_tol": 1e-10,
+    "profit_margin_abs_tol": 1e-14,
+    "profit_margin_rel_tol": 1e-12,
+    "ownership_tol": 1e-12,
+    "accounting_tol": 1e-10,
+    "price_sign_tol": 1e-12,
+    "approximate_factor": 100.0
+  },
+  "status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+  "config_snapshot": {
+    "runner": "scripts/run_signed_bad_baseline.py",
+    "parameters": {
+      "commodities": [
+        {
+          "name": "Absorbed bad",
+          "index": 0,
+          "kind": "bad",
+          "clearing_rule": "exact"
+        },
+        {
+          "name": "Ordinary good",
+          "index": 1,
+          "kind": "good",
+          "clearing_rule": "exact"
+        }
+      ],
+      "consumer": {
+        "id": "Bad absorber",
+        "endowment": [
+          1.0,
+          2.0
+        ],
+        "population_weight": 1.0,
+        "preference": {
+          "type": "BadAbsorptionLinearUtility",
+          "bad_disutility": 0.5,
+          "max_bad": 1.0
+        },
+        "consumption_set": {
+          "type": "BoxConsumptionSet",
+          "lower_bounds": [
+            0.0,
+            0.0
+          ],
+          "upper_bounds": [
+            1.0,
+            null
+          ]
+        }
+      },
+      "price_sign_restrictions": {
+        "signs": [
+          "negative",
+          "positive"
+        ]
+      },
+      "numeraire": {
+        "index": 1,
+        "value": 1.0
+      }
+    },
+    "tolerances": {
+      "market_abs_tol": 1e-10,
+      "market_rel_tol": 1e-10,
+      "budget_tol": 1e-10,
+      "feasibility_tol": 1e-12,
+      "optimality_tol": 1e-10,
+      "normalization_tol": 1e-12,
+      "walras_tol": 1e-10,
+      "production_feasibility_tol": 1e-10,
+      "profit_tol": 1e-10,
+      "profit_margin_abs_tol": 1e-14,
+      "profit_margin_rel_tol": 1e-12,
+      "ownership_tol": 1e-12,
+      "accounting_tol": 1e-10,
+      "price_sign_tol": 1e-12,
+      "approximate_factor": 100.0
+    }
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T05:58:22.839965+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "candidate.solver_success",
+        "value": true
+      },
+      {
+        "path": "candidate.solver_message",
+        "value": "analytical signed-price candidate"
+      },
+      {
+        "path": "candidate.solver_method",
+        "value": "analytical"
+      },
+      {
+        "path": "candidate.iterations",
+        "value": null
+      },
+      {
+        "path": "diagnostics.checks.solver_success",
+        "value": true
+      },
+      {
+        "path": "tolerances",
+        "value": {
+          "market_abs_tol": 1e-10,
+          "market_rel_tol": 1e-10,
+          "budget_tol": 1e-10,
+          "feasibility_tol": 1e-12,
+          "optimality_tol": 1e-10,
+          "normalization_tol": 1e-12,
+          "walras_tol": 1e-10,
+          "production_feasibility_tol": 1e-10,
+          "profit_tol": 1e-10,
+          "profit_margin_abs_tol": 1e-14,
+          "profit_margin_rel_tol": 1e-12,
+          "ownership_tol": 1e-12,
+          "accounting_tol": 1e-10,
+          "price_sign_tol": 1e-12,
+          "approximate_factor": 100.0
+        }
+      },
+      {
+        "path": "config_snapshot.tolerances",
+        "value": {
+          "market_abs_tol": 1e-10,
+          "market_rel_tol": 1e-10,
+          "budget_tol": 1e-10,
+          "feasibility_tol": 1e-12,
+          "optimality_tol": 1e-10,
+          "normalization_tol": 1e-12,
+          "walras_tol": 1e-10,
+          "production_feasibility_tol": 1e-10,
+          "profit_tol": 1e-10,
+          "profit_margin_abs_tol": 1e-14,
+          "profit_margin_rel_tol": 1e-12,
+          "ownership_tol": 1e-12,
+          "accounting_tol": 1e-10,
+          "price_sign_tol": 1e-12,
+          "approximate_factor": 100.0
+        }
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "SIGNED_BAD_ABSORPTION_SUCCESS": 1,
+      "VERIFIED_CANDIDATE": 1
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}

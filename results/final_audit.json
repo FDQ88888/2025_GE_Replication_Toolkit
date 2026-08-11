@@ -1,0 +1,362 @@
+{
+  "status": "FINAL_AUDIT_PASSED",
+  "scope": "Post-hardening runtime, required experiment, artifact, source-path, documentation-link, and package-metadata audit. This is not a proof of equilibrium existence, uniqueness, or search completeness.",
+  "checks": {
+    "runtime_checks_passed": true,
+    "critical_results_passed": true,
+    "reproducibility_suite_passed": true,
+    "figures_passed": true,
+    "no_unexpected_candidate_classifications": true,
+    "no_personal_absolute_paths_in_source_or_docs": true,
+    "all_local_markdown_links_exist": true,
+    "all_required_documents_exist": true,
+    "package_metadata_accurate": true,
+    "readme_has_no_hard_coded_test_count": true
+  },
+  "runtime_checks": [
+    {
+      "command": [
+        "python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output_tail": "........................................................................ [ 63%]\n.........................................                                [100%]\n113 passed in 3.53s"
+    },
+    {
+      "command": [
+        "python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "paper_replications"
+      ],
+      "exit_code": 0,
+      "passed": true,
+      "output_tail": ""
+    }
+  ],
+  "result_checks": [
+    {
+      "file": "results/milestone1_baseline.json",
+      "expected_status": "VERIFIED_CANDIDATE",
+      "actual_status": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 1
+      }
+    },
+    {
+      "file": "results/milestone2_production_baseline.json",
+      "expected_status": "VERIFIED_CANDIDATE",
+      "actual_status": "VERIFIED_CANDIDATE",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 1
+      }
+    },
+    {
+      "file": "results/milestone3_split_agent_invariance.json",
+      "expected_status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+      "actual_status": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 2
+      }
+    },
+    {
+      "file": "results/milestone4_signed_bad_absorption.json",
+      "expected_status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+      "actual_status": "SIGNED_BAD_ABSORPTION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 1
+      }
+    },
+    {
+      "file": "results/milestone5_paper_example_1.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 1
+      }
+    },
+    {
+      "file": "results/milestone5_paper_example_2.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 2
+      }
+    },
+    {
+      "file": "results/milestone6_theorem_3_4_mapping.json",
+      "expected_status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "actual_status": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 3
+      }
+    },
+    {
+      "file": "results/milestone7_paper_example_3.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 3
+      }
+    },
+    {
+      "file": "results/milestone7_paper_example_4.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 6
+      }
+    },
+    {
+      "file": "results/milestone7_paper_example_5.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 15
+      }
+    },
+    {
+      "file": "results/milestone7_paper_example_6.json",
+      "expected_status": "PAPER_REPLICATION_SUCCESS",
+      "actual_status": "PAPER_REPLICATION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 2
+      }
+    },
+    {
+      "file": "results/milestone8_example3_multistart.json",
+      "expected_status": "MULTISTART_CLUSTERING_SUCCESS",
+      "actual_status": "MULTISTART_CLUSTERING_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 60
+      }
+    },
+    {
+      "file": "results/milestone9_tax_quota_sweeps.json",
+      "expected_status": "SWEEP_SUCCESS",
+      "actual_status": "SWEEP_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 26
+      }
+    },
+    {
+      "file": "results/milestone10_welfare_distribution.json",
+      "expected_status": "WELFARE_DISTRIBUTION_SUCCESS",
+      "actual_status": "WELFARE_DISTRIBUTION_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 2
+      }
+    },
+    {
+      "file": "results/milestone11_finite_weighted_lab.json",
+      "expected_status": "FINITE_WEIGHTED_EXPERIMENT_SUCCESS",
+      "actual_status": "FINITE_WEIGHTED_EXPERIMENT_SUCCESS",
+      "passed": true,
+      "config_snapshot_present": true,
+      "reproducibility_metadata_present": true,
+      "classification_counts": {
+        "VERIFIED_CANDIDATE": 5
+      }
+    }
+  ],
+  "reproducibility_suite_check": {
+    "file": "results/reproducibility_suite.json",
+    "actual_status": "REPRODUCIBILITY_SUITE_SUCCESS",
+    "passed": true
+  },
+  "figure_checks": [
+    {
+      "file": "figures/tax_emission_correspondence.png",
+      "passed": true,
+      "size_bytes": 91324
+    },
+    {
+      "file": "figures/quota_price_correspondence.png",
+      "passed": true,
+      "size_bytes": 96342
+    },
+    {
+      "file": "figures/quota_ownership_welfare.png",
+      "passed": true,
+      "size_bytes": 71770
+    },
+    {
+      "file": "figures/finite_approximation_prices.png",
+      "passed": true,
+      "size_bytes": 44886
+    },
+    {
+      "file": "figures/finite_approximation_emissions.png",
+      "passed": true,
+      "size_bytes": 49238
+    },
+    {
+      "file": "figures/equilibrium_branch_diagram.png",
+      "passed": true,
+      "size_bytes": 73395
+    }
+  ],
+  "aggregate_classification_counts": {
+    "VERIFIED_CANDIDATE": 130
+  },
+  "unexpected_classifications": [],
+  "personal_path_findings": [],
+  "missing_markdown_links": [],
+  "required_documents": {
+    "README.md": true,
+    "REPORT.md": true,
+    "FINAL_AUDIT.md": true,
+    "PROFESSOR_DEMO.md": true,
+    "CITATIONS.md": true,
+    "OPEN_QUESTIONS.md": true,
+    "TOLERANCE_AUDIT.md": true,
+    "TESTED_ENVIRONMENTS.md": true,
+    "docs/SCOPE_AND_LIMITATIONS.md": true
+  },
+  "package_metadata": {
+    "passed": true,
+    "description": "Reproducible computational tools for finite general-equilibrium models with production, quota regulation, emission taxes, and independent equilibrium diagnostics.",
+    "requires_python": ">=3.11,<3.14",
+    "declared_dependencies": [
+      "numpy>=1.26,<3",
+      "scipy>=1.11,<2",
+      "pyyaml>=6.0,<7",
+      "matplotlib>=3.8,<4"
+    ],
+    "missing_required_dependencies": [],
+    "stale_description": false
+  },
+  "readme_stale_test_count_claim": false,
+  "config_snapshot": {
+    "required_result_statuses": {
+      "milestone1_baseline.json": "VERIFIED_CANDIDATE",
+      "milestone2_production_baseline.json": "VERIFIED_CANDIDATE",
+      "milestone3_split_agent_invariance.json": "SPLIT_AGENT_INVARIANCE_SUCCESS",
+      "milestone4_signed_bad_absorption.json": "SIGNED_BAD_ABSORPTION_SUCCESS",
+      "milestone5_paper_example_1.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone5_paper_example_2.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone6_theorem_3_4_mapping.json": "NUMERICAL_MAPPING_CHECK_SUCCESS",
+      "milestone7_paper_example_3.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone7_paper_example_4.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone7_paper_example_5.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone7_paper_example_6.json": "PAPER_REPLICATION_SUCCESS",
+      "milestone8_example3_multistart.json": "MULTISTART_CLUSTERING_SUCCESS",
+      "milestone9_tax_quota_sweeps.json": "SWEEP_SUCCESS",
+      "milestone10_welfare_distribution.json": "WELFARE_DISTRIBUTION_SUCCESS",
+      "milestone11_finite_weighted_lab.json": "FINITE_WEIGHTED_EXPERIMENT_SUCCESS"
+    },
+    "required_figures": [
+      "tax_emission_correspondence.png",
+      "quota_price_correspondence.png",
+      "quota_ownership_welfare.png",
+      "finite_approximation_prices.png",
+      "finite_approximation_emissions.png",
+      "equilibrium_branch_diagram.png"
+    ],
+    "required_documents": [
+      "README.md",
+      "REPORT.md",
+      "FINAL_AUDIT.md",
+      "PROFESSOR_DEMO.md",
+      "CITATIONS.md",
+      "OPEN_QUESTIONS.md",
+      "TOLERANCE_AUDIT.md",
+      "TESTED_ENVIRONMENTS.md",
+      "docs/SCOPE_AND_LIMITATIONS.md"
+    ],
+    "runtime_checks_enabled": true
+  },
+  "reproducibility": {
+    "generated_at_utc": "2026-08-10T06:02:26.369289+00:00",
+    "python": {
+      "version": "3.12.13",
+      "implementation": "CPython",
+      "executable_name": "python.exe",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.0",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "matplotlib": "3.11.1"
+    },
+    "git_commit": null,
+    "git_note": "Project directory is not inside a Git work tree; commit hash unavailable.",
+    "config_snapshot_present": true,
+    "random_seed_entries": [],
+    "numerical_setting_entries": [
+      {
+        "path": "required_documents.TOLERANCE_AUDIT.md",
+        "value": true
+      },
+      {
+        "path": "config_snapshot.required_result_statuses.milestone8_example3_multistart.json",
+        "value": "MULTISTART_CLUSTERING_SUCCESS"
+      }
+    ],
+    "candidate_and_run_status_counts": {
+      "FINAL_AUDIT_PASSED": 1,
+      "FINITE_WEIGHTED_EXPERIMENT_SUCCESS": 2,
+      "MULTISTART_CLUSTERING_SUCCESS": 2,
+      "NUMERICAL_MAPPING_CHECK_SUCCESS": 2,
+      "PAPER_REPLICATION_SUCCESS": 12,
+      "REPRODUCIBILITY_SUITE_SUCCESS": 1,
+      "SIGNED_BAD_ABSORPTION_SUCCESS": 2,
+      "SPLIT_AGENT_INVARIANCE_SUCCESS": 2,
+      "SWEEP_SUCCESS": 2,
+      "True": 1,
+      "VERIFIED_CANDIDATE": 4,
+      "WELFARE_DISTRIBUTION_SUCCESS": 2
+    },
+    "failure_retention_note": "Run-level and candidate-level statuses are counted without dropping failed or nonexistence classifications."
+  }
+}
