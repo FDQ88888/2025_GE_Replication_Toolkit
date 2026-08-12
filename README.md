@@ -1,103 +1,103 @@
 # Duanmu GE Lab
 
-`Duanmu GE Lab` 是一个可复现的**有限模型论文复现、均衡搜索与独立数值诊断框架**，围绕 Anderson 与 Duanmu 的配额和排放税一般均衡研究开发。当前项目包含解析基准、有限生产与人口加权组件、有符号价格、论文 Examples 1-6 的专用实现、多重候选实验、政策扫描和严格 candidate diagnostics。
+`Duanmu GE Lab` is a reproducible framework for **finite-model paper replication, equilibrium search, and independent numerical diagnostics**, developed around the quota and emission-tax general-equilibrium models studied by Anderson and Duanmu. The project includes analytical benchmarks, finite production and population-weighted components, signed prices, dedicated implementations of paper Examples 1-6, multiplicity experiments, policy sweeps, and strict candidate diagnostics.
 
-它不是通用一般均衡求解器，也不实现测度经济、综合外部性或非标准分析的数学证明。完整边界见 [Scope and Limitations](docs/SCOPE_AND_LIMITATIONS.md)。
+It is not a universal general-equilibrium solver and does not implement mathematical proofs for measure-theoretic economies, comprehensive externalities, or nonstandard analysis. See [Scope and Limitations](docs/SCOPE_AND_LIMITATIONS.md) for the precise boundary.
 
 ## Implemented
 
-- 纯交换与生产经济，显式净产出、企业持股和收入分解；
-- candidate 资源会计与独立重新优化的消费者/企业最优性诊断；
-- 与社会福利权重分离的人口权重聚合；
-- signed-L1 与 numeraire 坐标、有符号价格和逐商品出清规则；
-- 负价格坏品与显式消费集合；
-- 论文 Definitions 3.1-3.5 的配额会计和 Definitions 4.1-4.3 的税收会计；
-- Anderson-Duanmu Examples 1-6 的有限模型专用复现；
-- Theorems 3-4 映射的数值一致性核对；
-- deterministic、random、continuation 多起点和验证候选聚类；
-- 税率到排放集合、配额目标到配额价格集合的参数扫描；
-- 固定排放下的配额产权分配实验；
-- construction-specific 的有限加权坏品吸收实验；
-- YAML 运行参数、复现元数据、研究图和严格最终审计。
+- Pure-exchange and production economies with explicit net output, firm ownership, and income decomposition.
+- Candidate resource accounting separated from independently reoptimized consumer and firm optimality diagnostics.
+- Population-weighted aggregation kept distinct from social-welfare weights.
+- Signed-L1 and numeraire coordinates, signed prices, and commodity-specific clearing rules.
+- Bads with negative prices and explicit consumption sets.
+- Quota accounting from Definitions 3.1-3.5 and tax accounting from Definitions 4.1-4.3 of the paper.
+- Dedicated finite-model replications of Anderson-Duanmu Examples 1-6.
+- Numerical consistency checks for the mappings in Theorems 3-4.
+- Deterministic, random, and continuation multistart search with verified-candidate clustering.
+- Parameter sweeps from tax rates to emissions sets and from quota targets to quota-price sets.
+- Quota-rights allocation experiments at fixed emissions.
+- A construction-specific finite weighted bad-absorption experiment.
+- YAML experiment parameters, reproducibility metadata, research figures, and a strict final audit.
 
 ## Claim Boundaries
 
-- `VERIFIED_CANDIDATE` 表示一个有限 candidate 在记录的容差下通过全部已实现诊断，不表示一般存在性证明。
-- `DISCOVERED_N_VERIFIED_CANDIDATE_CLUSTERS` 只描述给定搜索协议发现的候选簇，不表示恰有 `N` 个均衡。
-- Example 4 的 `NO_EQUILIBRIUM` 来自论文理论；数值搜索零发现本身不是证明。
-- Milestone 11 是 paper-inspired finite-grid experiment。聚合量稳定主要来自该线性中点构造，不是连续经济收敛定理或 uniform-integrability 验证。
-- 项目没有一般 comprehensive-externality preference interface，没有 Loeb measure 或 hyperfinite implementation，也没有自动计算“最优碳政策”。
+- `VERIFIED_CANDIDATE` means that a finite candidate passes every implemented diagnostic at the recorded tolerances. It is not a general existence proof.
+- `DISCOVERED_N_VERIFIED_CANDIDATE_CLUSTERS` describes candidate clusters found under a specified search protocol. It does not assert that exactly `N` equilibria exist.
+- Example 4's `NO_EQUILIBRIUM` label comes from the paper's theory. A numerical search that finds no candidate is not itself a proof.
+- Milestone 11 is a paper-inspired finite-grid experiment. Its aggregate stability mainly reflects the linear midpoint construction; it is not a continuum-convergence theorem or a verification of uniform integrability.
+- The project has no general comprehensive-externality preference interface, Loeb-measure or hyperfinite implementation, or automatic computation of an "optimal carbon policy."
 
 ## Installation
 
-`pyproject.toml` 给出支持的依赖范围；`requirements-tested.txt` 记录一套实际验证过的 Windows/CPython 参考环境。参考 pins 不代表所有操作系统都已验证。
+`pyproject.toml` specifies supported dependency ranges. `requirements-tested.txt` records one reference Windows/CPython environment that was actually tested; those pins do not imply validation on every operating system.
 
 Cross-platform setup:
 
 ```text
-cd <path-to-project>/duanmu_ge_lab
+cd <path-to-project>/2025_GE_Replication_Toolkit
 python -m venv .venv
 python -m pip install -e ".[dev]"
 python -m pytest -q
 python -m compileall -q src scripts paper_replications
 ```
 
-Windows PowerShell 无需激活虚拟环境：
+Windows PowerShell without activating the virtual environment:
 
 ```powershell
-cd <path-to-project>\duanmu_ge_lab
+cd <path-to-project>\2025_GE_Replication_Toolkit
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe -m compileall -q src scripts paper_replications
 ```
 
-POSIX 无需激活虚拟环境：
+POSIX without activating the virtual environment:
 
 ```bash
 .venv/bin/python -m pip install -e ".[dev]"
 .venv/bin/python -m pytest -q
 ```
 
-安装精确参考环境时，先运行 `python -m pip install -r requirements-tested.txt`，再运行 `python -m pip install -e . --no-deps`。
+To reproduce the exact reference environment, run `python -m pip install -r requirements-tested.txt`, followed by `python -m pip install -e . --no-deps`.
 
 ## Smoke Tests
 
-最小解析基准：
+Minimal analytical benchmark:
 
 ```text
 python scripts/run_baseline.py
 ```
 
-从头重建全部 required 实验和图；任一 expected status 不匹配时返回非零退出码：
+Rebuild all required experiments and figures from scratch. Either command returns a nonzero exit code if any expected status does not match:
 
 ```text
 python scripts/run_reproducibility_suite.py
 python scripts/run_final_audit.py
 ```
 
-Windows 可把上述 `python` 替换为 `.\.venv\Scripts\python.exe`。
+On Windows, `python` may be replaced with `.\.venv\Scripts\python.exe` in these commands.
 
 ## Configuration Boundary
 
-YAML 驱动已暴露的实验参数，例如配额、税率、产权制度、初值、网格、人口规模、随机种子和 solver settings：
+YAML controls exposed experiment parameters such as quotas, tax rates, ownership regimes, initial values, grids, population sizes, random seeds, and solver settings:
 
 ```text
 python scripts/run_experiment.py --config configs/paper/example_3.yaml
 python scripts/run_experiment.py --config configs/experiments/tax_quota_sweeps.yaml
 ```
 
-论文例子的商品结构、偏好、技术和方程约化仍由 paper-specific Python builders/solvers 表达。项目不能仅凭任意 YAML 自动生成新模型或求解器。
+The commodity structure, preferences, technologies, and equation reductions for the paper examples remain encoded in paper-specific Python builders and solvers. Arbitrary YAML cannot automatically generate a new model or solver.
 
 ## Research Results
 
-- Examples 1-2：解析价格、配置、利润和产权分配逐项比较并通过完整诊断；
-- Example 3：在论文税率下稳定发现三条验证候选分支并匹配 Table I；
-- Example 4：分别保存论文非存在状态和计算预检；
-- Example 5：同一目标出现不同税率/配额价格候选，匹配 Tables II-III；
-- Example 6：数值核对税与配额在目标保证上的差异。
+- **Examples 1-2:** analytical prices, allocations, profits, and property-rights assignments are compared coordinate by coordinate and pass the complete diagnostics.
+- **Example 3:** three verified candidate branches are found consistently at the paper's tax rate and match Table I.
+- **Example 4:** the paper's theoretical nonexistence statement and the computational precheck are stored separately.
+- **Example 5:** different tax-rate and quota-price candidates attain the same target and match Tables II-III.
+- **Example 6:** a numerical check records the difference between the guarantees supplied by a tax and by a quota.
 
-关键图：[tax-emission correspondence](figures/tax_emission_correspondence.png)。图的 caption 与源 JSON 见 [figures/README.md](figures/README.md)。
+Key figure: [tax-emission correspondence](figures/tax_emission_correspondence.png). Its caption and source JSON are documented in [figures/README.md](figures/README.md).
 
 ## Navigation
 

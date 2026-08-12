@@ -1,77 +1,77 @@
-# Duanmu GE Lab：最终研究报告
+# Duanmu GE Lab: Final Research Report
 
 ## 1. Motivation
 
-标准计算政策分析常把税率映射为单一排放、把配额映射为单一价格。Anderson-Duanmu 的一般均衡框架表明，在允许坏品、负价格、生产和产权会计后，这些关系可能是多值对应。项目的目标不是制作一个黑箱碳政策计算器，而是建立可审计的有限模型实验室：每个 candidate 都必须经过独立经济学诊断，并明确区分数值证据与理论结论。
+Standard computational policy analysis often maps a tax rate to a single emission level and a quota to a single price. The Anderson-Duanmu general-equilibrium framework shows that these relations may instead be multivalued when bads, negative prices, production, and property-right accounting are allowed. The project does not aim to build a black-box carbon-policy calculator. It builds an auditable finite-model laboratory in which every candidate undergoes independent economic diagnostics and numerical evidence is explicitly separated from theoretical conclusions.
 
 ## 2. Primary Sources
 
-主来源是 Anderson and Duanmu (2025), “Cap-and-Trade and Carbon Tax Meet Arrow-Debreu,” *Econometrica* 93(2): 357-393，以及官方 17 页 Supplement。正文和补充材料的本地归档、SHA-256、页码与例子映射记录在 `CITATIONS.md`。Examples 1-4 的详细计算来自 Supplement pp. 11-16；Examples 5-6 来自正文 pp. 382-384，并继承前述经济。
+The primary sources are Anderson and Duanmu (2025), "Cap-and-Trade and Carbon Tax Meet Arrow-Debreu," *Econometrica* 93(2): 357-393, and its official 17-page Supplement. `CITATIONS.md` records local archives, SHA-256 hashes, page locations, and example mappings for both sources. Detailed calculations for Examples 1-4 come from Supplement pp. 11-16; Examples 5-6 come from pp. 382-384 of the article and inherit the preceding economy.
 
 ## 3. Mathematical Models
 
-基础层包含有限商品、消费者、消费集、偏好、企业、生产集、持股和人口权重。净产出约定为正坐标代表产出、负坐标代表投入。纯交换资源残差为 `sum_i x_i - sum_i omega_i`；生产经济为 `sum_i x_i - sum_i omega_i - sum_j y_j`。配额模型保留排放商品坐标，不额外创造 permit commodity；排放税模型显式实现税率、净排放、收入和返还。
+The foundational layer contains finite commodities, consumers, consumption sets, preferences, firms, production sets, ownership shares, and population weights. Under the net-output convention, positive coordinates denote outputs and negative coordinates denote inputs. The pure-exchange resource residual is `sum_i x_i - sum_i omega_i`; for a production economy it is `sum_i x_i - sum_i omega_i - sum_j y_j`. The quota model retains the emission-commodity coordinate rather than creating an additional permit commodity. The emission-tax model explicitly implements the tax rate, net emissions, revenue, and rebates.
 
 ## 4. Architecture
 
-项目把模型、candidate、solver、diagnostics、policy accounting 和 experiment runner 分开。`EquilibriumCandidate` 不携带“均衡”结论；diagnostics 从 candidate quantities 计算正式资源残差，同时独立重新优化消费者和企业。价格归一化与符号限制、市场出清与 Walras law、配额与税收会计、人口权重与福利概念均是独立对象。
+The project separates models, candidates, solvers, diagnostics, policy accounting, and experiment runners. `EquilibriumCandidate` carries no equilibrium conclusion. Diagnostics compute the formal resource residual from candidate quantities while independently reoptimizing consumers and firms. Price normalization and sign restrictions, market clearing and Walras law, quota and tax accounting, and population weights and welfare concepts are all represented as distinct objects.
 
 ## 5. Milestone History
 
-Milestone 1 建立解析交换基准；1.1 修复 candidate/reoptimized 混淆并加入消费可行性；2 加入生产、分红和企业诊断；3 加入人口权重；4 加入有符号价格和坏品；5-7 实现论文配额、税收和 Examples 1-6；8-9 加入多起点、聚类和参数扫描；10 研究产权分配；11 实现有限加权近似实验；最后加入统一配置、复现元数据、图表和制品审计。
+Milestone 1 established the analytical exchange benchmark. Milestone 1.1 corrected the candidate/reoptimized distinction and added consumption feasibility. Milestones 2-4 added production, dividends, firm diagnostics, population weights, signed prices, and bads. Milestones 5-7 implemented the paper's quota and tax systems and Examples 1-6. Milestones 8-9 added multistart search, clustering, and parameter sweeps. Milestone 10 studied property-right allocations, and Milestone 11 implemented the finite weighted approximation experiment. Unified configuration, reproduction metadata, figures, and artifact auditing completed the toolkit.
 
 ## 6. Analytical Benchmarks
 
-2x2 Cobb-Douglas 交换经济的解析解为 `p=(1,1)`，两位消费者均消费 `(1/2,1/2)`。Brent 标量求根恢复同一解。错误配置 `(0.8,0.2),(0.8,0.2)` 在相同价格下会产生 candidate residual `(0.6,-0.6)`，即使重新优化需求可以出清，也必须被拒绝。这一测试锁定了 Milestone 1.1 的核心语义。
+The analytical solution of the 2x2 Cobb-Douglas exchange economy is `p=(1,1)`, with both consumers choosing `(1/2,1/2)`. Brent scalar root finding recovers the same solution. At those prices, the incorrect allocation `(0.8,0.2),(0.8,0.2)` produces candidate residual `(0.6,-0.6)` and must be rejected even though reoptimized demand clears. This test fixes the core semantics introduced in Milestone 1.1.
 
 ## 7. Production Benchmark
 
-解析生产 benchmark 得到 `p=(1/3,1)`、企业计划 `(-1/2,1/2)`、利润 `1/3`，配置约为 `(0.625,0.20833)` 与 `(0.875,0.29167)`。持股分红进入 `IncomeBreakdown`，资源残差和 Walras residual 在浮点误差内为零；企业可行性与全局 profit gap 独立通过。
+The analytical production benchmark gives `p=(1/3,1)`, firm plan `(-1/2,1/2)`, profit `1/3`, and allocations approximately `(0.625,0.20833)` and `(0.875,0.29167)`. Ownership dividends enter `IncomeBreakdown`; the resource and Walras residuals are zero up to floating-point error, while firm feasibility and the global profit-gap check pass independently.
 
 ## 8. Quota Replication
 
-配额层实现 `m^(j)`、总配额 `m`、`Z(m)`、`q=-proj_k(p)`、政府企业和产权收入。Example 1 在 `v=0.5` 得到 signed-L1 价格 `(-0.25,0.25,0.5)` 并逐项匹配解析结果。Example 2 固定总配额 `v=3`：global quota 与 cap-and-trade 的价格和聚合消费相同，但个体电力消费分别为 `(1,1.5,2)` 与 `(0.75,1.5,2.25)`，展示产权分配效应。
+The quota layer implements `m^(j)`, aggregate quota `m`, `Z(m)`, `q=-proj_k(p)`, the government firm, and property-right income. Example 1 at `v=0.5` gives signed-L1 prices `(-0.25,0.25,0.5)` and matches the analytical result component by component. Example 2 fixes aggregate quota `v=3`: global quota and cap-and-trade have identical prices and aggregate consumption, but individual electricity consumptions are `(1,1.5,2)` and `(0.75,1.5,2.25)`, respectively, demonstrating the effect of property-right allocation.
 
 ## 9. Emission-Tax Replication
 
-税收层实现 `proj_k(p)=-t`、总净排放 `C(x,y)`、税收与 `lambda` 返还。`PaperTaxConvention` 同时缩放价格与税率，避免把论文 L1 税率直接误用到 numeraire 坐标。Theorem 3 的 quota-to-tax 和 Theorem 4 的 tax-to-global-quota 在 Example 1 上双向通过；这被标记为 `NUMERICAL_MAPPING_CHECK_SUCCESS`，不是证明。
+The tax layer implements `proj_k(p)=-t`, aggregate net emissions `C(x,y)`, tax revenue, and `lambda` rebates. `PaperTaxConvention` rescales prices and the tax rate together, preventing direct misuse of the paper's L1-normalized tax rate in numeraire coordinates. The Theorem 3 quota-to-tax and Theorem 4 tax-to-global-quota mappings pass in both directions for Example 1. This is labeled `NUMERICAL_MAPPING_CHECK_SUCCESS`, not a proof.
 
 ## 10. Examples 3-6 Status
 
-Examples 3-6 均有逐例数学说明、官方来源定位、YAML 和回归测试。Example 3 的三根及 Table I 减排率匹配；Example 4 区分论文理论非存在与计算预检；Example 5 复现 Tables II-III；Example 6 复现税与配额目标保证的差异。所有成功都指有限例子的配置目标，不外推到论文全部一般性。
+Examples 3-6 each have a mathematical note, an official-source location, YAML configuration, and regression tests. Example 3 matches three roots and the Table I abatement rates. Example 4 distinguishes the paper's theoretical nonexistence result from a computational precheck. Example 5 reproduces Tables II-III, and Example 6 reproduces the difference between tax and quota target guarantees. Every success concerns the configuration targets of a finite example and is not extrapolated to the paper's full generality.
 
 ## 11. Multiple Equilibria
 
-`solve_multistart()` 支持理论初值、随机初值和 continuation 初值，并保留每次运行的起点、方法、状态和原因。聚类只接受 `VERIFIED_CANDIDATE`，距离同时比较统一规范的价格、配置、生产和政策量。Example 3 在固定税率下 30 次运行得到 3 个稳定候选簇，成员数为 16、8、6；结论措辞始终是“发现三个簇”。
+`solve_multistart()` supports theoretical, random, and continuation initial values and retains the starting point, method, status, and reason for every run. Clustering accepts only `VERIFIED_CANDIDATE` results and compares jointly normalized prices, allocations, production, and policy quantities. For Example 3 at a fixed tax rate, 30 runs produce three stable candidate clusters with membership counts 16, 8, and 6. The conclusion is always worded as "three clusters discovered."
 
 ## 12. Parameter Sweeps
 
-税率网格 `[0,.004,.008,.01,.012,.02,.038,.04]` 对应发现的排放候选簇数 `[3,3,3,3,3,1,1,0]`。20%、30%、40% 减排配额目标各发现三个不同配额价格。例如 30% 目标的 goods-sum 价格约为 `0.011448`、`0.009517`、`0.007583`。结果保存每个分支，不取均值。
+On the tax-rate grid `[0,.004,.008,.01,.012,.02,.038,.04]`, the numbers of discovered emission candidate clusters are `[3,3,3,3,3,1,1,0]`. Three distinct quota prices are discovered for each of the 20%, 30%, and 40% abatement targets. For example, the goods-sum prices for the 30% target are approximately `0.011448`, `0.009517`, and `0.007583`. Results retain every branch rather than averaging them.
 
 ## 13. Welfare Distribution
 
-Milestone 10 固定 Example 2 的技术、偏好、禀赋、总配额和总排放，只改变配额产权。报告逐代理人的消费、endowment income、firm dividend、quota income 和 total income。论文没有提供可用于社会汇总的基数效用，因此项目拒绝计算 aggregate welfare 或“最优碳政策”。
+Milestone 10 fixes the technology, preferences, endowments, aggregate quota, and aggregate emissions of Example 2, varying only quota ownership. It reports each agent's consumption, endowment income, firm dividend, quota income, and total income. Because the paper supplies no cardinal utilities suitable for social aggregation, the project refuses to calculate aggregate welfare or an "optimal carbon policy."
 
 ## 14. Finite Weighted Experiments
 
-Milestone 11 明确指定 `z~Uniform[0,1]` 的连续类型目标，以 `N=10,20,50,100,200` 的中点等权原子近似。五个规模的价格均为 `(-1,1)`，加权总消费为 `(1,2)`，未吸收坏品为零，最大个体吸收从 `1.45` 走向 `1.4975`。尾部份额、尾积分与截断均值是启发式诊断，不是 uniform-integrability 或测度论收敛证明。
+Milestone 11 explicitly specifies a continuum-type target with `z~Uniform[0,1]` and approximates it using midpoint, equally weighted atoms for `N=10,20,50,100,200`. At all five sizes, prices are `(-1,1)`, weighted aggregate consumption is `(1,2)`, and no bad remains unabsorbed; maximum individual absorption moves from `1.45` to `1.4975`. Tail shares, tail integrals, and truncated means are heuristic diagnostics, not proofs of uniform integrability or measure-theoretic convergence.
 
 ## 15. Numerical Diagnostics
 
-每类 candidate 检查有限值、消费/生产可行性、预算、预算耗尽、效用 gap、利润 gap、持股/返还加总、政策约束、逐商品资源残差和政策调整 Walras residual。最终 `results/final_audit.json` 检查 15 份结果、6 张图和 130 个已记录验证候选分类；配置快照与运行环境元数据齐全。
+Each class of candidate is checked for finite values, consumption and production feasibility, budgets, budget exhaustion, utility and profit gaps, ownership and rebate adding-up, policy constraints, commodity-level resource residuals, and the policy-adjusted Walras residual. The final `results/final_audit.json` audits 15 result files, six figures, and 130 recorded verified-candidate classifications; configuration snapshots and runtime-environment metadata are complete.
 
 ## 16. Failures
 
-数值失败被保留而非删除。税率 `0.02` 的 22 次搜索中 11 次得到验证候选，`0.038` 的 20 次中 19 次得到验证候选，`0.04` 的 20 次均未得到候选。最后一项同时有论文 `NO_EQUILIBRIUM` 状态，但数值零发现本身不作为证明。Example 4 的正单位利润预检同样只作交叉核对。
+Numerical failures are retained rather than deleted. At tax rate `0.02`, 11 of 22 searches produce verified candidates; at `0.038`, 19 of 20 do so; at `0.04`, none of 20 finds a candidate. The last case also has the paper-supported status `NO_EQUILIBRIUM`, but zero numerical discoveries alone are not treated as proof. The positive-unit-profit precheck for Example 4 likewise serves only as a cross-check.
 
 ## 17. Limitations
 
-当前偏好类远窄于论文的一般偏好；专用例子求解器不是通用 GE 求解器；multistart 不保证分支完备；不存在通用非存在证书；福利没有跨排放社会目标；有限近似没有一般收敛定理；没有实现非标准分析或超有限经济。
+The current preference classes are far narrower than the paper's general preferences. Example-specific solvers are not a general GE solver; multistart search does not guarantee branch completeness; there is no general nonexistence certificate; welfare analysis has no social objective across emission levels; finite approximations have no general convergence theorem; and neither nonstandard analysis nor hyperfinite economies are implemented.
 
 ## 18. Research Questions Generated by Computation
 
-计算提出了四类下一步问题：如何认证已发现分支的完备性；哪些参数改变导致分支消失或出现；配额产权在更一般偏好下如何改变 constrained Pareto 排序；有限坏品吸收尾部统计在什么附加条件下能与一致可积性建立可证明联系。详见 `OPEN_QUESTIONS.md`。
+The computations generate four classes of next questions: how to certify completeness of discovered branches; which parameter changes cause branches to appear or disappear; how quota ownership changes constrained-Pareto rankings under more general preferences; and under which additional conditions finite bad-absorption tail statistics can be linked provably to uniform integrability. See `OPEN_QUESTIONS.md`.
 
 ## 19. Suggested Next Work with Professor Duanmu
 
-最有价值的下一步不是继续堆例子，而是在老师指导下选择一个可证明的问题：一是用解析消元或区间方法认证 Example 3/5 的分支；二是选择一个明确的连续/测度经济，研究有限加权近似的正确收敛对象；三是取得 quota welfare working paper 后，为一个有限例子建立严格的福利命题复现。现有代码可以作为会计、候选搜索和反例线索生成的实验基础。
+The most valuable next step is not to accumulate further examples, but to select a provable question with the professor's guidance: certify the branches in Examples 3/5 using analytical elimination or interval methods; select a specific continuum or measure economy and identify the correct convergence target for finite weighted approximations; or, after obtaining the quota-welfare working paper, build a rigorous replication of a welfare proposition for one finite example. The existing code can serve as an experimental foundation for accounting, candidate search, and the generation of counterexample leads.

@@ -1,46 +1,46 @@
-# Duanmu GE Lab：当前开放问题
+# Duanmu GE Lab: Current Open Questions
 
-> 更新于 2026-08-10。已经完成的软件对象不再标为 `BLOCKING`；本清单只保留真正尚未解决的研究或模型扩展问题。
+> Updated 2026-08-10. Completed software components are no longer labeled `BLOCKING`; this list retains only genuinely unresolved research questions and model extensions.
 
-## 已解决的关键问题
+## Resolved Key Issues
 
-- Econometrica Supplement 已从官方来源取得并归档，Examples 1-6 的参数与推导不再受来源阻塞。
-- 配额价格、政府企业分配、税收返还、`Z(m)`、`V` 与 `proj_k(p)=-t` 已按原文核验。
-- signed-L1 与 numeraire 的税率共同缩放已由 `PaperTaxConvention` 实现并测试。
-- candidate 资源会计与 reoptimized optimality 已严格分开。
-- 人口权重与福利权重已分开；坏品可行域由 `ConsumptionSet` 显式指定。
-- 数值非发现与论文理论非存在已分开记录。
+- The Econometrica Supplement has been obtained from the official source and archived; the parameters and derivations for Examples 1-6 are no longer source-blocked.
+- Quota prices, government-firm allocations, tax rebates, `Z(m)`, `V`, and `proj_k(p)=-t` have been checked against the original text.
+- `PaperTaxConvention` implements and tests the joint scaling of the tax rate between signed-L1 and numeraire normalizations.
+- Candidate resource accounting is strictly separated from reoptimized optimality.
+- Population and welfare weights are separated; feasible regions for bads are specified explicitly by `ConsumptionSet`.
+- Numerical non-discovery is recorded separately from theoretical nonexistence established in the paper.
 
-## Q1. 如何计算表示论文的一般偏好？
+## Q1. How Can the Paper's General Preferences Be Represented Computationally?
 
-论文允许偏好不完备、非传递，并依赖价格、他人配置和生产。当前代码只支持具有明确选择规则或效用表示的有限模型。下一步需要决定研究目标是选择对应、可计算效用子类，还是只对特定例子扩展；在此之前不能宣称覆盖论文全部偏好一般性。
+The paper permits preferences that are incomplete, intransitive, and dependent on prices, other agents' allocations, and production. The current code supports only finite models with explicit choice rules or utility representations. The next step must decide whether to study choice correspondences, a computationally tractable utility subclass, or extensions limited to particular examples. Until then, the project cannot claim to cover the paper's full generality of preferences.
 
-## Q2. 能否证明数值发现的分支是完备的？
+## Q2. Can Completeness of the Numerically Discovered Branches Be Certified?
 
-当前 multistart、continuation 和聚类能稳定发现论文例子中的分支，但不能排除未发现的根。可能的后续方法包括解析消元、区间算术、同伦延拓与分支度理论。输出继续使用 `discovered verified candidate clusters`。
+Current multistart, continuation, and clustering procedures reliably discover branches in the paper's examples, but cannot exclude undiscovered roots. Possible next methods include analytical elimination, interval arithmetic, homotopy continuation, and degree theory. Outputs therefore retain the wording `discovered verified candidate clusters`.
 
-## Q3. 一般模型的非存在如何认证？
+## Q3. How Can Nonexistence Be Certified in a General Model?
 
-Example 4 的无均衡状态由论文证明支撑；通用模型中，solver 没找到根仍不是证书。需要研究可验证的不等式矛盾、无界利润预检、区间方法或问题专用对偶证书。
+The no-equilibrium status of Example 4 is supported by the paper's proof. In a general model, failure of a solver to find a root remains non-certifying. Research is needed on verifiable inequality contradictions, unbounded-profit prechecks, interval methods, or problem-specific dual certificates.
 
-## Q4. 福利比较应采用什么社会目标？
+## Q4. Which Social Objective Should Welfare Comparisons Use?
 
-当前只做固定排放下的逐代理人比较，并在论文没有基数效用时拒绝构造 aggregate welfare。若要研究跨排放政策，需要老师明确外部损害、福利权重和可比性假设。
+The current project compares agents individually at fixed emissions and refuses to construct aggregate welfare where the paper supplies no cardinal utilities. Studying policies across emission levels requires guidance from the professor on external damages, welfare weights, and interpersonal comparability assumptions.
 
-## Q5. 有限加权实验要近似哪一个连续经济？
+## Q5. Which Continuum Economy Should the Finite Weighted Experiment Approximate?
 
-当前 Milestone 11 使用自足的连续类型目标并做中点离散化。若要形成收敛研究，必须进一步指定类型空间、测度、偏好与禀赋映射、拓扑、均衡对应和收敛概念，并给出解析或理论对照。
+Milestone 11 currently uses a self-contained continuum-type target with midpoint discretization. A convergence study would additionally require a specified type space, measure, preference and endowment mappings, topology, equilibrium correspondence, convergence concept, and an analytical or theoretical reference result.
 
-## Q6. 坏品尾部诊断能否与一致可积性条件建立定理联系？
+## Q6. Can Bad-Absorption Tail Diagnostics Be Linked Theoretically to Uniform Integrability?
 
-当前报告最大吸收、顶端人口份额、加权尾积分和截断均值，这些只是启发式统计。后续可研究哪些有限样本条件在额外假设下推出 tightness 或 uniform integrability 的可检验充分条件。
+Current reports include maximum absorption, upper-tail population shares, weighted tail integrals, and truncated means; these are heuristic statistics only. Future work could investigate which finite-sample conditions, under additional assumptions, yield testable sufficient conditions for tightness or uniform integrability.
 
-## Q7. 是否取得端木老师相关 working papers？
+## Q7. Have Professor Duanmu's Related Working Papers Been Obtained?
 
-“The Second Welfare Theorem for Quota Equilibrium”“Measure-theoretic Production Economies with Externalities and Bads”“Pareto Optimality with Externality”的最新版本仍需由作者确认。取得前不转述未公开定理，不据标题自行实现。
+The latest versions of "The Second Welfare Theorem for Quota Equilibrium," "Measure-theoretic Production Economies with Externalities and Bads," and "Pareto Optimality with Externality" still require confirmation from the author. Before they are obtained, the project will neither restate unpublished theorems nor implement conjectured content based on titles alone.
 
-## Q8. 下一次与老师最值得确认什么？
+## Q8. What Should Be Prioritized in the Next Discussion with the Professor?
 
-1. 更优先推进“一般偏好的可计算子类”，还是“多重均衡分支的完备认证”？
-2. 有限加权部分应面向哪一个明确的测度经济定理或反例问题？
-3. 福利模块是否有指定的社会目标，还是继续只报告逐代理人排序与收入分解？
+1. Should priority go to a computationally tractable subclass of general preferences or to completeness certification for multiple-equilibrium branches?
+2. Which specific theorem or counterexample in a measure economy should guide the finite weighted component?
+3. Should the welfare module adopt a specified social objective, or continue to report only agent-by-agent rankings and income decompositions?

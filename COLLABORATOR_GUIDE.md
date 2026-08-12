@@ -1,24 +1,24 @@
 # Collaborator Guide
 
-## 接入一个新的有限模型需要什么
+## Information Required for a New Finite Model
 
-理论研究者应先提供：
+A theoretical researcher should first provide:
 
-1. 商品及每个坐标的经济含义，包括 goods/bads 和价格符号约束；
-2. 消费者集合、禀赋、消费集、偏好或可计算选择规则；
-3. 企业、生产集、所有权份额及利润分配规则；
-4. quota、tax、rebate 或其他政策的精确会计恒等式；
-5. 价格规范化、numeraire 与论文坐标之间的转换；
-6. candidate 必须满足的资源、预算、最优性和互补条件；
-7. 已知解析解、理论边界、反例或表格值，以及准确来源；
-8. 允许的搜索区域、初值信息和可接受的数值误差依据。
+1. The commodities and the economic meaning of each coordinate, including goods, bads, and price-sign restrictions.
+2. The consumer set, endowments, consumption sets, preferences, or computable choice rules.
+3. Firms, production sets, ownership shares, and profit-distribution rules.
+4. Exact accounting identities for quotas, taxes, rebates, or other policies.
+5. The price normalization and the conversion between numeraire and paper coordinates.
+6. The resource, budget, optimality, and complementarity conditions that a candidate must satisfy.
+7. Known analytical solutions, theoretical boundaries, counterexamples, or table values, with precise sources.
+8. Justification for the search region, initial-value information, and acceptable numerical errors.
 
-## 程序接入步骤
+## Integration Procedure
 
-先把模型翻译成现有 core/policy 对象能够表达的有限结构；若数学结构不同，则编写最小的 paper-specific builder、candidate solver 和 diagnostics。随后把论文参数与计算参数分开写入 YAML，增加解析或高精度基准测试，再注册精确的成功/失败状态并加入 reproducibility suite。
+First translate the model into a finite structure expressible by the existing core and policy objects. If its mathematical structure differs, implement the smallest paper-specific builder, candidate solver, and diagnostic layer required. Keep paper parameters separate from computational parameters in YAML, add analytical or high-precision benchmark tests, register exact success and failure statuses, and include the experiment in the reproducibility suite.
 
-新结果必须保留失败运行、记录随机种子和搜索协议，并用 candidate 自身的量做资源与政策会计。重求最优量只用于比较 utility/profit gap。
+New results must retain failed runs, record random seeds and search protocols, and use the candidate's own quantities for resource and policy accounting. Reoptimized quantities are used only to compare utility or profit gaps.
 
-## 当前边界
+## Current Boundary
 
-本包不会从任意数学描述或任意 YAML 自动生成均衡求解器。新的模型仍需要 model-specific mathematical translation；若涉及不完全偏好、综合外部性、无限维或测度经济，还需要超出当前有限框架的新理论与软件设计。
+The package does not generate an equilibrium solver from an arbitrary mathematical description or arbitrary YAML. A new model still requires model-specific mathematical translation. Models involving incomplete preferences, comprehensive externalities, infinite-dimensional spaces, or measure-theoretic economies require theory and software design beyond the current finite framework.

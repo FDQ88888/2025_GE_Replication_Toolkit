@@ -1,37 +1,37 @@
-# Milestone 11：有限加权经济与坏品吸收实验
+# Milestone 11: Finite Weighted Economies and Bad-Absorption Experiment
 
-## 1. 研究问题
+## 1. Research Question
 
-本里程碑构造一个**受论文思想启发的有限加权实验**，考察连续类型经济的中点离散化、带人口权重的市场聚合，以及坏品吸收分布的尾部统计。它不是 Anderson--Duanmu (2025) 中某个例子的逐字复现，也不是 Loeb 测度、超有限经济或测度论收敛定理的计算证明。
+This milestone constructs a **paper-inspired finite weighted experiment** to study midpoint discretization of a continuum-type economy, market aggregation with population weights, and tail statistics for the distribution of bad absorption. It is neither a literal replication of an example in Anderson--Duanmu (2025) nor a computational proof involving Loeb measure, hyperfinite economies, or a measure-theoretic convergence theorem.
 
-连续类型目标取 `z ~ Uniform[0,1]`。每个类型的禀赋为 `(1,2)`，坏品吸收上限为 `0.5+z`，坏品边际厌恶系数为 `0.25+0.5z`。在符号价格 `p=(-1,1)` 下，个体选择其吸收上限，并用坏品价格收入购买普通品。连续目标的加权总消费因此为 `(1,2)`，未吸收坏品为零。
+The continuum-type target has `z ~ Uniform[0,1]`. Each type has endowment `(1,2)`, an upper bound on bad absorption of `0.5+z`, and marginal disutility from the bad of `0.25+0.5z`. At signed prices `p=(-1,1)`, each agent chooses its absorption bound and uses the income associated with the bad's price to purchase the ordinary good. Consequently, weighted aggregate consumption in the continuum target is `(1,2)`, with no unabsorbed bad.
 
-## 2. 有限近似
+## 2. Finite Approximation
 
-实验使用 `N = 10, 20, 50, 100, 200` 个等权原子，并在每个等长区间取中点类型。每个消费者的人口权重为 `1/N`；禀赋、需求、效用摘要和尾部积分全部按该权重聚合。对每个 `N`，候选均衡都交给独立 `EquilibriumDiagnostics` 检查，而不是仅凭构造公式宣告成功。
+The experiment uses `N = 10, 20, 50, 100, 200` equally weighted atoms, taking the midpoint type in each equal-length interval. Every consumer has population weight `1/N`; endowments, demands, utility summaries, and tail integrals are all aggregated with these weights. For every `N`, the candidate equilibrium is checked by the independent `EquilibriumDiagnostics` rather than declared successful merely from its construction formula.
 
-## 3. 验证结果
+## 3. Verification Results
 
-五个规模均返回 `VERIFIED_CANDIDATE`：
+All five sizes return `VERIFIED_CANDIDATE`:
 
-| N | 价格 | 加权总消费 | 最大个体吸收 | 资源残差上界 |
+| N | Price | Weighted aggregate consumption | Maximum individual absorption | Resource-residual bound |
 |---:|:---:|:---:|---:|---:|
-| 10 | `(-1,1)` | `(1,2)` | 1.4500 | `4.45e-16` 以下 |
-| 20 | `(-1,1)` | `(1,2)` | 1.4750 | `2.23e-16` 以下 |
+| 10 | `(-1,1)` | `(1,2)` | 1.4500 | below `4.45e-16` |
+| 20 | `(-1,1)` | `(1,2)` | 1.4750 | below `2.23e-16` |
 | 50 | `(-1,1)` | `(1,2)` | 1.4900 | `0` |
-| 100 | `(-1,1)` | `(1,2)` | 1.4950 | `2.23e-16` 以下 |
-| 200 | `(-1,1)` | `(1,2)` | 1.4975 | `2.23e-16` 以下 |
+| 100 | `(-1,1)` | `(1,2)` | 1.4950 | below `2.23e-16` |
+| 200 | `(-1,1)` | `(1,2)` | 1.4975 | below `2.23e-16` |
 
-最大吸收量随中点网格加密趋近连续上确界 `1.5`。结果还报告顶端人口质量、加权尾积分、截断均值和最大原子质量；这些量用于观察集中性与离散化行为，不能替代一致可积性的数学证明。
+As the midpoint grid is refined, maximum absorption approaches the continuum supremum `1.5`. The results also report upper-tail population mass, weighted tail integrals, truncated means, and maximum atom mass. These quantities help inspect concentration and discretization behavior; they cannot replace a mathematical proof of uniform integrability.
 
-## 4. 可复现入口
+## 4. Reproduction Entry Point
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\run_finite_weighted_lab.py --config configs\experiments\finite_weighted_bad_absorption.yaml
 ```
 
-机器可读结果位于 `results/milestone11_finite_weighted_lab.json`，防回归测试位于 `tests/test_finite_weighted_lab.py`。
+Machine-readable results are stored in `results/milestone11_finite_weighted_lab.json`, and regression tests are in `tests/test_finite_weighted_lab.py`.
 
-## 5. 结论边界
+## 5. Scope of the Conclusion
 
-本实验支持以下有限维结论：人口权重进入所有聚合；负价格坏品可在显式消费集上限下得到有限最优解；中点离散化在该线性构造中精确保持总资源出清。它不支持“已经证明连续经济存在均衡”“已经实现超有限方法”或“有限结果自动推广到一般类型空间”等更强主张。
+This experiment supports the following finite-dimensional conclusions: population weights enter every aggregate; a negative-price bad can have a finite optimum under an explicit upper bound in the consumption set; and midpoint discretization preserves aggregate resource clearing exactly in this linear construction. It does not support stronger claims that equilibrium existence has been proved for a continuum economy, that a hyperfinite method has been implemented, or that finite results automatically extend to a general type space.

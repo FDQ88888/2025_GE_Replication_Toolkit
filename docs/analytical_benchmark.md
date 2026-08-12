@@ -1,74 +1,74 @@
 # Milestone 1 Analytical Benchmark
 
-## 1. 目的
+## 1. Purpose
 
-本 benchmark 用一个精确答案已知的 2 consumers x 2 goods 交换经济，验证如下计算链：
+This benchmark uses a 2-consumer by 2-good exchange economy with a known exact solution to validate the following computational chain:
 
 ```text
 endowments -> wealth -> individual demand -> aggregate excess demand
 -> price normalization -> scalar root -> candidate -> independent diagnostics
 ```
 
-它是 `SOFTWARE VALIDATION BENCHMARK`，不是 Anderson-Duanmu 论文复现。
+It is a `SOFTWARE VALIDATION BENCHMARK`, not a replication of the Anderson-Duanmu paper.
 
-## 2. 经济
+## 2. Economy
 
-有两种普通商品和两个消费者。所有市场都要求 `EXACT` clearing。
+There are two ordinary goods and two consumers. Every market requires `EXACT` clearing.
 
-消费者 1 的禀赋和效用为
+Consumer 1 has endowment and utility
 
 ```text
 omega_1 = (1, 0),
 u_1(x_11,x_12) = x_11^(1/2) x_12^(1/2).
 ```
 
-消费者 2 的禀赋和效用为
+Consumer 2 has endowment and utility
 
 ```text
 omega_2 = (0, 1),
 u_2(x_21,x_22) = x_21^(1/2) x_22^(1/2).
 ```
 
-价格为 `p=(p_1,p_2)`。选择第二种商品作为 numeraire：
+Prices are `p=(p_1,p_2)`. Good 2 is selected as the numeraire:
 
 ```text
 p_2 = 1.
 ```
 
-这是数值坐标选择，不是整个项目永久采用的理论假设。
+This is a choice of numerical coordinates, not a permanent theoretical assumption of the project.
 
 ## 3. Cobb-Douglas Marshallian Demand
 
-对效用
+For utility
 
 ```text
 u(x_1,x_2) = x_1^alpha x_2^(1-alpha)
 ```
 
-和预算约束
+and budget constraint
 
 ```text
 p_1 x_1 + p_2 x_2 <= w,
 ```
 
-当 `p_1,p_2>0` 且 `0<alpha<1` 时，内部最优解把 `alpha` 份额的财富用于商品 1，把 `1-alpha` 份额用于商品 2：
+when `p_1,p_2>0` and `0<alpha<1`, the interior optimum spends the fraction `alpha` of wealth on good 1 and the fraction `1-alpha` on good 2:
 
 ```text
 x_1 = alpha w / p_1,
 x_2 = (1-alpha) w / p_2.
 ```
 
-本 benchmark 中两个消费者都有 `alpha=1/2`。
+Both consumers in this benchmark have `alpha=1/2`.
 
-## 4. 财富与个体需求
+## 4. Wealth and Individual Demand
 
-财富按禀赋的市场价值计算：
+Wealth is the market value of the endowment:
 
 ```text
 w_i(p) = p dot omega_i.
 ```
 
-消费者 1：
+Consumer 1:
 
 ```text
 w_1 = p_1,
@@ -76,7 +76,7 @@ x_11 = (1/2) p_1 / p_1 = 1/2,
 x_12 = (1/2) p_1 / p_2 = p_1/2.
 ```
 
-消费者 2：
+Consumer 2:
 
 ```text
 w_2 = p_2 = 1,
@@ -84,79 +84,79 @@ x_21 = (1/2) / p_1,
 x_22 = (1/2) / p_2 = 1/2.
 ```
 
-## 5. 商品 1 市场与相对价格
+## 5. Market for Good 1 and the Relative Price
 
-商品 1 的总需求为
+Aggregate demand for good 1 is
 
 ```text
 X_1(p_1,1) = 1/2 + 1/(2p_1).
 ```
 
-总禀赋为
+Aggregate endowment is
 
 ```text
 Omega_1 = 1.
 ```
 
-全项目固定超额需求符号：
+The project uses a fixed sign convention for excess demand:
 
 ```text
 z(p) = aggregate demand - aggregate endowment.
 ```
 
-所以
+Thus,
 
 ```text
 z_1(p_1,1) = -1/2 + 1/(2p_1).
 ```
 
-精确出清要求 `z_1=0`：
+Exact clearing requires `z_1=0`:
 
 ```text
 -1/2 + 1/(2p_1) = 0,
 p_1 = 1.
 ```
 
-由于 `p_2=1`，解析均衡价格是
+Because `p_2=1`, the analytical equilibrium price is
 
 ```text
 p* = (1,1).
 ```
 
-## 6. 均衡配置
+## 6. Equilibrium Allocation
 
-把 `p_1=p_2=1` 代回需求：
+Substituting `p_1=p_2=1` into demand gives:
 
 ```text
 x_1* = (1/2,1/2),
 x_2* = (1/2,1/2).
 ```
 
-## 7. 独立检查商品 2
+## 7. Independent Check of Good 2
 
-商品 2 总需求为
+Aggregate demand for good 2 is
 
 ```text
 X_2(p_1,1) = p_1/2 + 1/2.
 ```
 
-总禀赋 `Omega_2=1`，因此
+Aggregate endowment is `Omega_2=1`; hence,
 
 ```text
 z_2(p_1,1) = (p_1-1)/2.
 ```
 
-在 `p_1=1` 时：
+At `p_1=1`:
 
 ```text
 z_2(1,1) = 0.
 ```
 
-求解器没有使用这个方程寻找 `p_1`；它由 diagnostics 独立重算并检查。
+The solver does not use this equation to find `p_1`; diagnostics recompute and check it independently.
 
 ## 8. Walras Law
 
-在任意正 `p_1` 下：
+For every positive `p_1`:
 
 ```text
 p dot z(p)
@@ -165,19 +165,19 @@ p dot z(p)
 = 0.
 ```
 
-这个例子清楚说明 Walras law 可以在市场尚未逐个出清时成立。例如 `p=(2,1)` 时，`z_1=-1/4`、`z_2=1/2`，但 `p dot z=0`。
+This example clearly shows that Walras law can hold before markets clear commodity by commodity. For example, at `p=(2,1)`, `z_1=-1/4` and `z_2=1/2`, yet `p dot z=0`.
 
-因此必须区分：
+The following must therefore remain distinct:
 
-1. **SOLVED MARKET CONDITION**：求解 `z_1(p_1,1)=0`；
-2. **UNUSED MARKET CLEARING CHECK**：独立检查 `z_2(p_1,1)=0`；
-3. **WALRAS LAW CHECK**：独立报告 `p dot z(p)`。
+1. **SOLVED MARKET CONDITION**: solve `z_1(p_1,1)=0`;
+2. **UNUSED MARKET CLEARING CHECK**: independently check `z_2(p_1,1)=0`;
+3. **WALRAS LAW CHECK**: independently report `p dot z(p)`.
 
-Walras law 不能替代逐商品 market diagnostics，也不能被用来修改 residual。
+Walras law cannot replace commodity-by-commodity market diagnostics and must not be used to modify the residual.
 
-## 9. 自动测试 Ground Truth
+## 9. Ground Truth for Automated Tests
 
-测试采用：
+The tests use:
 
 ```text
 p* = [1.0, 1.0]
@@ -191,36 +191,36 @@ z(p*) = [0.0, 0.0]
 p* dot z(p*) = 0.0
 ```
 
-数值 solver 的输出只有在独立 diagnostics 同时验证价格规范、预算、个体最优性、两个市场和 Walras law 后，才可分类为 `VERIFIED_CANDIDATE`。
+The numerical solver's output may be classified as `VERIFIED_CANDIDATE` only after independent diagnostics jointly verify price normalization, budgets, individual optimality, both markets, and Walras law.
 
-## 10. 候选配置与重新优化需求必须分离
+## 10. Candidate Allocations Must Be Separated from Reoptimized Demand
 
-`z(p)` 是给定价格后重新求解消费者问题得到的超额需求，它用于求解价格和检查需求系统。验证一个具体候选 `(p,x)` 时，市场可行性却必须使用候选配置本身：
+`z(p)` is excess demand obtained by resolving the consumer problems at given prices. It is used to solve for prices and inspect the demand system. When validating a specific candidate `(p,x)`, however, market feasibility must use the candidate allocation itself:
 
 ```text
 r(x) = sum_i x_i - sum_i omega_i,
 formal candidate Walras residual = p dot r(x).
 ```
 
-例如在 `p=(1,1)` 下伪造
+For example, at `p=(1,1)`, consider the fabricated allocation
 
 ```text
 x_1 = x_2 = (0.8,0.2).
 ```
 
-重新优化需求仍为 `(0.5,0.5)`，因而 `z(p)=(0,0)`；但候选资源残差是
+Reoptimized demand remains `(0.5,0.5)`, so `z(p)=(0,0)`; but the candidate resource residual is
 
 ```text
 r(x) = (0.6,-0.6),
 p dot r(x) = 0.
 ```
 
-所以该候选既不满足逐商品市场出清，也不是消费者最优配置。这个反例同时说明，即便正式候选 Walras residual 为零，也不能推出各市场出清。
+Thus this candidate neither clears markets commodity by commodity nor gives consumer-optimal allocations. The counterexample also shows that even a zero formal candidate Walras residual does not imply clearing in every market.
 
-消费者最优性采用效用差
+Consumer optimality uses the utility gap
 
 ```text
 utility_gap_i = u_i(x_i^opt) - u_i(x_i^candidate),
 ```
 
-其中 `x_i^opt` 由预算约束与消费集合下的独立 Marshallian-demand oracle 给出。Cobb-Douglas benchmark 的最优需求唯一，因此额外报告 bundle distance，但它只叫 `UNIQUE_DEMAND_BENCHMARK_CHECK`，不作为一般偏好下的正式判据。当前验证器只支持带数值效用和有效优化 oracle 的偏好；论文中尚未计算化的 relation-only preference 明确属于 unsupported。
+where `x_i^opt` is supplied by an independent Marshallian-demand oracle under the budget constraint and consumption set. Optimal demand is unique in the Cobb-Douglas benchmark, so bundle distance is also reported; it is labeled only `UNIQUE_DEMAND_BENCHMARK_CHECK` and is not a formal criterion under general preferences. The current validator supports only preferences with numerical utility and a valid optimization oracle. Relation-only preferences from the paper that have not been made computational are explicitly unsupported.

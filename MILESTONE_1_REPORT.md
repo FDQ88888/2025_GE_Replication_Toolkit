@@ -1,14 +1,14 @@
 # Duanmu GE Lab - Milestone 1 Report
 
-> **历史报告说明（2026-08-09）**：本文件记录最初的 Milestone 1 交付。后续审计发现其中把候选资源残差与重新优化需求残差混写的问题；当前实现和最终验证语义以 `MILESTONE_1_1_AUDIT_REPORT.md` 为准。本文件不再作为当前 diagnostics 的规范说明。
+> **Historical report notice (2026-08-09):** This file records the original Milestone 1 delivery. A later audit found that it conflated candidate resource residuals with reoptimized demand residuals. The current implementation and final verification semantics are defined by `MILESTONE_1_1_AUDIT_REPORT.md`; this file is no longer the normative description of current diagnostics.
 
-> 完成日期：2026-08-09  
-> 范围：Minimal General Equilibrium Engine  
-> 状态：完成并停止；未进入 Production、Quota、Emission Tax、Bads、Externalities 或 Finite Approximation。
+> Completion date: 2026-08-09  
+> Scope: Minimal General Equilibrium Engine  
+> Status: Completed and stopped; Production, Quota, Emission Tax, Bads, Externalities, and Finite Approximation were not entered.
 
 ## 1. What Was Implemented
 
-本轮建立了一个可安装、可测试、可在 Windows + VS Code + Python 3.11+ 运行的有限交换经济核心。已经完成的计算链为：
+This milestone established an installable and testable finite exchange-economy core that runs on Windows with VS Code and Python 3.11+. The completed computational chain is:
 
 ```text
 economic parameters
@@ -23,37 +23,37 @@ economic parameters
 -> VERIFIED_CANDIDATE
 ```
 
-实现对象包括：
+Implemented objects include:
 
-- `Commodity`、`CommodityKind`、`ClearingRule`；
-- 抽象 `PreferenceModel` 与 `CobbDouglasUtility`；
-- `Consumer` 与禀赋财富、需求、效用、预算 residual；
-- `ExchangeEconomy` 与聚合禀赋、需求、超额需求、逐市场 residual、Walras residual；
-- 抽象 `PriceNormalization`、`FixedNumeraire` 和 signed L1 报告归一化；
-- 2-good、1-independent-price 的 `ExchangeEquilibriumSolver`；
-- 不带验证结论的 `EquilibriumCandidate`；
-- `NumericalTolerances`、四级 candidate classification 和独立 diagnostics；
-- 解析 benchmark、命令行脚本、JSON 结果和 26 个自动测试。
+- `Commodity`, `CommodityKind`, and `ClearingRule`;
+- abstract `PreferenceModel` and `CobbDouglasUtility`;
+- `Consumer` with endowment wealth, demand, utility, and budget residuals;
+- `ExchangeEconomy` with aggregate endowment, demand, excess demand, market-by-market residuals, and a Walras residual;
+- abstract `PriceNormalization`, `FixedNumeraire`, and signed-L1 reporting normalization;
+- a two-good, one-independent-price `ExchangeEquilibriumSolver`;
+- `EquilibriumCandidate` without a verification conclusion;
+- `NumericalTolerances`, a four-level candidate classification, and independent diagnostics;
+- an analytical benchmark, command-line script, JSON result, and 26 automated tests.
 
 ## 2. Mathematical Benchmark
 
-当前 benchmark 是 `SOFTWARE VALIDATION BENCHMARK`，不是 Anderson-Duanmu paper replication。
+The current benchmark is a `SOFTWARE VALIDATION BENCHMARK`, not an Anderson-Duanmu paper replication.
 
-消费者 1：
+Consumer 1:
 
 ```text
 omega_1 = (1,0)
 u_1(x_11,x_12) = x_11^(1/2) x_12^(1/2)
 ```
 
-消费者 2：
+Consumer 2:
 
 ```text
 omega_2 = (0,1)
 u_2(x_21,x_22) = x_21^(1/2) x_22^(1/2)
 ```
 
-第二种商品是 numeraire：`p_2=1`。超额需求在全项目中固定定义为：
+Good 2 is the numeraire: `p_2=1`. Excess demand is defined consistently throughout the project as:
 
 ```text
 z(p) = aggregate demand - aggregate endowment.
@@ -61,13 +61,13 @@ z(p) = aggregate demand - aggregate endowment.
 
 ## 3. Analytical Equilibrium
 
-Cobb-Douglas Marshallian demand 为：
+Cobb-Douglas Marshallian demand is:
 
 ```text
 x_l = alpha_l w / p_l.
 ```
 
-在 `alpha_1=alpha_2=1/2` 下：
+When `alpha_1=alpha_2=1/2`:
 
 ```text
 w_1 = p_1
@@ -77,7 +77,7 @@ z_1(p_1,1) = -1/2 + 1/(2p_1)
 z_2(p_1,1) = (p_1-1)/2
 ```
 
-求解 `z_1=0` 得：
+Solving `z_1=0` gives:
 
 ```text
 p* = (1,1)
@@ -85,23 +85,23 @@ x_1* = (1/2,1/2)
 x_2* = (1/2,1/2)
 ```
 
-完整手工推导见 `docs/analytical_benchmark.md`。
+See `docs/analytical_benchmark.md` for the complete derivation.
 
 ## 4. Numerical Method
 
-- 价格坐标：`FixedNumeraire(index=1, value=1.0)`；
-- 独立未知量：`p_1`；
-- 只求解：`z_1(p_1,1)=0`；
-- 未用于求根的市场：商品 2，由 diagnostics 检查；
-- 方法：SciPy `root_scalar(..., method="brentq")`；
-- bracket：`[0.05,20.0]`；
-- `xtol=1e-13`，`rtol=1e-13`，`maxiter=100`。
+- Price coordinates: `FixedNumeraire(index=1, value=1.0)`;
+- independent unknown: `p_1`;
+- sole solved equation: `z_1(p_1,1)=0`;
+- market unused in root finding: good 2, checked by diagnostics;
+- method: SciPy `root_scalar(..., method="brentq")`;
+- bracket: `[0.05,20.0]`;
+- `xtol=1e-13`, `rtol=1e-13`, `maxiter=100`.
 
-求解器没有同时向一个未知量强加两个市场方程，也没有用 Walras law 修改或替代 residual。
+The solver neither imposes two market equations on one unknown nor uses Walras law to modify or replace a residual.
 
 ## 5. Solver Result
 
-实际运行结果：
+Actual run results:
 
 ```text
 solver method      = brentq
@@ -114,15 +114,15 @@ price L2 distance  = 0.0
 allocation distance= 0.0
 ```
 
-signed L1 报告价格为 `[0.5,0.5]`。这一步只用于报告，没有改变 solver 的 numeraire 坐标。
+The signed-L1 reporting prices are `[0.5,0.5]`. This step is only for reporting and does not change the solver's numeraire coordinates.
 
 ## 6. Independent Diagnostics
 
-Diagnostics 从 `Economy + candidate.prices + candidate.allocations` 重新计算需求、预算和市场量，不信任 candidate 缓存的 aggregate demand、aggregate endowment 或 excess demand。
+Diagnostics recompute demand, budgets, and market quantities from `Economy + candidate.prices + candidate.allocations`, without trusting aggregate demand, aggregate endowment, or excess demand cached in the candidate.
 
-实际严格诊断结果：
+Actual strict diagnostic results:
 
-| 检查 | 数值误差 | 结果 |
+| Check | Numerical error | Result |
 |---|---:|---|
 | Numeraire error | `0.0` | PASS |
 | Good 1 residual | `0.0` | PASS |
@@ -136,13 +136,13 @@ Diagnostics 从 `Economy + candidate.prices + candidate.allocations` 重新计�
 | Consumer 2 optimality gap | `0.0` | PASS |
 | Walras residual `p dot z(p)` | `0.0` | PASS |
 
-最终 classification：
+Final classification:
 
 ```text
 VERIFIED_CANDIDATE
 ```
 
-错误 candidate 测试人工写入 `solver_success=True` 和缓存 `excess_demand=[0,0]`，但使用 `p=(2,1)` 和错误 allocations。Diagnostics 独立重算得到：
+The invalid-candidate test manually sets `solver_success=True` and cached `excess_demand=[0,0]`, while using `p=(2,1)` and incorrect allocations. Independent diagnostic recomputation gives:
 
 ```text
 z(p) = [-0.25, 0.5]
@@ -150,11 +150,11 @@ p dot z(p) = 0.0
 classification = SOLVER_POINT
 ```
 
-因此测试同时证明：solver success 不能代替均衡验证，Walras law 也不能代替逐市场出清。
+The test therefore shows that solver success cannot replace equilibrium verification and that Walras law cannot replace market-by-market clearing.
 
 ## 7. Test Results
 
-最终真实运行：
+Actual final run:
 
 ```text
 python -m pytest -q
@@ -162,23 +162,23 @@ python -m pytest -q
 26 passed in 0.55s
 ```
 
-覆盖内容：
+Coverage includes:
 
-- Cobb-Douglas demand ground truth；
-- 非法 alpha、alpha 不加总、维数错误；
-- zero/negative Cobb-Douglas prices 的明确拒绝；
-- 财富 `p dot omega`；
-- budget residual 的符号；
-- FixedNumeraire encode/decode；
-- signed L1 符号保持、正比例尺度不变与零向量异常；
-- 解析均衡价格与 allocations；
-- 两个市场分别出清；
-- 非均衡价格下 Walras law 仍成立；
-- bracket 无符号变化时返回 `FAILED_RUN`；
-- 伪造 solver success 和缓存 residual 的拒绝；
-- candidate 缓存向量 shape 错误的拒绝。
+- Cobb-Douglas demand ground truth;
+- invalid alpha, alpha values that do not sum to one, and dimension errors;
+- explicit rejection of zero/negative Cobb-Douglas prices;
+- wealth `p dot omega`;
+- the sign of the budget residual;
+- FixedNumeraire encode/decode;
+- sign preservation, positive-scale invariance, and zero-vector errors for signed L1;
+- analytical equilibrium prices and allocations;
+- separate clearing of both markets;
+- Walras law at nonequilibrium prices;
+- return of `FAILED_RUN` when the bracket has no sign change;
+- rejection of fabricated solver success and cached residuals;
+- rejection of incorrect shapes in candidate cache vectors.
 
-其他验证：
+Other verification:
 
 ```text
 python scripts/run_baseline.py   -> exit code 0
@@ -187,11 +187,11 @@ python -m pip check              -> No broken requirements found
 package import                   -> duanmu_ge_lab 0.1.0
 ```
 
-验证环境：Python 3.12.13、NumPy 2.5.2、SciPy 1.18.0、pytest 9.1.1。项目元数据声明 Python `>=3.11`。
+Verification environment: Python 3.12.13, NumPy 2.5.2, SciPy 1.18.0, and pytest 9.1.1. Project metadata declares Python `>=3.11`.
 
 ## 8. Files Created
 
-项目与文档：
+Project and documentation:
 
 - `pyproject.toml`
 - `README.md`
@@ -201,16 +201,16 @@ package import                   -> duanmu_ge_lab 0.1.0
 - `scripts/run_baseline.py`
 - `results/milestone1_baseline.json`
 
-核心包：
+Core package:
 
 - `src/duanmu_ge_lab/__init__.py`
 - `src/duanmu_ge_lab/benchmarks.py`
 - `src/duanmu_ge_lab/core/{commodity,preferences,consumer,economy}.py`
 - `src/duanmu_ge_lab/equilibrium/{candidate,normalization,diagnostics}.py`
 - `src/duanmu_ge_lab/solvers/exchange_solver.py`
-- 三个非空 package `__init__.py`
+- three nonempty package `__init__.py` files
 
-测试：
+Tests:
 
 - `tests/test_preferences.py`
 - `tests/test_consumer.py`
@@ -220,43 +220,43 @@ package import                   -> duanmu_ge_lab 0.1.0
 - `tests/test_analytical_equilibrium.py`
 - `tests/test_diagnostics_reject_invalid.py`
 
-项目内还生成 `.venv`、pytest cache、Python bytecode 和 editable-install metadata，均位于指定的 `codepart/duanmu_ge_lab` 目录。
+The project also generated `.venv`, the pytest cache, Python bytecode, and editable-install metadata, all within the designated `codepart/duanmu_ge_lab` directory.
 
 ## 9. Known Limitations
 
-- Solver 只支持 2 goods、1 个 non-numeraire price 和全部商品 `EXACT` clearing。
-- `CobbDouglasUtility.marshallian_demand` 只支持严格正价格；不支持的价格明确抛出 `UnsupportedPriceDomainError`。
-- `ClearingRule.FREE_DISPOSAL` 已进入数据与 diagnostics 语义，但本轮 solver 和 benchmark 不使用它。
-- 没有生产、企业收入、政府、配额、排放税、坏品专用可行集或外部性。
-- 没有多起点、延拓、聚类或多重均衡完备性声明。
-- 数值结果只验证当前有限 benchmark，不构成一般存在性或唯一性证明。
+- The solver supports only two goods, one non-numeraire price, and `EXACT` clearing for all commodities.
+- `CobbDouglasUtility.marshallian_demand` supports only strictly positive prices and explicitly raises `UnsupportedPriceDomainError` otherwise.
+- `ClearingRule.FREE_DISPOSAL` is represented in data and diagnostic semantics, but this milestone's solver and benchmark do not use it.
+- There is no production, firm income, government, quota, emission tax, bad-specific feasible set, or externality.
+- There is no multistart, continuation, clustering, or claim of multiple-equilibrium completeness.
+- Numerical results validate only the current finite benchmark and do not prove general existence or uniqueness.
 
 ## 10. Design Decisions
 
-1. `PreferenceModel` 是抽象接口；Cobb-Douglas 是本轮计算选择。
-2. `CommodityKind` 不决定价格符号、单调性、处置或监管。
-3. `FixedNumeraire` 与 price-sign restrictions 分离。
-4. 没有 softmax；signed L1 函数保留负号，零向量报错。
-5. 求解器只求 `z_1=0`；`z_2` 与 Walras law 由 diagnostics 分开检查。
-6. Candidate 不保存 `market_clearing_pass` 一类 solver 自证字段。
-7. Diagnostics 不使用 candidate 缓存 residual 做判定。
-8. 严格容差集中于 `NumericalTolerances`；没有散落的宽松 magic tolerances。
-9. bracket 无 sign change 返回失败 candidate，不把数值失败解释为均衡不存在。
-10. benchmark 常数只存在于 `benchmarks.py`、benchmark 文档、脚本输出和测试，不泄漏进 `Consumer`、`Economy` 或 solver 通用逻辑。
+1. `PreferenceModel` is an abstract interface; Cobb-Douglas is this milestone's computational choice.
+2. `CommodityKind` does not determine price signs, monotonicity, disposal, or regulation.
+3. `FixedNumeraire` is separate from price-sign restrictions.
+4. There is no softmax; the signed-L1 function preserves negative signs and rejects the zero vector.
+5. The solver solves only `z_1=0`; diagnostics check `z_2` and Walras law separately.
+6. A candidate stores no solver self-certification field such as `market_clearing_pass`.
+7. Diagnostics do not use cached candidate residuals to make decisions.
+8. Strict tolerances are centralized in `NumericalTolerances`; there are no scattered permissive magic tolerances.
+9. A bracket without a sign change returns a failed candidate; numerical failure is not interpreted as equilibrium nonexistence.
+10. Benchmark constants appear only in `benchmarks.py`, benchmark documentation, script output, and tests; they do not leak into general `Consumer`, `Economy`, or solver logic.
 
 ## 11. Failed Attempts / Bugs Encountered
 
-- 系统普通 `PATH` 中没有 `python` 命令。解决方式：使用 Codex 提供的 Python 3.12.13 创建项目内 `.venv`；README 仍给出普通 Windows Python 3.11+ 安装命令。
-- 创建测试文件时，补丁工具第一次没有自动建立 `tests/` 父目录。显式创建该目录后继续，没有丢失文件。
-- 第一次完整测试为 `25 passed`。软件自审发现 diagnostics 应同时拒绝 candidate 缓存聚合向量的 shape 错误；补充检查和一个测试后，最终为 `26 passed`。
-- 对 `[2,3]` bracket，残差没有 sign change。求解器按设计返回 `FAILED_RUN`，没有 crash；该情形已测试。
-- 没有未解决的测试失败或已知运行时 bug。
+- The ordinary system `PATH` had no `python` command. Resolution: use Codex-provided Python 3.12.13 to create the project-local `.venv`; the README still gives standard Windows Python 3.11+ installation commands.
+- On the first attempt to create test files, the patch tool did not automatically create the parent `tests/` directory. Work continued after explicitly creating it, with no lost files.
+- The first full suite reported `25 passed`. A software self-audit found that diagnostics should also reject shape errors in cached aggregate candidate vectors; after adding the check and one test, the final count was `26 passed`.
+- On bracket `[2,3]`, the residual has no sign change. The solver returns `FAILED_RUN` as designed without crashing; this case is tested.
+- There are no unresolved test failures or known runtime defects.
 
-代码中 `np.maximum.reduce` 只用于构造 diagnostics 的市场误差尺度；`np.abs(price_array)` 只用于任务要求的 signed L1 归一化。没有使用 clipping、绝对值替换价格、epsilon price replacement 或 residual 修补。
+In the code, `np.maximum.reduce` is used only to construct market-error scales for diagnostics, and `np.abs(price_array)` is used only for the required signed-L1 normalization. There is no clipping, replacement of prices by absolute values, epsilon price replacement, or residual patching.
 
 ## 12. Exact Commands to Reproduce
 
-Windows PowerShell：
+Windows PowerShell:
 
 ```powershell
 cd <path-to-project>\duanmu_ge_lab
@@ -267,7 +267,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m compileall src
 ```
 
-JSON 结果：
+JSON result:
 
 ```text
 <project-root>\results\milestone1_baseline.json
@@ -275,18 +275,18 @@ JSON 结果：
 
 ## 13. Recommended Milestone 2
 
-按照已批准的 `IMPLEMENTATION_PLAN.md`，下一阶段建议是 Production，但必须由新的任务明确启动。本轮没有创建任何 production 代码。
+Under the approved `IMPLEMENTATION_PLAN.md`, the recommended next stage was Production, but it required explicit initiation by a new task. This milestone created no production code.
 
-建议 Milestone 2 首先完成：
+The recommended first objectives for Milestone 2 were:
 
-1. `Firm` 与 `ProductionTechnology` 的最小接口；
-2. 净生产向量与利润最大化；
-3. 企业持股和股息进入消费者收入；
-4. 资源会计扩展为 `demand - endowment - production`；
-5. 一个同样具有解析答案的生产经济 benchmark；
-6. 独立 profit-gap 和 ownership-accounting diagnostics。
+1. minimal interfaces for `Firm` and `ProductionTechnology`;
+2. net-production vectors and profit maximization;
+3. firm ownership and dividends entering consumer income;
+4. resource accounting extended to `demand - endowment - production`;
+5. a production-economy benchmark with an analytical solution;
+6. independent profit-gap and ownership-accounting diagnostics.
 
-在进入 Milestone 2 前，最值得交给数学审阅者检查的文件是：
+Before entering Milestone 2, the most valuable files for mathematical review were:
 
 - `docs/analytical_benchmark.md`
 - `src/duanmu_ge_lab/equilibrium/diagnostics.py`

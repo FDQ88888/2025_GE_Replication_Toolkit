@@ -1,20 +1,20 @@
 # Duanmu GE Lab - Milestone 4 Report
 
-> 完成日期：2026-08-10  
-> 范围：Signed Prices, Bads, Clearing Rules  
-> 状态：**PASS**
+> Completion date: 2026-08-10  
+> Scope: Signed Prices, Bads, Clearing Rules  
+> Status: **PASS**
 
-## 1. 实现内容
+## 1. Implemented Components
 
-- `PriceSign` 与逐坐标 `PriceSignRestrictions`；
-- signed L1 与 fixed-numeraire 的正比例往返转换；
-- `ConsumptionSet`、`NonnegativeOrthant`、`BoxConsumptionSet`；
-- `BadAbsorptionLinearUtility` 的负价解析 demand oracle；
-- diagnostics 中独立的 price-normalization 与 price-sign 硬检查；
-- exact/non-free-disposal 坏品 benchmark；
-- free-disposal 与 exact-clearing 对照回归。
+- `PriceSign` and coordinate-wise `PriceSignRestrictions`;
+- positive-proportional round trips between signed L1 and fixed-numeraire normalization;
+- `ConsumptionSet`, `NonnegativeOrthant`, and `BoxConsumptionSet`;
+- an analytical negative-price demand oracle for `BadAbsorptionLinearUtility`;
+- independent hard checks for price normalization and price signs in diagnostics;
+- an exact, non-free-disposal bad benchmark;
+- a contrastive regression test for free disposal and exact clearing.
 
-所有对象都保持以下不变量：
+All objects maintain the following invariant:
 
 ```text
 commodity semantic kind
@@ -23,21 +23,21 @@ commodity semantic kind
 != clearing rule.
 ```
 
-## 2. Signed Price 处理
+## 2. Signed-Price Handling
 
-价格限制可选 `ANY`、`NONNEGATIVE`、`NONPOSITIVE`、`POSITIVE`、`NEGATIVE` 或 `ZERO`。限制由经济规格显式传入 diagnostics；商品 BAD 标签不创建默认限制。
+Price restrictions may be `ANY`, `NONNEGATIVE`, `NONPOSITIVE`, `POSITIVE`, `NEGATIVE`, or `ZERO`. The economy specification passes restrictions explicitly to diagnostics; a BAD commodity label creates no default restriction.
 
-`normalize_signed_l1` 保留符号，`rescale_to_fixed_numeraire` 只允许正比例。测试确认：
+`normalize_signed_l1` preserves signs, and `rescale_to_fixed_numeraire` permits only positive proportional scaling. Tests confirm:
 
 ```text
 (-2,1) -> (-2/3,1/3) -> (-2,1).
 ```
 
-试图用负比例得到相反符号的 numeraire 会明确报错。
+Attempting to obtain an oppositely signed numeraire through negative scaling raises an explicit error.
 
-## 3. 坏品吸收 Benchmark
+## 3. Bad-Absorption Benchmark
 
-benchmark 是软件验证选择，不是论文复现：
+This benchmark is a software-validation choice, not a paper replication:
 
 ```text
 e=(1 bad, 2 good),
@@ -47,7 +47,7 @@ p=(-1,1),
 x*=(1,2).
 ```
 
-正式结果：
+Formal results:
 
 ```text
 fixed-numeraire prices = [-1,1]
@@ -57,35 +57,35 @@ candidate Walras       = 0
 classification         = VERIFIED_CANDIDATE
 ```
 
-消费上限由 `BoxConsumptionSet` 实施；候选 bad consumption `1.1` 的 feasibility violation 是 `0.1`。
+`BoxConsumptionSet` enforces the consumption bound; candidate bad consumption of `1.1` has feasibility violation `0.1`.
 
-## 4. Clearing Rule 回归
+## 4. Clearing-Rule Regression
 
-对 candidate residual `(-0.5,0)`：
+For candidate residual `(-0.5,0)`:
 
-- 第一商品 `FREE_DISPOSAL`：market clearing check 通过；
-- 第一商品 `EXACT`：market clearing check 失败。
+- with `FREE_DISPOSAL` for the first commodity, the market-clearing check passes;
+- with `EXACT` for the first commodity, the market-clearing check fails.
 
-该测试只验证逐商品资源区域，不添加未由模型定义的 complementarity 条件。
+This test validates only the commodity-by-commodity resource region and adds no complementarity condition absent from the model definition.
 
-## 5. 测试结果
+## 5. Test Results
 
-新增测试覆盖：
+New tests cover:
 
-- signed L1/numeraire round trip；
-- 负比例缩放拒绝；
-- BAD 标签不隐含负价；
-- 负价坏品 verified candidate；
-- bounded bad absorption；
-- exact 与 free-disposal 的不同判定。
+- signed-L1/numeraire round trips;
+- rejection of negative proportional scaling;
+- the fact that a BAD label does not imply a negative price;
+- a verified candidate with a negative-price bad;
+- bounded bad absorption;
+- distinct decisions under exact clearing and free disposal.
 
-实现后完整测试：
+The full test suite after implementation reports:
 
 ```text
 50 passed in 0.49s
 ```
 
-## 6. 文件与输出
+## 6. Files and Outputs
 
 ```text
 src/duanmu_ge_lab/core/consumption.py
@@ -97,11 +97,11 @@ results/milestone4_signed_bad_absorption.json
 MILESTONE_4_REPORT.md
 ```
 
-## 7. 研究边界
+## 7. Research Boundaries
 
-- 当前负价 preference 是两坐标解析 benchmark，不是通用不完备偏好。
-- 当前 benchmark 没有生产副产品、封存、外部性或政策。
-- `FREE_DISPOSAL` 只实现定义中的 residual inequality，没有自动互补条件。
-- Anderson-Duanmu 的 `Z(m)` 与 emission-tax compliance region 尚未实现；它们必须在政策里程碑按原文单独定义。
+- The current negative-price preference is a two-coordinate analytical benchmark, not a general incomplete preference.
+- The current benchmark has no production byproducts, sequestration, externalities, or policy.
+- `FREE_DISPOSAL` implements only the residual inequality in its definition, with no automatic complementarity condition.
+- Anderson-Duanmu's `Z(m)` and emission-tax compliance region were not yet implemented at this milestone; they must be defined separately from the original text in policy milestones.
 
-M4 只有在全部旧/新测试、四套实验、编译和依赖检查全绿后才关闭。
+M4 was closed only after all existing and new tests, four experiment sets, compilation, and dependency checks passed.

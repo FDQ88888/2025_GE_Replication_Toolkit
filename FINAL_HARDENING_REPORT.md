@@ -2,89 +2,89 @@
 
 ## 1. Executive Summary
 
-本轮是现有 `duanmu_ge_lab` 的加固，不增加经济模型。两个会导致研究语义失真的硬问题已修复：LinearRayTechnology 对理论零利润的浮点误分类，以及 reproducibility suite 对失败实验的假成功。状态、容差、候选量会计、价格尺度、论文参数、依赖、文档、CI 与交付包也完成了系统审计。
+This pass hardens the existing `duanmu_ge_lab` without adding economic models. It fixes two critical issues that could distort the research semantics: floating-point misclassification of theoretical zero profit in `LinearRayTechnology`, and false success for failed experiments in the reproducibility suite. Statuses, tolerances, candidate-quantity accounting, price scales, paper parameters, dependencies, documentation, CI, and the delivery archive were also audited systematically.
 
-最终证据为：CPython 3.12.13 与 3.13.0 均 `113 passed, 0 failed`；16 个 required suite observations 全部精确匹配预期状态；Examples 1-6 为 6/6 `PAPER_REPLICATION_SUCCESS`；两个环境的 strict final audit 均为 `FINAL_AUDIT_PASSED`。
+Final evidence: both CPython 3.12.13 and 3.13.0 report `113 passed, 0 failed`; all 16 required suite observations exactly match their expected statuses; Examples 1-6 are 6/6 `PAPER_REPLICATION_SUCCESS`; and the strict final audit returns `FINAL_AUDIT_PASSED` in both environments.
 
 ## 2. Original Issues Found
 
-- `p dot v` 的极小正舍入误差会把理论 zero-profit ray 错判为 unbounded profit。
-- suite 过去可能只完成调用并打印状态，未强制 actual status 等于 expected status。
-- sweep 成功状态未校验发现簇数量；单实验 CLI 对失败状态仍可能返回 0。
-- 图表生成没有先拒绝失败的上游结果。
-- 环境声明缺少跨 minor 实测、上界与已测试 pins；CI、scope 和机器无关交付说明不足。
-- 历史结果元数据记录了解释器与两个配置文件的机器绝对路径。
+- A tiny positive rounding error in `p dot v` could misclassify a theoretical zero-profit ray as having unbounded profit.
+- The suite could previously finish calls and print statuses without enforcing equality between actual and expected status.
+- Sweep success did not validate the number of discovered clusters, and the single-experiment CLI could return zero for a failure status.
+- Figure generation did not first reject failed upstream results.
+- Environment claims lacked cross-minor execution, upper bounds, and tested pins; CI, scope, and machine-independent delivery documentation were incomplete.
+- Historical result metadata recorded machine-specific absolute paths for the interpreter and two configuration files.
 
 ## 3. LinearRayTechnology Floating-Point Bug
 
-根因是对 `margin = p dot v` 使用精确的 `margin > 0` 分支。修复采用 L2 尺度
+The root cause was an exact `margin > 0` branch on `margin = p dot v`. The fix uses the L2 scale
 
 ```text
 scale = ||p||_2 ||v||_2
 tol = profit_margin_abs_tol + profit_margin_rel_tol * scale
 ```
 
-并把 margin 明确分类为 shutdown、numerical zero 或 positive-unbounded。默认值为 `1e-14 + 1e-12*scale`，由统一 tolerance infrastructure 暴露。zero-margin 下任何可行 ray activity 都按非唯一利润最大化解验证，不再和任意返回 plan 比较。
+and explicitly classifies the margin as shutdown, numerical zero, or positive-unbounded. The default is `1e-14 + 1e-12*scale`, exposed through the unified tolerance infrastructure. At zero margin, every feasible ray activity is validated as a nonunique profit-maximizing solution rather than compared with an arbitrary returned plan.
 
-回归测试覆盖 exact zero、`+/-5e-17`、明显 `+/-1e-3`、尺度变化和非唯一活动量。Examples 1-6 与 mapping 重跑后，共同论文数值字段相对修复前快照的最大变化为 0；具体 margin 与分类见 `HARDENING_FIX_01_LINEAR_RAY.md`。
+Regression tests cover exact zero, `+/-5e-17`, clearly signed `+/-1e-3`, scale changes, and nonunique activity levels. After rerunning Examples 1-6 and the mappings, the maximum change in shared paper-numerical fields relative to the pre-fix snapshot is zero. See `HARDENING_FIX_01_LINEAR_RAY.md` for margins and classifications.
 
 ## 4. Reproducibility Suite False-Success Bug
 
-状态现在由集中注册表映射到 SUCCESS/FAILURE/BLOCKED/PARTIAL/SKIPPED/UNKNOWN。每个 YAML runner 明确声明 `expected_status` 和 `required`。suite 保存 expected/actual/outcome，任一 required mismatch、blocked、unknown 或 exception 都产生 `REPRODUCIBILITY_SUITE_FAILED` 和非零退出码；optional skip 只能成为显式 warning。
+Statuses are now mapped by a central registry to SUCCESS/FAILURE/BLOCKED/PARTIAL/SKIPPED/UNKNOWN. Every YAML runner declares `expected_status` and `required` explicitly. The suite stores expected/actual/outcome; any required mismatch, blocked or unknown status, or exception produces `REPRODUCIBILITY_SUITE_FAILED` and a nonzero exit code. An optional skip can only become an explicit warning.
 
-sweep 只有实际分支计数等于配置目标时才返回 `SWEEP_SUCCESS`；单实验 CLI 只对登记的成功状态返回 0；图表只接受三个精确成功的上游结果。测试覆盖全成功、required failure、required blocked、optional skipped warning、失败退出码、未知单实验状态和失败图表来源。详见 `HARDENING_FIX_02_STATUS_SEMANTICS.md`。
+A sweep returns `SWEEP_SUCCESS` only when the actual branch count equals the configured target. The single-experiment CLI returns zero only for registered success statuses, and figures accept only three precisely successful upstream results. Tests cover full success, required failure, required blocked, an optional-skipped warning, failure exit codes, unknown single-experiment status, and failed figure sources. See `HARDENING_FIX_02_STATUS_SEMANTICS.md`.
 
 ## 5. Cross-Version Testing
 
-Windows 上实际验证 CPython 3.12.13 与 3.13.0，两者均完成 113 tests、compileall 和完整 suite；3.13 另执行 CI 的关键 smoke commands。Ubuntu CPython 3.11/3.12/3.13 GitHub Actions matrix 已配置但尚无远程 run，因此不标记为 verified。精确矩阵见 `TESTED_ENVIRONMENTS.md`。
+CPython 3.12.13 and 3.13.0 were actually verified on Windows; both completed 113 tests, compileall, and the full suite, while 3.13 also ran the key CI smoke commands. An Ubuntu CPython 3.11/3.12/3.13 GitHub Actions matrix is configured but has not run remotely, so it is not labeled verified. See `TESTED_ENVIRONMENTS.md` for the exact matrix.
 
 ## 6. Dependency Strategy
 
-`pyproject.toml` 使用 `>=3.11,<3.14`，并为 NumPy、SciPy、PyYAML、Matplotlib、pytest 设置当前已审计 major 上界。`requirements-tested.txt` 是一个真实的 CPython 3.12 reference environment，不声称跨平台 lock。项目未引入未使用的 pandas 或新工具链。
+`pyproject.toml` uses `>=3.11,<3.14` and sets currently audited major-version upper bounds for NumPy, SciPy, PyYAML, Matplotlib, and pytest. `requirements-tested.txt` records an actual CPython 3.12 reference environment and does not claim to be a cross-platform lockfile. No unused pandas dependency or new toolchain was introduced.
 
 ## 7. Documentation Fixes
 
-README 给出 PowerShell、POSIX 和无需 activation 的命令，删除个人路径并立即说明非通用边界。CITATIONS 明确本地查阅的论文 PDF 不进入 clean package。新增 scope、参数来源、研究措辞、环境和协作者文档；教授演示压缩为有限模型研究展示，不使用软件营销式声称。
+The README provides PowerShell, POSIX, and no-activation commands, removes personal paths, and states the non-general scope immediately. CITATIONS clarifies that locally consulted paper PDFs are excluded from the clean package. Documentation was added for scope, parameter sources, research wording, environments, and collaborators; the professor demo is a concise finite-model research presentation without marketing claims.
 
 ## 8. Tolerance Audit
 
-`TOLERANCE_AUDIT.md` 逐项记录 market clearing、budget、consumer/firm optimality、profit zero、normalization、clustering、paper comparison 和 policy accounting 的值、尺度与用途。没有通过 rounding、clip 或盲目放宽 tolerance 修复论文结果；solver acceptance 与论文表格舍入容差保持分离。
+`TOLERANCE_AUDIT.md` records values, scales, and uses for market clearing, budgets, consumer and firm optimality, zero profit, normalization, clustering, paper comparison, and policy accounting. Paper results were not repaired by rounding, clipping, or indiscriminately loosening tolerances; solver acceptance remains separate from tolerances for rounded paper tables.
 
 ## 9. Candidate-vs-Reoptimized Audit
 
-资源、市场出清、policy compliance、tax/quota revenue、income 和 Walras accounting 均使用 candidate 自身 allocations/plans。reoptimized quantities 只用于 utility/profit optimality gap。新增 policy-level 回归测试使用内部一致但经济上错误的 cache，确认 diagnostics 仍从 candidate quantity 识别违规。
+Resource accounting, market clearing, policy compliance, tax/quota revenue, income, and Walras accounting all use the candidate's own allocations and plans. Reoptimized quantities are used only for utility and profit optimality gaps. A new policy-level regression test supplies an internally consistent but economically incorrect cache and confirms that diagnostics still identify violations from candidate quantities.
 
 ## 10. Paper Replication Revalidation
 
-Examples 1-6 全部重新运行并返回 `PAPER_REPLICATION_SUCCESS`；Theorems 3-4 mapping 返回 `NUMERICAL_MAPPING_CHECK_SUCCESS`。论文参数均可追溯到正文/Supplement 页码、数学 ledger 和 YAML；搜索区间、起点、scan points 和容差明确标为计算选择。详见 `PAPER_PARAMETER_AUDIT.md`。
+Examples 1-6 were all rerun and return `PAPER_REPLICATION_SUCCESS`; the Theorems 3-4 mappings return `NUMERICAL_MAPPING_CHECK_SUCCESS`. Paper parameters are traceable to article or Supplement pages, mathematical ledgers, and YAML files. Search intervals, starting points, scan points, and tolerances are explicitly labeled computational choices. See `PAPER_PARAMETER_AUDIT.md`.
 
 ## 11. Current Test Result
 
-最终结果：`113 passed, 0 failed`，相对 pre-hardening 的 100 tests 净增 13。新增覆盖 LinearRay margin、非唯一 optimum、状态 contract、sweep validation、candidate policy accounting、价格尺度、CLI exit code 与图表上游门禁。
+Final result: `113 passed, 0 failed`, an increase of 13 over the 100 pre-hardening tests. New coverage includes LinearRay margins, nonunique optima, the status contract, sweep validation, candidate policy accounting, price scales, CLI exit codes, and upstream gates for figures.
 
 ## 12. Reproducibility Suite Result
 
-CPython 3.12 与 3.13 均为 `REPRODUCIBILITY_SUITE_SUCCESS`。最终 manifest 有 16 个 required observations、0 failures、0 warnings，所有 expected/actual status 精确相等。
+Both CPython 3.12 and 3.13 return `REPRODUCIBILITY_SUITE_SUCCESS`. The final manifest contains 16 required observations, zero failures, and zero warnings, with exact equality between every expected and actual status.
 
 ## 13. Final Audit Result
 
-Windows CPython 3.12.13 与 3.13.0 均真实返回 `FINAL_AUDIT_PASSED`。审计实际重跑 pytest 与 compileall，并要求 critical results、suite、图、文档、路径、metadata 和 classification 全部满足强制条件；失败会返回非零退出码。
+Windows CPython 3.12.13 and 3.13.0 both actually return `FINAL_AUDIT_PASSED`. The audit reruns pytest and compileall and requires critical results, the suite, figures, documentation, paths, metadata, and classifications to satisfy mandatory conditions; failure returns a nonzero exit code.
 
 ## 14. Known Remaining Limitations
 
-- 非线性 multistart/continuation 不是根的完备认证；发现簇不等于全部均衡。
-- Example 4 的非存在来自论文理论，不来自 solver failure。
-- paper-specific builders 不是任意 YAML 模型编译器。
-- 不支持一般不完全偏好、综合外部性、无限维或测度经济求解。
-- finite weighted experiment 是构造相关数值实验，不证明 continuum convergence、uniform integrability 或非标准分析结果。
-- CI 尚未远程执行，Python 3.11 仅配置未验证。
+- Nonlinear multistart and continuation do not certify root completeness; discovered clusters are not necessarily all equilibria.
+- Nonexistence in Example 4 comes from the paper's theory, not solver failure.
+- Paper-specific builders are not arbitrary YAML model compilers.
+- General incomplete preferences, comprehensive externalities, and infinite-dimensional or measure-economy solution are unsupported.
+- The finite weighted experiment is construction-specific and does not prove continuum convergence, uniform integrability, or results from nonstandard analysis.
+- CI has not run remotely; Python 3.11 is configured but unverified.
 
 ## 15. Safe Claims to Professor Duanmu
 
-可以准确称为：围绕 Anderson-Duanmu quota/emission-tax examples 构建的 finite-model paper-replication、equilibrium-search 和 independent numerical-diagnostics framework；Examples 1-6 在当前配置与容差下成功匹配指定目标；多分支结果是已诊断候选的稳定数值发现；结果可在两个本地 Python minor 环境复现。
+It is accurate to describe the project as a finite-model paper-replication, equilibrium-search, and independent numerical-diagnostics framework built around the Anderson-Duanmu quota and emission-tax examples. Under the current configurations and tolerances, Examples 1-6 successfully match their specified targets; multibranch results are stable numerical discoveries of diagnosed candidates; and results reproduce in two local Python minor-version environments.
 
-在标准 diagnostics error/residual 字段中排除允许的 bad-disposal slack 和仅用于尺度判断的 ratio 后，最大关键误差为 `2.148654587585952e-10`，来自 tax sweep 一个已验证 candidate 的 `max_compliance_violation`。
+After excluding permitted bad-disposal slack and ratios used only for scale assessment from standard diagnostic error/residual fields, the largest critical error is `2.148654587585952e-10`, the `max_compliance_violation` of one verified candidate in the tax sweep.
 
 ## 16. Claims That Must Not Be Made
 
-不得声称：数值计算证明一般存在性/唯一性；未找到根证明非存在；发现三簇证明恰有三个均衡；有限网格稳定性证明连续极限；项目实现 measure-theoretic/nonstandard analysis；项目是 universal GE solver；未运行的 CI/Python 3.11 已验证。
+The following claims must not be made: numerical computation proves general existence or uniqueness; failure to find a root proves nonexistence; discovering three clusters proves there are exactly three equilibria; finite-grid stability proves a continuum limit; the project implements measure-theoretic or nonstandard analysis; the project is a universal GE solver; or unexecuted CI/Python 3.11 has been verified.

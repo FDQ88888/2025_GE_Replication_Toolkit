@@ -1,40 +1,40 @@
 # Milestone 2 Analytical Production Benchmark
 
-## 1. 学术身份
+## 1. Research Status
 
-这是 `ANALYTICAL PRODUCTION BENCHMARK`，用于验证企业、净产出、持股分红、消费者总收入与候选资源会计。它是 `OUR COMPUTATIONAL CHOICE`，不是 Anderson-Duanmu 论文复现。
+This `ANALYTICAL PRODUCTION BENCHMARK` validates firms, net output, ownership dividends, total consumer income, and candidate resource accounting. It is `OUR COMPUTATIONAL CHOICE`, not a replication of the Anderson-Duanmu paper.
 
-## 2. 经济与技术
+## 2. Economy and Technology
 
-两种普通商品、两个消费者和一个企业。两个市场都要求精确出清。每个消费者有禀赋
+There are two ordinary goods, two consumers, and one firm. Both markets require exact clearing. Each consumer has endowment
 
 ```text
 e_1=e_2=(1,0)
 ```
 
-和效用
+and utility
 
 ```text
 u_i(x_i)=x_i1^(1/2) x_i2^(1/2).
 ```
 
-企业采用净产出约定：正坐标是 output，负坐标是 input。生产集合是
+The firm follows the net-output convention: positive coordinates are outputs and negative coordinates are inputs. Its production set is
 
 ```text
 Y={a(-1,1): 0<=a<=1/2}.
 ```
 
-消费者 1 和 2 的持股分别是 `1/4` 与 `3/4`。第二种商品是 numeraire：`p_2=1`。令 `p_1=q`。
+Consumers 1 and 2 own shares `1/4` and `3/4`, respectively. Good 2 is the numeraire: `p_2=1`. Let `p_1=q`.
 
-## 3. 企业最优性
+## 3. Firm Optimality
 
-活动水平 `a` 的利润是
+Profit at activity level `a` is
 
 ```text
 pi(a;q)=p dot y=a(1-q).
 ```
 
-当 `0<q<1` 时单位利润严格为正，因此唯一最优活动是容量上界：
+When `0<q<1`, unit profit is strictly positive, so the unique optimal activity is the capacity bound:
 
 ```text
 a*=1/2,
@@ -42,52 +42,52 @@ y*=(-1/2,1/2),
 pi*=(1-q)/2.
 ```
 
-基准求根 bracket `[0.1,0.8]` 完全位于这一解析分支内。它是 benchmark-specific 的数值设置，不是通用生产经济假设。
+The benchmark root bracket `[0.1,0.8]` lies entirely within this analytical branch. This is a benchmark-specific numerical setting, not a general assumption about production economies.
 
-## 4. 收入拆分
+## 4. Income Decomposition
 
-无政策生产经济的消费者收入为
+In a production economy without policy, consumer income is
 
 ```text
 I_i=p dot e_i+theta_i*pi.
 ```
 
-所以
+Therefore,
 
 ```text
 I_1=q+(1/4)(1-q)/2=(7q+1)/8,
 I_2=q+(3/4)(1-q)/2=(5q+3)/8.
 ```
 
-总收入等于总可用资源的价值：
+Total income equals the value of aggregate available resources:
 
 ```text
 I_1+I_2=(3q+1)/2
           =p dot [(2,0)+(-1/2,1/2)].
 ```
 
-## 5. 市场方程
+## 5. Market Equation
 
-Cobb-Douglas 需求为
+Cobb-Douglas demands are
 
 ```text
 x_i1=(1/2)I_i/q,
 x_i2=(1/2)I_i.
 ```
 
-净生产后的总可用资源是
+Aggregate resources available after net production are
 
 ```text
 sum_i e_i+y*=(3/2,1/2).
 ```
 
-商品 1 聚合需求为
+Aggregate demand for good 1 is
 
 ```text
 X_1(q)=(1/2)(I_1+I_2)/q=(3q+1)/(4q).
 ```
 
-令 `X_1(q)=3/2`：
+Setting `X_1(q)=3/2` gives:
 
 ```text
 (3q+1)/(4q)=3/2,
@@ -95,15 +95,15 @@ X_1(q)=(1/2)(I_1+I_2)/q=(3q+1)/(4q).
 q=1/3.
 ```
 
-因此解析均衡价格为
+Hence the analytical equilibrium price is
 
 ```text
 p*=(1/3,1).
 ```
 
-## 6. 利润、分红与配置
+## 6. Profit, Dividends, and Allocation
 
-在解析价格下：
+At the analytical price:
 
 ```text
 pi*=1/3,
@@ -113,35 +113,35 @@ I_1=5/12,
 I_2=7/12.
 ```
 
-消费者配置为
+The consumer allocations are
 
 ```text
 x_1*=(5/8,5/24),
 x_2*=(7/8,7/24).
 ```
 
-聚合配置是 `(3/2,1/2)`，恰好等于总禀赋加净生产。
+The aggregate allocation is `(3/2,1/2)`, exactly equal to aggregate endowment plus net production.
 
-## 7. 候选资源与 Walras 诊断
+## 7. Candidate Resources and Walras Diagnostics
 
-正式候选资源 residual 只使用候选 `(x,y)`：
+The formal candidate resource residual uses only the candidate `(x,y)`:
 
 ```text
 r(x,y)=sum_i x_i-sum_i e_i-sum_j y_j.
 ```
 
-在解析配置处 `r=(0,0)`，正式候选 Walras residual `p dot r=0`。企业和消费者最优性分别由独立利润 oracle 和独立效用 oracle 检查，不能由市场出清替代。
+At the analytical allocation, `r=(0,0)` and the formal candidate Walras residual is `p dot r=0`. Firm and consumer optimality are checked by an independent profit oracle and an independent utility oracle, respectively; market clearing cannot substitute for either check.
 
-## 8. 验收对象
+## 8. Acceptance Targets
 
-自动测试与实验同时核对：
+Automated tests and experiments jointly verify:
 
-- 企业生产集合可行性；
-- 全局最大利润与 `profit_gap`；
-- 持股和为 1；
-- 分红合计等于企业利润；
-- 消费者预算与 utility gap；
-- `consumption - endowment - net production`；
-- 未用于求根的第二市场；
-- 正式 candidate Walras residual；
-- 数值结果与全部解析分数一致。
+- feasibility in the firm's production set;
+- global maximum profit and `profit_gap`;
+- ownership shares adding up to 1;
+- aggregate dividends equaling firm profit;
+- consumer budgets and utility gaps;
+- `consumption - endowment - net production`;
+- the second market, which is not used in root finding;
+- the formal candidate Walras residual;
+- agreement of numerical results with every analytical fraction.

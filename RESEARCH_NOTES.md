@@ -1,126 +1,126 @@
 # Duanmu GE Lab - Research Notes
 
-> 状态：持续维护的研究设计文档。初版 2026-08-09；2026-08-10 已补入官方 Supplement 来源审计。实现状态以各 Milestone report 为准。
+> Status: Continuously maintained research-design document. Initial version: 2026-08-09; official Supplement source audit added 2026-08-10. See the individual milestone reports for implementation status.
 
-## 0. 研究纪律与证据标签
+## 0. Research Discipline and Evidence Labels
 
-本项目遵循 `MATHEMATICAL MODEL FIRST. CODE SECOND.`。任何进入代码的数学对象都必须标明来源，并区分以下三类：
+This project follows `MATHEMATICAL MODEL FIRST. CODE SECOND.` Every mathematical object entering the code must cite its source and distinguish among:
 
-- **PAPER DEFINITION**：原论文正文或补充材料中的定义、假设、定理、例子。
-- **OUR COMPUTATIONAL CHOICE**：为了有限维计算而额外选择的效用函数、技术集合参数化、归一化坐标、求解器和容差。
-- **NUMERICAL APPROXIMATION**：有限网格、多起点、离散人口或残差意义下的近似，不得写成存在性证明。
+- **PAPER DEFINITION**: a definition, assumption, theorem, or example from the original article or Supplement.
+- **OUR COMPUTATIONAL CHOICE**: an additional utility function, technology-set parameterization, normalization coordinates, solver, or tolerance selected for finite-dimensional computation.
+- **NUMERICAL APPROXIMATION**: an approximation using finite grids, multistart search, discrete populations, or residual criteria; it must not be presented as an existence proof.
 
-若一个公式尚未从原始文献核验，必须显式写成 `NOT VERIFIED FROM PRIMARY SOURCE`，并禁止作为论文复现模式的默认实现。
+Any formula not yet checked against a primary source must be labeled `NOT VERIFIED FROM PRIMARY SOURCE` and must not be the default in paper-replication mode.
 
-## 1. 已阅读材料与来源状态
+## 1. Materials Reviewed and Source Status
 
-### 1.1 用户提供材料
+### 1.1 User-Provided Materials
 
-- `Three proofs.pdf`：11 页手写证明，内容为 Slutsky 矩阵、Kakutani-Nash 存在性、第二福利定理。
-- `Proof of Microeconomics.pdf`：14 页手写证明，覆盖分离/支撑超平面、Slutsky、vNM 期望效用、Debreu 表示、Berge 最大值、Kakutani、Walras 均衡存在、第一与第二福利定理。
-- `Haosui_Duanmu_CV.pdf`：本地 CV，日期为 2025 年 1 月。
-- `pasted-text.txt`：项目任务书，明确要求研究级、定义驱动、有限加权 GE、坏品、生产、外部性、配额、排放税和独立诊断。
+- `Three proofs.pdf`: 11 pages of handwritten proofs covering the Slutsky matrix, Kakutani-Nash existence, and the Second Welfare Theorem.
+- `Proof of Microeconomics.pdf`: 14 pages of handwritten proofs covering separation/supporting hyperplanes, Slutsky, vNM expected utility, Debreu representation, Berge's Maximum Theorem, Kakutani, Walrasian-equilibrium existence, and the First and Second Welfare Theorems.
+- `Haosui_Duanmu_CV.pdf`: local CV dated January 2025.
+- `pasted-text.txt`: project brief requiring a research-grade, definition-driven finite weighted GE project with bads, production, externalities, quotas, emission taxes, and independent diagnostics.
 
-### 1.2 原始研究文献
+### 1.2 Primary Research Literature
 
-1. Robert M. Anderson and Haosui Duanmu, “Cap-and-Trade and Carbon Tax Meet Arrow-Debreu,” *Econometrica* 93(2), 2025, pp. 357-393。已取得并核验官方全文：[Econometric Society PDF](https://www.econometricsociety.org/publications/econometrica/2025/03/01/Cap-and-Trade-and-Carbon-Tax-Meet-ArrowDebreu/file/ecta200778.pdf)。
-2. Robert M. Anderson, Haosui Duanmu, M. Ali Khan, and Metin Uyanik, “Existence of Equilibria in Large Competitive Markets with Bads, Production and Comprehensive Externalities,” arXiv:2511.00478v2，2026-05-31 修订。已核验 [arXiv HTML 全文](https://arxiv.org/html/2511.00478v2) 与 PDF。
-3. Haosui Duanmu 的本地 CV 与个人研究页。个人旧主页突出数学逻辑、非标准分析、统计与概率；CV 显示其近年的核心研究已经扩展到数学经济学、一般均衡、气候政策、坏品与外部性。[个人主页](https://hyperfinite.net/)
+1. Robert M. Anderson and Haosui Duanmu, "Cap-and-Trade and Carbon Tax Meet Arrow-Debreu," *Econometrica* 93(2), 2025, pp. 357-393. The official full text was obtained and verified: [Econometric Society PDF](https://www.econometricsociety.org/publications/econometrica/2025/03/01/Cap-and-Trade-and-Carbon-Tax-Meet-ArrowDebreu/file/ecta200778.pdf).
+2. Robert M. Anderson, Haosui Duanmu, M. Ali Khan, and Metin Uyanik, "Existence of Equilibria in Large Competitive Markets with Bads, Production and Comprehensive Externalities," arXiv:2511.00478v2, revised 2026-05-31. The [full arXiv HTML](https://arxiv.org/html/2511.00478v2) and PDF were verified.
+3. Haosui Duanmu's local CV and personal research page. His earlier page emphasizes mathematical logic, nonstandard analysis, statistics, and probability; the CV shows that his recent research has expanded into mathematical economics, general equilibrium, climate policy, bads, and externalities. [Personal website](https://hyperfinite.net/)
 
-### 1.3 2026-08-10 Supplement 来源审计
+### 1.3 Supplement Source Audit, 2026-08-10
 
-2025 Econometrica 论文的 Supplementary Material 已从 Econometric Society 官方地址取得，并保存为：
+The Supplementary Material for the 2025 *Econometrica* article was obtained from the official Econometric Society location and stored as:
 
 ```text
 sources/Anderson_Duanmu_2025_Supplement.pdf
 ```
 
-文件核验：17 页、423,234 bytes、PDF 1.5，SHA-256 为 `A5013517781FCD37BF38446975DA2F91C033FDEC6709AFF90F702C1652C8524A`。Wiley 正文页将同一附件列为 `ecta200778-sup-0001-onlineappendix.pdf`（Online Appendix, 413.3 KB）。官方正文也已归档为 `sources/Anderson_Duanmu_2025_Econometrica.pdf`。
+File verification: 17 pages, 423,234 bytes, PDF 1.5, SHA-256 `A5013517781FCD37BF38446975DA2F91C033FDEC6709AFF90F702C1652C8524A`. Wiley lists the same attachment as `ecta200778-sup-0001-onlineappendix.pdf` (Online Appendix, 413.3 KB). The official article was also archived as `sources/Anderson_Duanmu_2025_Econometrica.pdf`.
 
-Supplement 第 3 节明确提供 Examples 1-4 的详细分析：Example 1 为 pp. 11-12，Example 2 为 pp. 12-13，Example 3 为 pp. 13-15，Example 4 为 pp. 15-16。它没有单列 Examples 5-6；但正文 Examples 5-6（期刊 pp. 382-384）分别完全建立在 Examples 3-4 的经济和均衡分支上。因此，结合正文与 Supplement，Examples 3-6 的 primary-source gate 已解除。编码前仍须为每个例子建立逐参数、逐公式 ledger，不能只照抄图表数值。
+Section 3 of the Supplement provides detailed analyses of Examples 1-4: Example 1 on pp. 11-12, Example 2 on pp. 12-13, Example 3 on pp. 13-15, and Example 4 on pp. 15-16. Examples 5-6 are not separate sections there, but Examples 5-6 in the article (journal pp. 382-384) are built entirely on the economies and equilibrium branches of Examples 3-4. The article and Supplement together therefore clear the primary-source gate for Examples 3-6. A parameter-by-parameter and formula-by-formula ledger is still required before coding each example; chart values alone are insufficient.
 
-“The Second Welfare Theorem for Quota Equilibrium”及 CV 所列其他在写论文仍只有书目信息或独立 working-paper 状态；未完整核验前不把其定义写入核心实现。
+"The Second Welfare Theorem for Quota Equilibrium" and other works in progress listed in the CV remain available only as bibliographic records or separate working-paper references. Their definitions must not enter the core implementation before the full manuscripts are verified.
 
-## 2. 端木昊随老师研究方向与本项目定位
+## 2. Professor Haosui Duanmu's Research and This Project's Position
 
-从 CV 和已发表论文看，与本项目最相关的研究主线是：
+The research strands most relevant to this project, based on the CV and published papers, are:
 
-- 数学经济学与一般均衡存在性；
-- 生产经济、坏品、非自由处置和允许负价格；
-- 消费与生产引起的综合外部性；
-- cap-and-trade、quota equilibrium、carbon/emission tax equilibrium；
-- 配额产权分配、税收返还与福利分配；
-- 有限加权经济到测度经济的推广；
-- 非标准分析、超有限经济与 Loeb 测度方法。
+- mathematical economics and general-equilibrium existence;
+- production economies, bads, non-free-disposal, and potentially negative prices;
+- comprehensive externalities caused by consumption and production;
+- cap-and-trade, quota equilibrium, and carbon/emission-tax equilibrium;
+- quota-right allocation, tax rebates, and welfare distribution;
+- extensions from finite weighted economies to measure economies;
+- nonstandard analysis, hyperfinite economies, and Loeb-measure methods.
 
-CV 中直接相关的已发表工作包括：
+Directly relevant published work in the CV includes:
 
-- Anderson and Duanmu (2025), *Econometrica*：配额与排放税进入 Arrow-Debreu 生产经济。
-- Anderson, Duanmu, Khan, and Uyanik (2022), *Economic Theory*：含/不含自由处置的无限代理人 Walras 均衡。
-- Anderson and Duanmu (2025), *Games and Economic Behavior*：均衡与社会规范。
-- Anderson, Duanmu, Khan, and Uyanik (2022), *Journal of Mathematical Economics*：局部凸拓扑向量空间中的抽象经济。
+- Anderson and Duanmu (2025), *Econometrica*: quotas and emission taxes in an Arrow-Debreu production economy.
+- Anderson, Duanmu, Khan, and Uyanik (2022), *Economic Theory*: Walrasian equilibrium with infinitely many agents, with and without free disposal.
+- Anderson and Duanmu (2025), *Games and Economic Behavior*: equilibrium and social norms.
+- Anderson, Duanmu, Khan, and Uyanik (2022), *Journal of Mathematical Economics*: abstract economies in locally convex topological vector spaces.
 
-因此，`Duanmu GE Lab` 的正确学术定位是：**对端木老师相关一般均衡模型做可审计的有限维计算研究，并为以后研究坏品、外部性、政策与大经济近似提供工具**。它不是基于 SAM/GTAP 的宏观校准 CGE，也不是用一个 Cobb-Douglas 代表性家庭展示“碳税效果”的普通程序。
+The appropriate scholarly position of `Duanmu GE Lab` is therefore: **auditable finite-dimensional computational research on general-equilibrium models related to Professor Duanmu's work, providing tools for future study of bads, externalities, policy, and large-economy approximation**. It is neither a SAM/GTAP-based calibrated macro CGE nor a routine representative-household Cobb-Douglas demonstration of a "carbon-tax effect."
 
-## 3. Anderson-Duanmu (2025) 的有限配额经济
+## 3. The Finite Quota Economy in Anderson-Duanmu (2025)
 
-以下均为 **PAPER DEFINITION**，来源主要为正文 Definition 3.1-3.5，pp. 363-366。
+Everything below is a **PAPER DEFINITION**, primarily from Definitions 3.1-3.5, pp. 363-366.
 
-### 3.1 基本对象
+### 3.1 Basic Objects
 
-- 有限代理人集合：`Omega`。
-- 有限生产者集合：`J`；配额经济中包含政府企业 `j=0`，且 `Y_0={0}`。
-- `l` 种商品；前 `k` 种由政府监管。
-- 消费集 `X_omega subset R_+^l` 非空、闭、凸。
-- 生产集 `Y_j subset R^l` 非空，生产向量以净产出记号表示。
-- 配置空间 `A = product_omega X_omega`。
-- 全球偏好可依赖其他人的消费、全部企业生产及价格；代理人给定这些外部状态，只选择自己的消费。
-- `theta_omega_j >= 0` 是代理人对企业的持股比例，且对每个企业 `sum_omega theta_omega_j = 1`。
-- `e_omega in R_+^l` 是初始禀赋。
+- A finite set of agents: `Omega`.
+- A finite set of producers: `J`. A quota economy includes government firm `j=0`, with `Y_0={0}`.
+- `l` commodities; the first `k` are government-regulated.
+- Each consumption set `X_omega subset R_+^l` is nonempty, closed, and convex.
+- Each production set `Y_j subset R^l` is nonempty; production vectors use net-output notation.
+- Allocation space `A = product_omega X_omega`.
+- Global preferences may depend on other agents' consumption, every firm's production, and prices; given these external states, an agent chooses only its own consumption.
+- `theta_omega_j >= 0` is the agent's ownership share in firm `j`, with `sum_omega theta_omega_j = 1` for each firm.
+- `e_omega in R_+^l` is the initial endowment.
 
-### 3.2 有符号价格与归一化
+### 3.2 Signed Prices and Normalization
 
-论文的价格集合为
+The paper's price set is
 
 ```text
 Delta = {p in R^l : ||p||_1 = sum_n |p_n| = 1}.
 ```
 
-论文明确允许负价格，负价格可解释为坏品或排放的价格。配额价格定义为受监管商品价格的相反数：`q = -proj_k(p)`。
+Negative prices are explicitly permitted and may represent the prices of bads or emissions. The quota price is the negative of regulated commodity prices: `q = -proj_k(p)`.
 
-这给出两个不可混淆的概念：
+This produces two concepts that must not be confounded:
 
-- **价格归一化**：消除齐次性，例如 `||p||_1=1` 或选择 numeraire。
-- **价格符号限制**：是否允许某些坐标为负、零或正。
+- **Price normalization**: remove homogeneity, for example with `||p||_1=1` or a numeraire.
+- **Price-sign restrictions**: determine whether particular coordinates may be negative, zero, or positive.
 
-代码不得使用 softmax 强制所有价格为正。
+The code must not use softmax to force every price to be positive.
 
-### 3.3 配额产权与合规区域
+### 3.3 Quota Rights and the Compliance Region
 
-政府给企业 `j` 分配受监管商品的配额。论文用
+The government allocates quotas for regulated commodities to firm `j`. The paper writes
 
 ```text
 m^(j) in R_<=0^k
 ```
 
-表示企业配额的负数，并令 `m = sum_j m^(j)`。`-m^(j)` 是企业 `j` 的排放产权，`-m` 是总配额。
+for the negative of the firm's quota and defines `m = sum_j m^(j)`. Thus `-m^(j)` is firm `j`'s emission right and `-m` is the aggregate quota.
 
-配额合规区域为
+The quota-compliance region is
 
 ```text
 Z(m) = {m} x product_{k<n<=l} Z(m)_n,
 ```
 
-其中每个未监管商品坐标 `Z(m)_n` 可以是 `{0}`（严格市场出清）或 `R_<=0`（允许自由处置）。因此，“是否自由处置”必须逐商品配置，不能作为一个隐藏的全局默认值。
+where each unregulated coordinate `Z(m)_n` may be `{0}` (exact market clearing) or `R_<=0` (free disposal). Disposal must therefore be configured commodity by commodity rather than hidden in a global default.
 
-两个极端制度：
+Two polar regimes are:
 
-- **cap-and-trade**：配额产权全部给私人企业。
-- **global quota equilibrium**：配额产权全部给政府企业，由政府企业持股比例决定收入返还。
+- **cap-and-trade**: all quota rights belong to private firms;
+- **global quota equilibrium**: all quota rights belong to the government firm, with its ownership shares determining the income rebate.
 
-### 3.4 预算、利润与需求
+### 3.4 Budgets, Profits, and Demand
 
-代理人的配额预算集为
+An agent's quota budget set is
 
 ```text
 B^m_omega(y,p) = {
@@ -130,27 +130,27 @@ B^m_omega(y,p) = {
 }.
 ```
 
-企业 `j` 的利润为
+Firm `j`'s profit is
 
 ```text
 pi_j^m(p,y_j) = p*y_j + proj_k(p)*m^(j).
 ```
 
-配额产权项对 `y_j` 是常数，所以企业供给仍满足
+The quota-right term is constant in `y_j`, so firm supply still satisfies
 
 ```text
 S_j^m(p) = argmax_{z in Y_j} p*z.
 ```
 
-但是配额总量和产权分配会通过均衡价格、企业利润和家庭收入间接改变生产、消费与福利。政府企业的利润完全来自出售其配额，并按政府设定的政府企业持股比例返还给代理人。
+Aggregate quotas and their ownership distribution nevertheless affect production, consumption, and welfare indirectly through equilibrium prices, firm profits, and household incomes. The government firm's profit comes entirely from selling its quota and is returned to agents according to government-firm ownership shares set by the government.
 
-### 3.5 配额均衡
+### 3.5 Quota Equilibrium
 
-`(x_bar, y_bar, p_bar)` 是 `Z(m)`-compliant quota equilibrium，当且仅当：
+`(x_bar, y_bar, p_bar)` is a `Z(m)`-compliant quota equilibrium if and only if:
 
-1. 每个代理人的 `x_bar_omega` 属于给定外部状态和价格下的需求集；
-2. 每个企业 `y_bar_j` 在价格 `p_bar` 下利润最大化；
-3. 总资源残差满足
+1. every agent's `x_bar_omega` belongs to its demand set at the given external state and prices;
+2. every firm plan `y_bar_j` maximizes profit at `p_bar`;
+3. the aggregate resource residual satisfies
 
 ```text
 sum_omega x_bar_omega
@@ -158,44 +158,44 @@ sum_omega x_bar_omega
 - sum_j y_bar_j in Z(m).
 ```
 
-对受监管坐标，这意味着总净排放精确等于预设总配额；对未监管坐标，是精确出清还是允许剩余取决于 `Z(m)_n`。
+For regulated coordinates, aggregate net emissions therefore equal the preset aggregate quota exactly. For unregulated coordinates, `Z(m)_n` determines whether exact clearing or surplus is permitted.
 
-### 3.6 已核验的定理与例子
+### 3.6 Verified Theorems and Examples
 
-| 结论 | 论文中的逻辑地位 | 实现含义 |
+| Conclusion | Logical status in the paper | Implementation implication |
 |---|---|---|
-| 对每个满足假设的可行配额，配额均衡存在 | **Theorem 1**, pp. 370-371 | 数值失败不能解释为“不存在”；先查假设、参数化和求解器 |
-| 仅由总净排放产生外部性且未监管商品非自由处置时，配额均衡是给定同一排放水平下的约束弱 Pareto 最优 | **Theorem 2**, pp. 373-374 | 福利诊断必须固定总排放后比较；不能直接宣称全局 Pareto 最优 |
-| 配额产权分配影响消费和个体福利 | **Example 2** | `quota rights`、企业持股与返还规则必须是一等数据 |
-| 每个配额均衡可在相应税率和返还规则下实现为排放税均衡 | **Theorem 3**, p. 376 | 转换依赖价格和返还；不是同一个政策对象自动等价 |
-| 每个排放税均衡可实现为 global quota equilibrium | **Theorem 4**, p. 377 | 对应总配额由该税均衡的内生排放确定 |
-| 某些税率没有排放税均衡 | **Examples 3-4**，不是一般不存定理 | 税率扫描必须记录无候选区，但不得把求解失败直接标成不存 |
-| 同一税率可对应不同排放量 | **Examples 3-4** 的多重均衡现象 | 必须多起点和分支追踪，不能只保留一个根 |
-| 同一配额可对应不同配额价格 | **Examples 3-6** 的多重均衡现象 | 配额实现目标量，但价格可能不唯一 |
+| A quota equilibrium exists for every feasible quota satisfying the assumptions | **Theorem 1**, pp. 370-371 | Numerical failure is not nonexistence; first inspect assumptions, parameterization, and the solver |
+| With externalities generated only by aggregate net emissions and no free disposal of unregulated goods, quota equilibrium is constrained weakly Pareto optimal among allocations with the same emissions | **Theorem 2**, pp. 373-374 | Welfare diagnostics must compare at fixed aggregate emissions and cannot claim unconstrained global Pareto optimality |
+| Quota-right allocations affect consumption and individual welfare | **Example 2** | Quota rights, firm ownership, and rebate rules must be first-class data |
+| Every quota equilibrium can be implemented as an emission-tax equilibrium with the corresponding tax rate and rebate rule | **Theorem 3**, p. 376 | The mapping depends on prices and rebates; the two policy objects are not automatically equivalent |
+| Every emission-tax equilibrium can be implemented as a global quota equilibrium | **Theorem 4**, p. 377 | The corresponding aggregate quota is determined by endogenous emissions in that tax equilibrium |
+| Certain tax rates have no emission-tax equilibrium | **Examples 3-4**, not a general nonexistence theorem | Tax sweeps must record regions with no candidate, but solver failure cannot be labeled nonexistence |
+| One tax rate can correspond to different emission levels | Multiple-equilibrium phenomenon in **Examples 3-4** | Multistart and branch tracking are required; retaining one root is insufficient |
+| One quota can correspond to different quota prices | Multiple-equilibrium phenomenon in **Examples 3-6** | A quota implements a target quantity, but its price need not be unique |
 
-Supplement 取得后的复现状态：
+Replication status after obtaining the Supplement:
 
-| 例子 | Primary-source 状态 | 依赖 |
+| Example | Primary-source status | Dependency |
 |---|---|---|
-| Example 1 | `SOURCE_READY` | 先完成 production 与 quota 会计 |
-| Example 2 | `SOURCE_READY` | Example 1 架构、第二企业与产权分配 |
-| Example 3 | `SOURCE_READY` | emission-tax 会计、非线性需求、多根搜索 |
-| Example 4 | `SOURCE_READY` | 线性技术、边界供给对应、连续均衡集合 |
-| Example 5 | `SOURCE_READY` | Example 3 的全部分支与 quota/tax 映射 |
-| Example 6 | `SOURCE_READY` | Example 4 的全部分支与 quota/tax 映射 |
+| Example 1 | `SOURCE_READY` | Complete production and quota accounting first |
+| Example 2 | `SOURCE_READY` | Example 1 architecture, second firm, and property-right allocation |
+| Example 3 | `SOURCE_READY` | Emission-tax accounting, nonlinear demand, and multiple-root search |
+| Example 4 | `SOURCE_READY` | Linear technology, boundary supply correspondence, and continuum of equilibria |
+| Example 5 | `SOURCE_READY` | Every branch of Example 3 and quota/tax mappings |
+| Example 6 | `SOURCE_READY` | Every branch of Example 4 and quota/tax mappings |
 
-## 4. Anderson-Duanmu (2025) 的排放税经济
+## 4. The Emission-Tax Economy in Anderson-Duanmu (2025)
 
-以下为 **PAPER DEFINITION**，来源为 Definition 4.1、Remark 4.2、Definition 4.3，pp. 375-376。
+The following is a **PAPER DEFINITION** from Definition 4.1, Remark 4.2, and Definition 4.3, pp. 375-376.
 
-### 4.1 政策对象
+### 4.1 Policy Objects
 
-- 所有企业均为私人企业；税模型没有配额模型中的政府企业。
-- `lambda_omega >= 0` 是政府返还份额，`sum_omega lambda_omega = 1`。
-- 前 `k` 个受监管商品的合规区域坐标为 `R_<=0`，允许任意净排放，但征收排放税。
-- `t` 是前 `k` 个商品的排放税率向量。
+- Every firm is private; the tax model has no government firm from the quota model.
+- `lambda_omega >= 0` is the government's rebate share, with `sum_omega lambda_omega = 1`.
+- Compliance-region coordinates for the first `k` regulated commodities are `R_<=0`, permitting arbitrary net emissions subject to an emission tax.
+- `t` is the vector of emission-tax rates on the first `k` commodities.
 
-总净排放定义为
+Aggregate net emissions are
 
 ```text
 C(x,y) = proj_k(
@@ -203,11 +203,11 @@ C(x,y) = proj_k(
 ).
 ```
 
-政府税收为 `t*C(x,y)`，并按 `lambda` 返还。
+Government tax revenue is `t*C(x,y)` and is returned according to `lambda`.
 
-### 4.2 税收预算与均衡
+### 4.2 Tax Budgets and Equilibrium
 
-代理人的预算集为
+An agent's budget set is
 
 ```text
 B^t_omega(x,y,p) = {
@@ -218,151 +218,151 @@ B^t_omega(x,y,p) = {
 }.
 ```
 
-`(x_bar,y_bar,p_bar)` 是排放税均衡，当且仅当：
+`(x_bar,y_bar,p_bar)` is an emission-tax equilibrium if and only if:
 
-1. `proj_k(p_bar) = -t`，即税率固定受监管商品的负价格；
-2. 每个消费者在含返还收入的预算集中最优；
-3. 每个企业最大化 `p_bar*y_j`；
-4. 总资源残差属于税模型的合规区域 `V`。
+1. `proj_k(p_bar) = -t`, so the tax rate fixes the negative price of regulated commodities;
+2. every consumer is optimal in a budget set including rebate income;
+3. every firm maximizes `p_bar*y_j`;
+4. the aggregate resource residual belongs to the tax model's compliance region `V`.
 
-税率和返还方案由政府事先给定；总净排放由均衡内生决定。这里存在一个重要的数值尺度问题：论文同时使用 `||p||_1=1` 和 `proj_k(p)=-t`。因此税率是归一化价格体系中的相对价格，代码中的税率扫描必须与归一化方案共同解释。
+The government specifies tax rates and rebates in advance; aggregate net emissions are endogenous to equilibrium. This creates an important numerical-scale issue: the paper imposes both `||p||_1=1` and `proj_k(p)=-t`. The tax rate is therefore a relative price in the normalized price system, and code-level tax sweeps must be interpreted jointly with the normalization convention.
 
-## 5. 大经济、坏品与综合外部性
+## 5. Large Economies, Bads, and Comprehensive Externalities
 
-本节依据 arXiv:2511.00478v2 的 **PAPER DEFINITION**。
+This section follows the **PAPER DEFINITION** in arXiv:2511.00478v2.
 
-### 5.1 测度生产经济
+### 5.1 Measure Production Economy
 
-Definition 4.2 以概率空间 `(Omega,B,mu)` 表示消费者总体，企业集合仍有限。关键对象包括：
+Definition 4.2 represents consumers by a probability space `(Omega,B,mu)`, while retaining a finite set of firms. Key objects include:
 
-- 可积配置 `x in L1(Omega,R_+^l)`；
-- 生产向量 `y in product_j Y_j`；
-- 有符号归一化价格 `p in Delta`，其中 `||p||_1=1`；
-- 全局偏好可依赖整个消费配置、全部企业生产、价格及自身消费；
-- 持股密度 `theta_omega_j` 满足 `integral theta_omega_j dmu = 1`；
-- 禀赋密度 `e in L1`。
+- an integrable allocation `x in L1(Omega,R_+^l)`;
+- production vector `y in product_j Y_j`;
+- signed normalized price `p in Delta`, where `||p||_1=1`;
+- global preferences that may depend on the full consumption allocation, all firms' production, prices, and own consumption;
+- ownership densities `theta_omega_j` satisfying `integral theta_omega_j dmu = 1`;
+- endowment density `e in L1`.
 
-预算、企业利润最大化与有限经济具有同样的 Arrow-Debreu 结构。非自由处置均衡要求精确市场出清：
+Budgets and firm profit maximization retain the Arrow-Debreu structure of the finite economy. Equilibrium without free disposal requires exact market clearing:
 
 ```text
 integral x dmu - integral e dmu - sum_j y_j = 0.
 ```
 
-### 5.2 坏品不是简单的枚举标签
+### 5.2 A Bad Is Not Merely an Enumeration Label
 
-论文把前 `k` 个商品作为用于技术假设的“坏品类别”，其消费集投影具有可积上界；后续商品为允许无界消费的“商品”。但论文明确指出，个体不必一致认为某个对象是坏品，同一对象可以是 mixed manna。
+For technical assumptions, the paper treats the first `k` commodities as a "class of bads," with integrably bounded projections of consumption sets; the remaining commodities permit unbounded consumption. It explicitly notes, however, that agents need not agree that an object is a bad and that the same object may be mixed manna.
 
-因此代码中的 `CommodityKind.GOOD/BAD` 只用于语义、配置校验和默认诊断，不得自动推出：
+Consequently, `CommodityKind.GOOD/BAD` in the code is used only for semantics, configuration validation, and default diagnostics. It must not automatically imply:
 
-- 所有人对它单调递增或递减；
-- 它的价格必然为正或负；
-- 它可以自由处置；
-- 它必然受到政策监管。
+- that every agent is monotonically increasing or decreasing in it;
+- that its price is necessarily positive or negative;
+- that it can be freely disposed of;
+- that it is necessarily regulated.
 
-### 5.3 非自由处置与负价格
+### 5.3 Non-Free-Disposal and Negative Prices
 
-论文的经济逻辑是：生产副产品不能在会计上消失；若坏品处置会产生外部性，就必须允许负价格提供吸收、消除或封存的激励。强单调性和生产自由处置会排除所需的负价格，因此不能作为默认假设。
+The paper's economic logic is that production byproducts cannot disappear from accounting. If disposal of a bad creates externalities, negative prices must be allowed to incentivize absorption, elimination, or sequestration. Strong monotonicity and free disposal in production would exclude the necessary negative prices and therefore cannot be default assumptions.
 
-消费者对坏品的吸收能力需要可积上界。这个假设用于避免 Hara (2005) 例子中有限经济均衡配置缺乏一致可积性、极小人群吸收几乎全部坏品的问题。
+Consumers' capacity to absorb bads requires an integrable bound. This assumption avoids the phenomenon in Hara (2005), where equilibrium allocations in finite economies lack uniform integrability and a vanishingly small population absorbs nearly all bads.
 
-### 5.4 有限加权与测度经济定理
+### 5.4 Finite Weighted and Measure-Economy Theorems
 
-- **Theorem 1**：在有限加权生产经济、凸偏好、可行性/生存与生产集合条件下，均衡存在。
-- **Theorem 2**：在 Polish 消费者空间、坏品消费可积有界、偏好弱拓扑连续等条件下，测度生产经济存在均衡。
-- **Supplementary Theorem 3**：把正排放上限加入测度配额经济，给出配额均衡存在性。
+- **Theorem 1**: equilibrium exists in a finite weighted production economy under convex preferences, feasibility/survival, and production-set conditions.
+- **Theorem 2**: equilibrium exists in a measure production economy under conditions including a Polish consumer space, integrably bounded consumption of bads, and weak-topology continuity of preferences.
+- **Supplementary Theorem 3**: adds a positive emission bound to a measure quota economy and establishes quota-equilibrium existence.
 
-论文的证明路线是：有限加权定理 -> 超有限提升 -> transfer principle -> Loeb 经济均衡 -> 在更强连续性下压回原测度经济。
+The proof route is: finite weighted theorem -> hyperfinite lifting -> transfer principle -> equilibrium in the Loeb economy -> projection back to the original measure economy under stronger continuity.
 
-### 5.5 本项目能做和不能宣称的事情
+### 5.5 What This Project Can Do and Claim
 
-Python 可以实现有限加权经济，并把一组权重 `lambda_i` 解释为原子概率质量。增加有限代理人数量可以研究数值稳定性、经验分布和近似行为。
+Python can implement a finite weighted economy and interpret weights `lambda_i` as atomic probability masses. Increasing the finite number of agents can be used to study numerical stability, empirical distributions, and approximation behavior.
 
-但是：
+However:
 
-- 有限离散化不是 Loeb 测度构造；
-- 多个有限样本上的稳定结果不是测度经济存在性证明；
-- 数值收敛图不是一致可积性、弱紧性或可测选择证明；
-- 本项目第一阶段不实现超实数、hyperfinite 对象或 transfer principle。
+- finite discretization is not a Loeb-measure construction;
+- stability across several finite samples is not an existence proof for a measure economy;
+- numerical convergence plots do not prove uniform integrability, weak compactness, or measurable selection;
+- the first stage of this project does not implement hyperreal numbers, hyperfinite objects, or the transfer principle.
 
-## 6. 你的证明基础与项目的连接
+## 6. Connection Between the User's Proof Background and the Project
 
 ### 6.1 `Three proofs.pdf`
 
-- **Slutsky 矩阵**：已形成从支出函数、Shephard 引理到对称性和半负定性的链条。它适合支撑个体需求模块的解析 benchmark、比较静态与导数检查。进入正式理论文档前，还要把可微性、内部解、唯一性和局部/全局最优条件写齐。
-- **Kakutani-Nash**：最佳反应对应的非空、凸值、闭图/上半连续与紧凸定义域构成完整骨架。这与一般均衡存在性的对应方法直接相关，但代码只能验证某个有限实例的残差，不能“计算出 Kakutani 定理”。
-- **第二福利定理**：凸分离、支撑价格和财富转移的主线正确，是理解配额产权、政府返还与支持价格的最佳入口。需要特别保留 LNS、凸性、可行集几何、价格非零及准均衡到均衡的条件。
+- **Slutsky matrix**: the notes form a chain from the expenditure function and Shephard's lemma to symmetry and negative semidefiniteness. This can support analytical benchmarks, comparative statics, and derivative checks in the individual-demand module. Before entering formal theoretical documentation, differentiability, interiority, uniqueness, and local/global optimality conditions must be made explicit.
+- **Kakutani-Nash**: nonempty and convex-valued best-response correspondences, closed graph/upper hemicontinuity, and a compact convex domain form the correct skeleton. This directly relates to correspondence-based existence arguments in general equilibrium, but code can only validate residuals in a finite instance; it cannot "compute Kakutani's theorem."
+- **Second Welfare Theorem**: the central line through convex separation, supporting prices, and wealth transfers is correct and is the best entry point for understanding quota ownership, government rebates, and supporting prices. Local nonsatiation, convexity, feasible-set geometry, nonzero prices, and conditions that strengthen quasi-equilibrium to equilibrium must remain explicit.
 
 ### 6.2 `Proof of Microeconomics.pdf`
 
-这份笔记已经覆盖本项目所需的理论工具链：支撑/分离、最大值定理、固定点、Walras 均衡存在与福利定理。当前主要问题不是“证明数量少”，而是一些证明把定理假设、对应的连续性概念和边界情形压缩得太快。
+These notes already cover the theoretical toolkit required by the project: support/separation, maximum theorems, fixed points, Walrasian-equilibrium existence, and welfare theorems. The main issue is not too few proofs, but that some proofs compress theorem assumptions, continuity notions for correspondences, and boundary cases too aggressively.
 
-建议以后把每个证明改成五栏式研究笔记：
+Future versions should rewrite each proof as a five-part research note:
 
-1. 精确定理陈述；
-2. 假设清单及每条假设的使用位置；
-3. 证明主引理；
-4. 容易失效的边界或反例；
-5. 对计算模型的含义。
+1. precise theorem statement;
+2. assumption inventory and where each assumption is used;
+3. principal lemmas in the proof;
+4. vulnerable boundaries or counterexamples;
+5. implications for the computational model.
 
 ## 7. Mathematical Object -> Code Object Map
 
-| 数学对象 | 计划中的代码对象 | 首轮语义约束 |
+| Mathematical object | Planned code object | First-round semantic constraint |
 |---|---|---|
-| 消费者/代理人 | `Consumer` | id、人口权重、禀赋、持股、配额产权/政府返还、偏好、外部性暴露 |
-| 企业 | `Firm` | 生产技术、持股、投入/产出、坏品副产品、政策会计 |
-| 商品 | `Commodity` | 名称、索引、语义 kind、是否监管、出清制度；kind 不自动决定符号或处置 |
-| 禀赋向量 | `EndowmentVector` 或数组字段 | 维数与商品顺序强校验 |
-| 偏好 | `PreferenceModel` / `UtilityModel` | 论文允许不完备偏好；可计算 MVP 需明确选择可数值优化的表示 |
-| 生产集合 | `ProductionTechnology` | 用约束/可行集表示，不把排放副产品从会计中删除 |
-| 外部性 | `ExternalityModel` | 独立于效用形式；由 `(x,y,p)` 计算状态或偏好参数 |
-| 经济 | `Economy` | 聚合消费者、企业、商品、权重、产权与出清规则 |
-| 政策 | `PolicyBase` | 统一生成预算调整、企业收入、政策约束与会计诊断 |
-| 无监管 | `NoRegulation` | 不暗含所有商品自由处置 |
-| 配额 | `QuotaPolicy` | 总配额、企业配额、政府配额、合规区域、配额价格 |
-| 排放税 | `EmissionTaxPolicy` | 税率向量、返还向量、税收与受监管价格限制 |
-| 均衡方程 | `EquilibriumSystem` | 变量编码、约束、残差；与求解器解耦 |
-| 候选解 | `EquilibriumCandidate` | 原始变量、状态、来源起点、求解状态、残差 |
-| 验证器 | `EquilibriumDiagnostics` | 独立重算最优性、出清、预算、政策会计、归一化与互补条件 |
+| Consumer/agent | `Consumer` | ID, population weight, endowment, ownership, quota rights/government rebates, preferences, and externality exposure |
+| Firm | `Firm` | Technology, ownership, inputs/outputs, bad byproducts, and policy accounting |
+| Commodity | `Commodity` | Name, index, semantic kind, regulation status, and clearing regime; kind does not determine signs or disposal |
+| Endowment vector | `EndowmentVector` or array field | Strict validation of dimension and commodity order |
+| Preferences | `PreferenceModel` / `UtilityModel` | The paper permits incomplete preferences; a computational MVP must explicitly choose a numerically optimizable representation |
+| Production set | `ProductionTechnology` | Represented by constraints/feasible sets, without deleting emission byproducts from accounting |
+| Externality | `ExternalityModel` | Independent of utility form; computes a state or preference parameter from `(x,y,p)` |
+| Economy | `Economy` | Aggregates consumers, firms, commodities, weights, property rights, and clearing rules |
+| Policy | `PolicyBase` | Generates budget adjustments, firm income, policy constraints, and accounting diagnostics in one place |
+| No regulation | `NoRegulation` | Does not imply free disposal for every commodity |
+| Quota | `QuotaPolicy` | Aggregate quota, firm quotas, government quota, compliance region, and quota price |
+| Emission tax | `EmissionTaxPolicy` | Tax-rate vector, rebate vector, tax revenue, and regulated-price restrictions |
+| Equilibrium equations | `EquilibriumSystem` | Variable encoding, constraints, and residuals, decoupled from the solver |
+| Candidate solution | `EquilibriumCandidate` | Raw variables, state, originating start, solver status, and residuals |
+| Validator | `EquilibriumDiagnostics` | Independently recomputes optimality, clearing, budgets, policy accounting, normalization, and complementarity conditions |
 
-## 8. 必须冻结的设计不变量
+## 8. Design Invariants That Must Be Frozen
 
-1. 论文定义、计算选择和数值近似必须在文档、配置和输出中分别标注。
-2. 价格归一化与价格符号限制是两个独立模块。
-3. 不默认自由处置；每种商品的出清条件显式配置。
-4. 政策收入只在一个政策会计层计算，消费者预算和诊断共享同一数学来源。
-5. 求解器返回 success 不是均衡；均衡候选必须通过独立诊断。
-6. 求解失败不是不存在证明；“无均衡”只能引用论文定理/例子，或写成“在给定搜索协议下未发现候选”。
-7. 多重均衡研究保留所有通过聚类去重后的候选、失败起点和分支信息。
-8. 有限人口实验只称为有限加权计算或有限近似，不声称实现了测度经济和非标准分析证明。
+1. Paper definitions, computational choices, and numerical approximations must be labeled separately in documentation, configuration, and output.
+2. Price normalization and price-sign restrictions are separate modules.
+3. Free disposal is not the default; each commodity's clearing condition is configured explicitly.
+4. Policy income is computed in one policy-accounting layer, which serves as the common mathematical source for consumer budgets and diagnostics.
+5. A solver's success return is not an equilibrium; every equilibrium candidate must pass independent diagnostics.
+6. Solver failure is not a nonexistence proof. "No equilibrium" may cite only a paper theorem/example; otherwise report "no candidate discovered under the specified search protocol."
+7. Multiple-equilibrium research retains all candidates after clustering/deduplication, failed starting points, and branch information.
+8. Finite-population experiments are described only as finite weighted computations or finite approximations, without claims to implement measure-economy or nonstandard-analysis proofs.
 
-## 9. 第一轮结论
+## 9. First-Round Conclusion
 
-最稳妥的主线不是直接编写一个“大而全”的碳税模拟器，而是先建立一个允许有符号价格、生产、外部性和逐商品出清规则的有限 GE 核心；在其上分别实现论文的 `QuotaPolicy` 与 `EmissionTaxPolicy`，并以正文 Examples 1-2 的解析结果和 Examples 3-6 的多重均衡现象作为复现目标。
+The most reliable direction was to build a finite GE core supporting signed prices, production, externalities, and commodity-level clearing rules before attempting a comprehensive carbon-tax simulator. The paper's `QuotaPolicy` and `EmissionTaxPolicy` would then be implemented separately, targeting the analytical results of Examples 1-2 and the multiple-equilibrium phenomena of Examples 3-6.
 
-后续核心代码必须继续遵守 `OPEN_QUESTIONS.md` 中各模块的 `BLOCKING` 门禁。Supplement 缺失问题已解决；当前重点转为生产会计、逐例参数 ledger、配额/税率归一化和独立最优性诊断。
+Subsequent core code had to continue respecting the module-level `BLOCKING` gates in `OPEN_QUESTIONS.md`. The missing-Supplement issue was resolved; attention shifted to production accounting, example-specific parameter ledgers, quota/tax-rate normalization, and independent optimality diagnostics.
 
-## 10. Milestone 5 配额复现结论
+## 10. Milestone 5 Quota-Replication Conclusions
 
-Definitions 3.2-3.5 的有限配额会计已经实现并通过 Examples 1-2：
+The finite quota accounting in Definitions 3.2-3.5 has been implemented and validated against Examples 1-2:
 
-- emissions 保持为原商品坐标，没有增加 permit commodity；
-- `m^(j)<=0` 是企业排放产权的带符号表示，`m=sum_j m^(j)`；
-- 企业总利润为 `p dot y_j + proj_k(p) dot m^(j)`；
-- 政府企业 `Y_0={0}`，收入通过政府企业持股分配；
-- 消费者预算与 diagnostics 共用 `QuotaEconomy.income_breakdowns`；
-- 正式政策 Walras 检查为 `p dot r - proj_k(p) dot m=0`；
-- Example 2 在总配额、价格、技术和聚合消费不变时，仅改变产权就改变个体收入与消费分布。
+- emissions remain coordinates of the original commodity space; no permit commodity is added;
+- `m^(j)<=0` is the signed representation of firm emission rights, with `m=sum_j m^(j)`;
+- firm total profit is `p dot y_j + proj_k(p) dot m^(j)`;
+- the government firm has `Y_0={0}`, and its income is distributed through government-firm ownership;
+- consumer budgets and diagnostics share `QuotaEconomy.income_breakdowns`;
+- the formal policy Walras check is `p dot r - proj_k(p) dot m=0`;
+- in Example 2, changing only property rights changes individual incomes and consumption distributions while aggregate quota, prices, technology, and aggregate consumption remain fixed.
 
-Example 2 原文没有给出基数效用函数，因此项目只复现逐代理人电力消费和同一排放水平下的福利序，不生成虚构的“论文效用值”。完整证据见 `MILESTONE_5_QUOTA_REPORT.md`。
+The original text of Example 2 provides no cardinal utility functions. The project therefore reproduces agent-level electricity consumption and welfare ordering at the same emission level without fabricating "paper utility values." See `MILESTONE_5_QUOTA_REPORT.md` for complete evidence.
 
-## 11. Milestone 6 税收会计与映射结论
+## 11. Milestone 6 Tax Accounting and Mapping Conclusions
 
-排放税中的 `t` 与 signed-L1 价格共享尺度，必须满足 `proj_k(p)=-t`。因此 numeraire 转换必须同时缩放 `p` 与 `t`；只转换其中一个会改变经济问题。
+The emission tax `t` shares a scale with signed-L1 prices and must satisfy `proj_k(p)=-t`. A numeraire conversion must therefore rescale `p` and `t` together; converting only one changes the economic problem.
 
-税收预算使用候选配置产生的 `C(x,y)` 与 `t dot C(x,y)`。Example 1 的全球配额候选通过 Theorem 3 公式映射为税收候选，再按 Theorem 4 映回全球配额候选，两端均通过独立诊断。这个结果是理论映射的数值核对，不替代论文证明。
+Tax budgets use `C(x,y)` and `t dot C(x,y)` generated by the candidate allocation. The global-quota candidate in Example 1 is mapped to a tax candidate using the Theorem 3 formula and then mapped back to a global-quota candidate under Theorem 4. Both endpoints pass independent diagnostics. This is a numerical check of the theoretical mappings and does not replace the paper's proofs.
 
-## 12. Examples 3-6 的多重均衡证据
+## 12. Multiple-Equilibrium Evidence from Examples 3-6
 
-Example 3 说明同一税率对应多组价格比和排放；Example 5 进一步表明，为某一分支选择能达到 30% 减排的税率，另外两条分支仍会产生不同减排。Example 4/6 的线性技术则在 `t=1/4` 产生排放连续体。相反，配额把受监管资源差直接固定为 `m`，但 Example 5 的同一配额出现三个不同配额价格。
+Example 3 shows that one tax rate can correspond to several price ratios and emission levels. Example 5 further shows that when a tax rate is chosen to deliver 30% abatement on one branch, the other two branches still produce different abatement levels. The linear technology in Examples 4/6 produces a continuum of emissions at `t=1/4`. By contrast, a quota fixes the regulated resource difference directly at `m`, while Example 5 gives three different quota prices for the same quota.
 
-这些结果支持后续把 correspondence 而不是单值函数作为图和数据结构。数值程序保留每个验证分支，不取平均，也不只保留第一个根。
+These results support representing a correspondence, rather than a single-valued function, in figures and data structures. Numerical programs retain every verified branch, neither averaging branches nor keeping only the first root.

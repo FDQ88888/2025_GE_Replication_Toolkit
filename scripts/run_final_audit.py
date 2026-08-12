@@ -55,9 +55,9 @@ REQUIRED_DOCUMENTS = (
 
 PERSONAL_PATH_PATTERNS = (
     re.compile(r"[A-Za-z]:\\Users\\", re.IGNORECASE),
-    re.compile("费" + "代强"),
+    re.compile("\u8d39\u4ee3\u5f3a"),
     re.compile("One" + "Drive", re.IGNORECASE),
-    re.compile("桌" + "面"),
+    re.compile("\u684c\u9762"),
 )
 
 
